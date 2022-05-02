@@ -1,0 +1,21 @@
+{
+  "name": "@zesty-io/material",
+  "version": "1.0.0",
+  "description": "Contains custom components which are in addition to the @mui design-system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "npm publish",
+    "release:alpha": "npm publish --tag alpha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zesty-io/material.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zesty-io/material/issues"
+  },
+  "homepage": "https://github.com/zesty-io/material#readme"
+}
