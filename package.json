@@ -2,20 +2,31 @@
   "name": "@zesty-io/material",
   "version": "0.0.0",
   "description": "Contains custom components which are in addition to the @mui design-system",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "npm publish --access public",
-    "release:alpha": "npm publish --access public --tag alpha"
-  },
+  "author": "Zesty.io",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zesty-io/material.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/zesty-io/material/issues"
   },
-  "homepage": "https://github.com/zesty-io/material#readme"
+  "homepage": "https://github.com/zesty-io/material#readme",
+  "main": "es/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "release": "npm publish --access public",
+    "release:alpha": "npm publish --access public --tag alpha"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/material": "^5.6.4"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
 }
