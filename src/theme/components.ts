@@ -16,9 +16,7 @@ const components: Components = {
 
                padding: "15px, 23px",
                lineHeight: "20px",
-               bottom: "26px",
                borderRadius: "4px",
-               left: "-7px",
             },
             arrow: {
                color: (palette?.primary as SimplePaletteColorOptions)?.main,
