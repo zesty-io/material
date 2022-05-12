@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/zesty-io/material/issues"
   },
-  "homepage": "https://github.com/zesty-io/material#readme",
+  "homepage": "https://zesty-io.github.io/material",
   "main": "es/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
@@ -21,7 +21,10 @@
     "release": "npm run build && npm publish --access public",
     "release:alpha": "npm run build && npm publish --access public --tag alpha",
     "postrelease": "rm -rf /es",
-    "test": "echo 'add tests'"
+    "deploy": "npm run build-storybook && gh-pages -d storybook-static",
+    "test": "echo 'add tests'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -30,6 +33,18 @@
     "@mui/material": "^5.6.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/react": "^6.4.22",
+    "@storybook/testing-library": "0.0.11",
+    "babel-loader": "^8.2.5",
+    "gh-pages": "^3.2.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-json-view": "^1.21.3",
     "typescript": "^4.6.3"
   }
 }
