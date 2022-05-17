@@ -10,18 +10,26 @@ let theme: Theme = createTheme({
 theme = createTheme(theme, {
   components: {
     MuiTooltip: {
-        styleOverrides: {
-            tooltip: {
-                color: theme.palette.primary.contrastText,
-                backgroundColor: theme.palette.primary.main,
-                fontSize: "14px",
-                lineHeight: "20px",
-            },
-            arrow: {
-                color: theme.palette.primary.main,
-            }
+      styleOverrides: {
+        tooltip: {
+          color: theme.palette.primary.contrastText,
+          backgroundColor: theme.palette.primary.main,
+          fontSize: "14px",
+          lineHeight: "20px",
+        },
+        arrow: {
+          color: theme.palette.primary.main,
         }
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          backgroundColor: theme.palette.primary.contrastText
+        },
+      }
     }
   }
 })
+
 export default theme;
