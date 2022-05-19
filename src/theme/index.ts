@@ -1,7 +1,6 @@
 import palette from './palette';
 import typography from './typography';
 import { createTheme, Theme } from '@mui/material/styles';
-import { ToggleButtonProps } from '@mui/material';
 
 let theme: Theme = createTheme({
   palette,
