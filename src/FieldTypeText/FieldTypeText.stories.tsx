@@ -1,7 +1,6 @@
-import React, { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { InputAdornment, TextFieldProps } from '@mui/material';
-import FieldTypeText from './';
+import FieldTypeText, { FieldTypeTextProps } from './';
 
 export default {
   title: 'FieldTypeText',
@@ -9,7 +8,7 @@ export default {
   argType: {},
 } as Meta;
 
-const Template: Story<TextFieldProps> = (args) => {
+const Template: Story<FieldTypeTextProps> = (args) => {
   const [value, setValue] = useState('');
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
