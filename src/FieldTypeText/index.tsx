@@ -15,6 +15,7 @@ const FieldTypeText = ({maxLength = 150, value, helperText, InputProps, InputLab
 
   return (
       <MuiTextField
+        size="small"
         variant='outlined'
         value={value}
         InputProps={{

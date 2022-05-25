@@ -9,6 +9,13 @@ let theme: Theme = createTheme({
 
 theme = createTheme(theme, {
   components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          minWidth: 'auto',
+        }
+      }
+    },
     MuiTooltip: {
       styleOverrides: {
         tooltip: {
