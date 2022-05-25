@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactJson from 'react-json-view'
 import { Story, Meta } from '@storybook/react/types-6-0';
-import theme from '../theme';
+import theme from '.';
 
 export default {
   title: 'Theme',
