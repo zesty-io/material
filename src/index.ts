@@ -5,5 +5,6 @@ export { default as FieldTypeUrl } from './FieldTypeUrl';
 export { default as FieldTypeDate } from './FieldTypeDate';
 export { default as FieldTypeDateTime } from './FieldTypeDateTime';
 export { default as FieldTypeColor } from './FieldTypeColor';
+export { default as FieldTypeNumber } from './FieldTypeNumber';
 export { default as CopyButton } from './CopyButton';
 export { default as ConfirmModal } from './ConfirmModal';
