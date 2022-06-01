@@ -19,12 +19,15 @@ const FieldTypeDate = ({textFieldProps, ...props}: FieldTypeDateProps) => {
           <TextField
             InputLabelProps={{
               shrink: true,
+               // Spread props at the end to allow InputLabelProps overrides
               ...textFieldProps?.InputLabelProps,
             }}
             {...params}
+             // Spread props at the end to allow textFieldProps overrides
             {...textFieldProps}
           />
         }
+         // Spread props at the end to allow prop overrides
         {...props}
       />
     </LocalizationProvider>
