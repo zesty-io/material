@@ -13,8 +13,8 @@ theme = createTheme(theme, {
       styleOverrides: {
         root: {
           minWidth: 'auto',
-        }
-      }
+        },
+      },
     },
     MuiTooltip: {
       styleOverrides: {
@@ -36,9 +36,19 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          color: theme.palette.primary.dark,
+        },
+      },
+    },
     MuiToggleButton: {
       styleOverrides: {
         root: ({ ownerState, theme }: any) => ({
+          backgroundColor: `${
+            theme.palette[ownerState.color].contrastText
+          } !important`,
           ...(ownerState.selected && {
             color: `${theme.palette[ownerState.color].contrastText} !important`,
             backgroundColor: `${
