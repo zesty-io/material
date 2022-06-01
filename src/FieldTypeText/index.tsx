@@ -1,6 +1,5 @@
-import React, { ChangeEvent, ReactNode, useEffect, useRef, useState } from 'react';
 import MuiTextField, { OutlinedTextFieldProps } from '@mui/material/TextField';
-import { Box, InputAdornment } from '@mui/material';
+import { InputAdornment } from '@mui/material';
 
 export interface FieldTypeTextProps extends Omit<OutlinedTextFieldProps, 'variant'> {
    /**

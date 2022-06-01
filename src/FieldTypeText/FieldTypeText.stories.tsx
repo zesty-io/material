@@ -27,8 +27,7 @@ const Template: Story<FieldTypeTextProps> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder Text...',
-  label: 'Some label',
-  fullWidth: true,
+  label: 'Text label',
 };
 
 export const TextArea = Template.bind({});
@@ -36,8 +35,7 @@ TextArea.args = {
   multiline: true,
   rows: 4,
   placeholder: 'Placeholder Text...',
-  label: 'Some Label',
-  fullWidth: true,
+  label: 'Text Label',
 };
 
 

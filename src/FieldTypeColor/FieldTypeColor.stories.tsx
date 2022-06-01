@@ -1,22 +1,22 @@
 import { ChangeEvent, useState } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import FieldTypeSort, { FieldTypeSortProps } from './';
+import FieldTypeColor, { FieldTypeColorProps } from './';
 
 export default {
-  title: 'FieldTypeSort',
-  component: FieldTypeSort,
+  title: 'FieldTypeColor',
+  component: FieldTypeColor,
   argType: {},
 } as Meta;
 
-const Template: Story<FieldTypeSortProps> = (args) => {
-  const [value, setValue] = useState('3');
+const Template: Story<FieldTypeColorProps> = (args) => {
+  const [value, setValue] = useState('');
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   }
 
   return (
-    <FieldTypeSort
+    <FieldTypeColor
       {...args}
       value={value}
       onChange={handleOnChange}
@@ -27,8 +27,8 @@ const Template: Story<FieldTypeSortProps> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder Text...',
-  label: 'Sort label',
-  helperText: 'Sort helper text',
+  label: 'Color label',
+  helperText: 'Color helper text',
 };
 
 

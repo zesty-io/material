@@ -1,4 +1,3 @@
-import React, { ChangeEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import MuiTextField, { OutlinedTextFieldProps } from '@mui/material/TextField';
 import { Button, InputAdornment } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
@@ -8,9 +7,7 @@ export interface FieldTypeSortProps extends Omit<OutlinedTextFieldProps, 'varian
   value: string;
 }
 
-const FieldTypeSort = ({value, InputProps, InputLabelProps, inputProps, sx, ...props }: FieldTypeSortProps) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-
+const FieldTypeSort = ({value, InputProps, InputLabelProps, sx, ...props }: FieldTypeSortProps) => {
   return (
       <MuiTextField
         size="small"
@@ -28,8 +25,11 @@ const FieldTypeSort = ({value, InputProps, InputLabelProps, inputProps, sx, ...p
               <Button
                 size="small"
                 variant="contained"
-                onClick={() => {
-                  if(inputRef.current) inputRef.current.value = String(+inputRef.current.value + 1)
+                onClick={(e) => {
+                  // References input via event in order to modify its value
+                  const input = e.currentTarget?.parentElement?.parentElement?.childNodes?.[1] as HTMLInputElement;
+                  console.log('testing input', input)
+                  input.value = String(+input.value + 1)
                 }}><AddIcon fontSize='small' />
               </Button>
             </InputAdornment>
@@ -39,8 +39,11 @@ const FieldTypeSort = ({value, InputProps, InputLabelProps, inputProps, sx, ...p
               <Button
                 size="small"
                 variant="contained"
-                onClick={() => {
-                  if(inputRef.current) inputRef.current.value = String(+inputRef.current.value - 1)
+                onClick={(e) => {
+                  // References input via event in order to modify its value
+                  const input = e.currentTarget?.parentElement?.parentElement?.childNodes?.[1] as HTMLInputElement;
+                  console.log('testing input', input)
+                  input.value = String(+input.value - 1)
                 }}><RemoveIcon fontSize='small' />
               </Button>
             </InputAdornment>
@@ -53,11 +56,6 @@ const FieldTypeSort = ({value, InputProps, InputLabelProps, inputProps, sx, ...p
           // Spread props at the end to allow InputLabel prop overrides
           ...InputLabelProps,
         }}
-        inputProps={{
-          ref: inputRef,
-          // Spread props at the end to allow inputProps prop overrides
-          ...inputProps,
-        }}
         // Spread props at the end to allow prop overrides
         {...props}
       />
@@ -65,45 +63,3 @@ const FieldTypeSort = ({value, InputProps, InputLabelProps, inputProps, sx, ...p
 };
 
 export default FieldTypeSort;
-
-
-// const FieldTypeSort = ({InputProps, InputLabelProps, ...props }: FieldTypeSortProps) => {
-
-//   return (
-//       <MuiTextField
-//         variant='outlined'
-//         type='number'
-//         InputProps={{
-//           startAdornment: (
-//             <InputAdornment position="start">
-//               <Button
-//                 variant="contained"
-//                 onClick={() => {
-//                   callback(props.value + 1)
-//                 }}>+</Button>
-//             </InputAdornment>
-//           ),
-//           endAdornment: (
-//             <InputAdornment position="end">
-//               <Button
-//                 variant="contained"
-//                 onClick={() => {
-//                   callback(props.value - 1)
-//                 }}>-</Button>
-//             </InputAdornment>
-//           ),
-//           // Spread props at the end to allow Input prop overrides
-//           ...InputProps,
-//         }}
-//         InputLabelProps={{
-//           shrink: true,
-//           // Spread props at the end to allow InputLabel prop overrides
-//           ...InputLabelProps,
-//         }}
-//         // Spread props at the end to allow prop overrides
-//         {...props}
-//       />
-//   );
-// };
-
-// export default FieldTypeSort;
