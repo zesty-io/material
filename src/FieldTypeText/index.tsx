@@ -12,6 +12,8 @@ export interface FieldTypeTextProps extends Omit<OutlinedTextFieldProps, 'varian
 
 const FieldTypeText = ({maxLength = 150, value, helperText, InputProps, InputLabelProps, ...props }: FieldTypeTextProps) => {
 
+  const len = value ? value.length : 0
+
   return (
       <MuiTextField
         size="small"
@@ -20,7 +22,7 @@ const FieldTypeText = ({maxLength = 150, value, helperText, InputProps, InputLab
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <>{value.length}/{maxLength}</>
+              <>{len}/{maxLength}</>
             </InputAdornment>
           ),
           // Spread props at the end to allow Input prop overrides
@@ -31,8 +33,8 @@ const FieldTypeText = ({maxLength = 150, value, helperText, InputProps, InputLab
           // Spread props at the end to allow InputLabel prop overrides
           ...InputLabelProps,
         }}
-        error={value.length > maxLength}
-        helperText={value.length > maxLength ? 'Your input is over the specified limit' : helperText}
+        error={len > maxLength}
+        helperText={len > maxLength ? 'Your input is over the specified limit' : helperText}
         // Spread props at the end to allow prop overrides
         {...props}
       />
