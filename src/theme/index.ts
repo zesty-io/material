@@ -41,6 +41,9 @@ theme = createTheme(theme, {
         root: {
           color: theme.palette.primary.dark,
         },
+        asterisk: {
+          color: theme.palette.error.main,
+        }
       },
     },
     MuiToggleButton: {
