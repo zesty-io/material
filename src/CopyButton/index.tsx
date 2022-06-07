@@ -39,15 +39,15 @@ const CopyButton = ({value, sx, ...props }: CopyButtonProps) => {
           // Spread sx prop at the end to allow sx prop overrides
           ...sx,
         }}
+        startIcon={copied ? (
+          <CheckIcon color='success' fontSize='small' />
+        ) : (
+          <ContentCopyIcon fontSize='small' />
+        )}
         // Spread props at the end to allow prop overrides
         {...props}
       >
-        {copied ? (
-        <CheckIcon color='success' fontSize='small' />
-      ) : (
-        <ContentCopyIcon fontSize='small' />
-      )}
-      {props.children ? props.children : value}
+        {props.children ? props.children : value}
       </Button>
   );
 };
