@@ -31,8 +31,8 @@ const FieldTypeUrl = ({label, maxLength = 2000, value, helperText, required, inp
           // Spread props at the end to allow inputProps prop overrides
           ...inputProps,
         }}
-        error={(value && !inputRef.current?.validity.valid) || value.length > maxLength}
-        helperText={value.length > maxLength ? 'Your input is over the specified limit' : (value && !inputRef.current?.validity.valid) ? 'Your input is not a valid url' : helperText}
+        error={(value && !inputRef.current?.validity.valid) || value?.length > maxLength}
+        helperText={value?.length > maxLength ? 'Your input is over the specified limit' : (value && !inputRef.current?.validity.valid) ? 'Your input is not a valid url' : helperText}
         // Spread props at the end to allow prop overrides
         {...props}
       />

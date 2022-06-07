@@ -23,8 +23,8 @@ const FieldTypeText = ({label, maxLength = 150, value, helperText, required, ...
         size="small"
         variant='outlined'
         value={value}
-        error={value.length > maxLength}
-        helperText={value.length > maxLength ? 'Your input is over the specified limit' : helperText}
+        error={value?.length > maxLength}
+        helperText={value?.length > maxLength ? 'Your input is over the specified limit' : helperText}
         // Spread props at the end to allow prop overrides
         {...props}
       />
