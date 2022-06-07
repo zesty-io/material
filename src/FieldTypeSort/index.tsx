@@ -25,7 +25,6 @@ const FieldTypeSort = ({label, value, InputProps, ...props }: FieldTypeSortProps
                 onClick={(e) => {
                   // References input via event in order to modify its value
                   const input = e.currentTarget?.parentElement?.parentElement?.childNodes?.[1] as HTMLInputElement;
-                  console.log('testing input', input)
                   input.value = String(+input.value - 1)
                 }}><RemoveIcon fontSize='small' />
               </Button>
@@ -39,7 +38,6 @@ const FieldTypeSort = ({label, value, InputProps, ...props }: FieldTypeSortProps
                 onClick={(e) => {
                   // References input via event in order to modify its value
                   const input = e.currentTarget?.parentElement?.parentElement?.childNodes?.[1] as HTMLInputElement;
-                  console.log('testing input', input)
                   input.value = String(+input.value + 1)
                 }}><AddIcon fontSize='small' />
               </Button>
