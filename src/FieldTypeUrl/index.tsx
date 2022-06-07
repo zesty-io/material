@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import MuiTextField, { OutlinedTextFieldProps } from '@mui/material/TextField';
-import { InputAdornment } from '@mui/material';
+import { FormControl, FormLabel, InputAdornment } from '@mui/material';
 
 export interface FieldTypeUrlProps extends Omit<OutlinedTextFieldProps, 'variant'> {
    /**
@@ -11,29 +11,20 @@ export interface FieldTypeUrlProps extends Omit<OutlinedTextFieldProps, 'variant
   value: string;
 }
 
-const FieldTypeUrl = ({maxLength = 2000, value, helperText, InputProps, InputLabelProps, inputProps, ...props }: FieldTypeUrlProps) => {
+const FieldTypeUrl = ({label, maxLength = 2000, value, helperText, inputProps, ...props }: FieldTypeUrlProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
+    <FormControl fullWidth>
+      <FormLabel sx={{display: 'flex', justifyContent: 'space-between'}}>
+        <div>{label}</div> 
+        <div>{value.length}/{maxLength}</div>
+      </FormLabel>
       <MuiTextField
         size="small"
         type='url'
         variant='outlined'
         value={value}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <>{value.length}/{maxLength}</>
-            </InputAdornment>
-          ),
-          // Spread props at the end to allow Input prop overrides
-          ...InputProps,
-        }}
-        InputLabelProps={{
-          shrink: true,
-          // Spread props at the end to allow InputLabel prop overrides
-          ...InputLabelProps,
-        }}
         inputProps={{
           ref: inputRef,
           // Spread props at the end to allow inputProps prop overrides
@@ -44,6 +35,7 @@ const FieldTypeUrl = ({maxLength = 2000, value, helperText, InputProps, InputLab
         // Spread props at the end to allow prop overrides
         {...props}
       />
+    </FormControl>
   );
 };
 

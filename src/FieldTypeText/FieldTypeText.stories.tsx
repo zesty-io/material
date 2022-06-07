@@ -28,6 +28,7 @@ export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder Text...',
   label: 'Text label',
+  helperText: 'Text helper text',
 };
 
 export const TextArea = Template.bind({});
@@ -36,6 +37,7 @@ TextArea.args = {
   rows: 4,
   placeholder: 'Placeholder Text...',
   label: 'Text Label',
+  helperText: 'Text helper text',
 };
 
 

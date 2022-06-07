@@ -1,5 +1,5 @@
 import MuiTextField, { OutlinedTextFieldProps } from '@mui/material/TextField';
-import { InputAdornment } from '@mui/material';
+import { FormControl, FormLabel, InputAdornment } from '@mui/material';
 
 export interface FieldTypeTextProps extends Omit<OutlinedTextFieldProps, 'variant'> {
    /**
@@ -10,32 +10,24 @@ export interface FieldTypeTextProps extends Omit<OutlinedTextFieldProps, 'varian
   value: string;
 }
 
-const FieldTypeText = ({maxLength = 150, value, helperText, InputProps, InputLabelProps, ...props }: FieldTypeTextProps) => {
+const FieldTypeText = ({label, maxLength = 150, value, helperText, ...props }: FieldTypeTextProps) => {
 
   return (
+    <FormControl fullWidth>
+      <FormLabel sx={{display: 'flex', justifyContent: 'space-between'}}>
+        <div>{label}</div> 
+        <div>{value.length}/{maxLength}</div>
+      </FormLabel>
       <MuiTextField
         size="small"
         variant='outlined'
         value={value}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <>{value.length}/{maxLength}</>
-            </InputAdornment>
-          ),
-          // Spread props at the end to allow Input prop overrides
-          ...InputProps,
-        }}
-        InputLabelProps={{
-          shrink: true,
-          // Spread props at the end to allow InputLabel prop overrides
-          ...InputLabelProps,
-        }}
         error={value.length > maxLength}
         helperText={value.length > maxLength ? 'Your input is over the specified limit' : helperText}
         // Spread props at the end to allow prop overrides
         {...props}
       />
+    </FormControl>
   );
 };
 

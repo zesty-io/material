@@ -29,6 +29,7 @@ Default.args = {
   placeholder: 'Placeholder Text...',
   label: 'Sort label',
   helperText: 'Sort helper text',
+  error: false,
 };
 
 

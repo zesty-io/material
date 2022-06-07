@@ -1,13 +1,15 @@
 import { useRef } from 'react';
 import MuiTextField, { OutlinedTextFieldProps } from '@mui/material/TextField';
-import { Button, InputAdornment } from '@mui/material';
+import { Button, FormControl, FormHelperText, FormLabel, InputAdornment } from '@mui/material';
 import BrushIcon from '@mui/icons-material/Brush';
 
 export interface FieldTypeColorProps extends Omit<OutlinedTextFieldProps, 'variant'> {}
 
-const FieldTypeColor = ({InputProps, InputLabelProps, ...props }: FieldTypeColorProps) => {
+const FieldTypeColor = ({InputProps, label, ...props }: FieldTypeColorProps) => {
 
   return (
+    <FormControl fullWidth>
+      <FormLabel>{label}</FormLabel>
       <MuiTextField
         size="small"
         variant='outlined'
@@ -31,14 +33,10 @@ const FieldTypeColor = ({InputProps, InputLabelProps, ...props }: FieldTypeColor
           // Spread props at the end to allow Input prop overrides
           ...InputProps,
         }}
-        InputLabelProps={{
-          shrink: true,
-          // Spread props at the end to allow InputLabel prop overrides
-          ...InputLabelProps,
-        }}
         // Spread props at the end to allow prop overrides
         {...props}
       />
+    </FormControl>
   );
 };
 

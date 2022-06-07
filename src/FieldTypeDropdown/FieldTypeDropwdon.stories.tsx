@@ -44,7 +44,8 @@ const Template: Story<FieldTypeDropdownProps> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder Text...',
-  label: 'Number label',
+  label: 'Dropdown label',
+  helperText: 'Dropdown helper text',
 };
 
 

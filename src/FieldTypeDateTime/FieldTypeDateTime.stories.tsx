@@ -19,8 +19,5 @@ const Template: Story<FieldTypeDateTimeProps> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   label: 'Date label',
-  textFieldProps: {
-    helperText: 'Date helper text',
-    error: false,
-  }
+  helperText: 'Date helper text',
 };

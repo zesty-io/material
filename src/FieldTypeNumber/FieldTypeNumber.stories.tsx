@@ -28,6 +28,7 @@ export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder Text...',
   label: 'Number label',
+  helperText: 'Number helper text',
 };
 
 

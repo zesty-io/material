@@ -1,5 +1,6 @@
 import { MenuItem } from '@mui/material';
 import MuiTextField, { OutlinedTextFieldProps } from '@mui/material/TextField';
+import { FormControl, FormLabel } from '@mui/material';
 
 interface Option {
   label: string;
@@ -10,19 +11,15 @@ export interface FieldTypeDropdownProps extends Omit<OutlinedTextFieldProps, 'va
   options: Option[];
 }
 
-const FieldTypeDropdown = ({InputLabelProps, options, ...props }: FieldTypeDropdownProps) => {
+const FieldTypeDropdown = ({label, options, ...props }: FieldTypeDropdownProps) => {
 
   return (
+    <FormControl fullWidth>
+      <FormLabel>{label}</FormLabel>
       <MuiTextField
         size="small"
         variant='outlined'
         select
-        InputLabelProps={{
-          shrink: true,
-          // Spread props at the end to allow InputLabel prop overrides
-          ...InputLabelProps,
-        }}
-        // Spread props at the end to allow prop overrides
         SelectProps={{
           displayEmpty: true,
         }}
@@ -37,6 +34,7 @@ const FieldTypeDropdown = ({InputLabelProps, options, ...props }: FieldTypeDropd
           </MenuItem>
       ))}
       </MuiTextField>
+    </FormControl>
   );
 };
 
