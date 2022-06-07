@@ -16,7 +16,7 @@
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "npm ci && tsc",
     "prerelease": "npm test",
     "release": "npm run build && npm publish --access public",
     "release:alpha": "npm run build && npm publish --access public --tag alpha",
