@@ -7,5 +7,7 @@ export { default as FieldTypeDateTime } from './FieldTypeDateTime';
 export { default as FieldTypeColor } from './FieldTypeColor';
 export { default as FieldTypeNumber } from './FieldTypeNumber';
 export { default as FieldTypeDropdown } from './FieldTypeDropdown';
+export { default as FieldTypeOneToOne} from './FieldTypeOneToOne';
+export { default as FieldTypeOneToMany} from './FieldTypeOneToMany';
 export { default as CopyButton } from './CopyButton';
 export { default as ConfirmModal } from './ConfirmModal';
