@@ -10,4 +10,4 @@ export { default as FieldTypeDropdown } from './FieldTypeDropdown';
 export { default as FieldTypeOneToOne} from './FieldTypeOneToOne';
 export { default as FieldTypeOneToMany} from './FieldTypeOneToMany';
 export { default as CopyButton } from './CopyButton';
-export { default as ConfirmModal } from './ConfirmModal';
+export { default as ConfirmDialog } from './ConfirmDialog';
