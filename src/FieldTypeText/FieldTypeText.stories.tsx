@@ -16,11 +16,13 @@ const Template: Story<FieldTypeTextProps> = (args) => {
   }
 
   return (
-    <FieldTypeText
-      {...args}
-      value={value}
-      onChange={handleOnChange}
-    />
+    <>
+      <FieldTypeText
+        {...args}
+        value={value}
+        onChange={handleOnChange}
+      />
+    </>
   );
 };
 

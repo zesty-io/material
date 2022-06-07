@@ -3,10 +3,10 @@ import MuiTextField, { OutlinedTextFieldProps } from '@mui/material/TextField';
 
 export interface FieldTypeNumberProps extends Omit<OutlinedTextFieldProps, 'variant'> {}
 
-const FieldTypeText = ({label, ...props }: FieldTypeNumberProps) => {
+const FieldTypeText = ({label, required, ...props }: FieldTypeNumberProps) => {
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth required={required}>
       <FormLabel>{label}</FormLabel>
       <MuiTextField
         size="small"

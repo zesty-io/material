@@ -11,10 +11,10 @@ export interface FieldTypeDropdownProps extends Omit<OutlinedTextFieldProps, 'va
   options: Option[];
 }
 
-const FieldTypeDropdown = ({label, options, ...props }: FieldTypeDropdownProps) => {
+const FieldTypeDropdown = ({label, options, required, ...props }: FieldTypeDropdownProps) => {
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth required={required}>
       <FormLabel>{label}</FormLabel>
       <MuiTextField
         size="small"

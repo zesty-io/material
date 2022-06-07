@@ -7,9 +7,9 @@ export interface FieldTypeSortProps extends Omit<OutlinedTextFieldProps, 'varian
   value: string;
 }
 
-const FieldTypeSort = ({label, value, InputProps, ...props }: FieldTypeSortProps) => {
+const FieldTypeSort = ({label, value, InputProps, required, ...props }: FieldTypeSortProps) => {
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth required={required}>
       <FormLabel>{label}</FormLabel>
       <MuiTextField
         size="small"

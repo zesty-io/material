@@ -6,11 +6,12 @@ import { FormControl, FormLabel, TextField } from '@mui/material';
 export interface FieldTypeDateProps extends Omit<DatePickerProps<Date, Date>, 'renderInput'> {
   helperText?: string;
   error?: boolean;
+  required?: boolean;
 };
 
-const FieldTypeDate = ({label, helperText, error, ...props}: FieldTypeDateProps) => {
+const FieldTypeDate = ({label, helperText, error, required, ...props}: FieldTypeDateProps) => {
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth required={required}>
       <FormLabel>{label}</FormLabel>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker

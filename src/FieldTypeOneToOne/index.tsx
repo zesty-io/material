@@ -49,7 +49,7 @@ const FieldTypeOneToOne = ({label, helperText, placeholder, error, onOpen, optio
   };
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth required={required}>
       <FormLabel>{label}</FormLabel>
       <Autocomplete
         onOpen={handleOpen}
@@ -67,7 +67,6 @@ const FieldTypeOneToOne = ({label, helperText, placeholder, error, onOpen, optio
             helperText={helperText}
             error={error}
             placeholder={placeholder}
-            required={required}
             InputProps={{
               ...params.InputProps,
               startAdornment: <InputAdornment position='end'>{startAdornment}</InputAdornment>,

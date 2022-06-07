@@ -5,10 +5,10 @@ import BrushIcon from '@mui/icons-material/Brush';
 
 export interface FieldTypeColorProps extends Omit<OutlinedTextFieldProps, 'variant'> {}
 
-const FieldTypeColor = ({InputProps, label, ...props }: FieldTypeColorProps) => {
+const FieldTypeColor = ({InputProps, label, required, ...props }: FieldTypeColorProps) => {
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth required={required}>
       <FormLabel>{label}</FormLabel>
       <MuiTextField
         size="small"
