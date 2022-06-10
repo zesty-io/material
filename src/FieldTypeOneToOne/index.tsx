@@ -77,7 +77,6 @@ const FieldTypeOneToOne = ({label, helperText, placeholder, error, onOpen, optio
         options={loading ? [] : options}
         getOptionLabel={(option) => option.inputLabel}
         renderOption={(props, option) => [props, option.component]}
-        // getOptionLabel={(option) => option.label}
         {...props}
       />
     </FormControl>
