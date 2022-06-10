@@ -105,21 +105,3 @@ export const ListboxComponent = React.forwardRef<
     </div>
   );
 });
-
-function random(length: number) {
-  const characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let result = '';
-
-  for (let i = 0; i < length; i += 1) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-
-  return result;
-}
-
-
-export const randomOptions = Array.from(new Array(10000))
-  .map(() => random(10 + Math.ceil(Math.random() * 20)))
-  .sort((a: string, b: string) => a.toUpperCase().localeCompare(b.toUpperCase()));
-
