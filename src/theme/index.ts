@@ -46,6 +46,13 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          overflow: 'visible',
+        },
+      },
+    },
     MuiCardHeader: {
       styleOverrides: {
         root: {
