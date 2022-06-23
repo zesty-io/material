@@ -9,6 +9,13 @@ let theme: Theme = createTheme({
 
 theme = createTheme(theme, {
   components: {
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#e4e9f1',
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
