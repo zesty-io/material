@@ -43,7 +43,21 @@ theme = createTheme(theme, {
         },
         asterisk: {
           color: theme.palette.error.main,
-        }
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          overflow: 'visible',
+        },
+      },
+    },
+    MuiCardHeader: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#e4e9f1',
+        },
       },
     },
     MuiToggleButton: {
