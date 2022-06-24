@@ -28,6 +28,8 @@ const FieldTypeSort = ({label, value, InputProps, required, onChange, ...props }
                   // References input via click event in order to obtain its value
                   const input = e.currentTarget?.parentElement?.parentElement?.childNodes?.[1] as HTMLInputElement;
                   const newValue = String(+input.value - 1)
+                  // Updates internal input value in case component is not controlled
+                  input.value = newValue
                   // Mocks an event change
                   const event = {target: {value: newValue}}
                   onChange && onChange(event as ChangeEvent<HTMLTextAreaElement | HTMLInputElement>);
@@ -44,6 +46,8 @@ const FieldTypeSort = ({label, value, InputProps, required, onChange, ...props }
                   // References input via click event in order to obtain its value
                   const input = e.currentTarget?.parentElement?.parentElement?.childNodes?.[1] as HTMLInputElement;
                   const newValue = String(+input.value + 1)
+                  // Updates internal input value in case component is not controlled
+                  input.value = newValue
                   // Mocks an event change
                   const event = {target: {value: newValue}}
                   onChange && onChange(event as ChangeEvent<HTMLTextAreaElement | HTMLInputElement>);
