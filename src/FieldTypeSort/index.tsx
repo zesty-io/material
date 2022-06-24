@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import MuiTextField, { OutlinedTextFieldProps } from '@mui/material/TextField';
 import { Button, FormControl, FormLabel, InputAdornment } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
@@ -7,7 +8,7 @@ export interface FieldTypeSortProps extends Omit<OutlinedTextFieldProps, 'varian
   value: string;
 }
 
-const FieldTypeSort = ({label, value, InputProps, required, ...props }: FieldTypeSortProps) => {
+const FieldTypeSort = ({label, value, InputProps, required, onChange, ...props }: FieldTypeSortProps) => {
   return (
     <FormControl fullWidth required={required}>
       <FormLabel>{label}</FormLabel>
@@ -16,6 +17,7 @@ const FieldTypeSort = ({label, value, InputProps, required, ...props }: FieldTyp
         variant='outlined'
         type='number'
         value={value}
+        onChange={onChange}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -23,9 +25,12 @@ const FieldTypeSort = ({label, value, InputProps, required, ...props }: FieldTyp
                 size="small"
                 variant="contained"
                 onClick={(e) => {
-                  // References input via event in order to modify its value
+                  // References input via click event in order to obtain its value
                   const input = e.currentTarget?.parentElement?.parentElement?.childNodes?.[1] as HTMLInputElement;
-                  input.value = String(+input.value - 1)
+                  const newValue = String(+input.value - 1)
+                  // Mocks an event change
+                  const event = {target: {value: newValue}}
+                  onChange && onChange(event as ChangeEvent<HTMLTextAreaElement | HTMLInputElement>);
                 }}><RemoveIcon fontSize='small' />
               </Button>
             </InputAdornment>
@@ -36,9 +41,12 @@ const FieldTypeSort = ({label, value, InputProps, required, ...props }: FieldTyp
                 size="small"
                 variant="contained"
                 onClick={(e) => {
-                  // References input via event in order to modify its value
+                  // References input via click event in order to obtain its value
                   const input = e.currentTarget?.parentElement?.parentElement?.childNodes?.[1] as HTMLInputElement;
-                  input.value = String(+input.value + 1)
+                  const newValue = String(+input.value + 1)
+                  // Mocks an event change
+                  const event = {target: {value: newValue}}
+                  onChange && onChange(event as ChangeEvent<HTMLTextAreaElement | HTMLInputElement>);
                 }}><AddIcon fontSize='small' />
               </Button>
             </InputAdornment>
