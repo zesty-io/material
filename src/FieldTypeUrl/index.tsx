@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import MuiTextField, { OutlinedTextFieldProps } from '@mui/material/TextField';
 import { FormControl, FormLabel, Box } from '@mui/material';
 
@@ -12,7 +12,8 @@ export interface FieldTypeUrlProps extends Omit<OutlinedTextFieldProps, 'variant
 }
 
 const FieldTypeUrl = ({label, maxLength = 2000, value, helperText, required, inputProps, ...props }: FieldTypeUrlProps) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+  // Use state to hold input reference to re-render once ref changes in case error needs to be shown on mount
+  const [inputRef, setInputRef] = useState<HTMLInputElement>();
 
   return (
     <FormControl fullWidth required={required}>
@@ -27,12 +28,12 @@ const FieldTypeUrl = ({label, maxLength = 2000, value, helperText, required, inp
         variant='outlined'
         value={value}
         inputProps={{
-          ref: inputRef,
+          ref: (inputRef: HTMLInputElement) => setInputRef(inputRef),
           // Spread props at the end to allow inputProps prop overrides
           ...inputProps,
         }}
-        error={(value && !inputRef.current?.validity.valid) || value?.length > maxLength}
-        helperText={value?.length > maxLength ? 'Your input is over the specified limit' : (value && !inputRef.current?.validity.valid) ? 'Your input is not a valid url' : helperText}
+        error={(value && !inputRef?.validity.valid) || value?.length > maxLength}
+        helperText={value?.length > maxLength ? 'Your input is over the specified limit' : (value && !inputRef?.validity.valid) ? 'Your input is not a valid url' : helperText}
         // Spread props at the end to allow prop overrides
         {...props}
       />
