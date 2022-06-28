@@ -25,6 +25,7 @@ const FieldTypeSort = ({label, value, InputProps, required, onChange, ...props }
                 size="small"
                 variant="contained"
                 onClick={(e) => {
+                  e.preventDefault();
                   // References input via click event in order to obtain its value
                   const input = e.currentTarget?.parentElement?.parentElement?.childNodes?.[1] as HTMLInputElement;
                   const newValue = String(+input.value - 1)
@@ -43,6 +44,7 @@ const FieldTypeSort = ({label, value, InputProps, required, onChange, ...props }
                 size="small"
                 variant="contained"
                 onClick={(e) => {
+                  e.preventDefault();
                   // References input via click event in order to obtain its value
                   const input = e.currentTarget?.parentElement?.parentElement?.childNodes?.[1] as HTMLInputElement;
                   const newValue = String(+input.value + 1)
