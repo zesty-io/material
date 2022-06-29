@@ -22,6 +22,7 @@ const FieldTypeDateTime = ({label, helperText, error, required, ...props}: Field
               {...params}
               helperText={helperText}
               error={error}
+              size="small"
             />
           }
           // Spread props at the end to allow prop overrides
