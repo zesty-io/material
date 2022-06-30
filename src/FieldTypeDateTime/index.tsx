@@ -1,9 +1,9 @@
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DateTimePicker, DateTimePickerProps} from '@mui/x-date-pickers/DateTimePicker';
+import { DesktopDateTimePicker, DesktopDateTimePickerProps } from '@mui/x-date-pickers';
 import { TextField, FormControl, FormLabel } from '@mui/material';
 
-export interface FieldTypeDateTimeProps extends Omit<DateTimePickerProps<Date, Date>, 'renderInput'> {
+export interface FieldTypeDateTimeProps extends Omit<DesktopDateTimePickerProps<Date, Date>, 'renderInput'> {
   helperText?: string;
   error?: boolean;
   required?: boolean;
@@ -14,8 +14,8 @@ const FieldTypeDateTime = ({label, helperText, error, required, ...props}: Field
     <FormControl fullWidth required={required}>
       <FormLabel>{label}</FormLabel>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <DateTimePicker
-          data-testid="zds-date-picker"
+        <DesktopDateTimePicker
+          data-testid="zds-date-time-picker"
           renderInput={(params) => 
             <TextField
               
