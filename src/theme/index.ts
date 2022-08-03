@@ -9,77 +9,42 @@ let theme: Theme = createTheme({
 
 theme = createTheme(theme, {
   components: {
-    MuiAccordionSummary: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#e4e9f1',
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          minWidth: 'auto',
-        },
-      },
-    },
-    MuiTooltip: {
-      styleOverrides: {
-        tooltip: {
-          color: theme.palette.primary.contrastText,
-          backgroundColor: theme.palette.primary.main,
-          fontSize: '14px',
-          lineHeight: '20px',
-        },
-        arrow: {
-          color: theme.palette.primary.main,
-        },
-      },
-    },
-    MuiInputBase: {
-      styleOverrides: {
-        root: {
-          backgroundColor: theme.palette.primary.contrastText,
-        },
-      },
-    },
     MuiFormLabel: {
       styleOverrides: {
         root: {
-          color: theme.palette.primary.dark,
-        },
-        asterisk: {
-          color: theme.palette.error.main,
+          ...theme.typography.body2,
         },
       },
     },
-    MuiCard: {
+    MuiTab: {
       styleOverrides: {
         root: {
-          overflow: 'visible',
+          borderBottom: 2,
+          borderColor: theme.palette.grey[100],
+          borderStyle: "solid",
         },
       },
     },
     MuiCardHeader: {
       styleOverrides: {
         root: {
-          backgroundColor: '#e4e9f1',
+          padding: "16px 16px 0px",
         },
       },
     },
-    MuiToggleButton: {
+    MuiCardContent: {
       styleOverrides: {
-        root: ({ ownerState, theme }: any) => ({
-          backgroundColor: `${
-            theme.palette[ownerState.color].contrastText
-          } !important`,
-          ...(ownerState.selected && {
-            color: `${theme.palette[ownerState.color].contrastText} !important`,
-            backgroundColor: `${
-              theme.palette[ownerState.color].main
-            } !important`,
-          }),
-        }),
+        root: {
+          padding: "8px 16px 16px",
+          ":last-child": {
+            paddingBottom: "16px",
+          },
+        },
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
       },
     },
   },
