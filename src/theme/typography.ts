@@ -44,7 +44,8 @@ const typography: TypographyVariantsOptions = {
   },
   body3: {
     fontSize: '12px',
-    lineHeight: '19px',
+    lineHeight: '18px',
+    letterSpacing: '0.15px',
   },
   subtitle1: {
     fontSize: '16px',
