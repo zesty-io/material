@@ -63,6 +63,7 @@ const typography: TypographyVariantsOptions = {
     fontSize: "12px",
     letterSpacing: "1px",
   },
+  
 };
 
 export default typography;

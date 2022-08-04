@@ -139,6 +139,14 @@ const palette: PaletteOptions = {
     700: '#7B1FA2',
     800: '#6A1B9A',
     900: '#4A148C',
+  },
+  action: {
+    active: "rgba(16, 24, 40, 0.40)",
+    hover: "rgba(16, 24, 40, 0.04)",
+    selected: "rgba(16, 24, 40, 0.08)",
+    disabled: "rgba(16, 24, 40, 0.26)",
+    disabledBackground: "rgba(16, 24, 40, 0.12)",
+    focus: "rgba(16, 24, 40, 0.12)",
   }
 };
 
