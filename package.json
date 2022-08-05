@@ -12,11 +12,13 @@
     "url": "https://github.com/zesty-io/material/issues"
   },
   "homepage": "https://zesty-io.github.io/material",
-  "main": "es/index.js",
+  "main": "cjs/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "scripts": {
-    "build": "npm ci && tsc",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir cjs",
     "prerelease": "npm test",
     "release": "npm run build && npm publish --access public",
     "release:alpha": "npm run build && npm publish --access public --tag alpha",
