@@ -56,7 +56,7 @@ const typography: TypographyVariantsOptions = {
     lineHeight: "22px",
   },
   caption: {
-    fontSize: '20px',
+    fontSize: '12px',
     lineHeight: "20px",
   },
   overline: {
