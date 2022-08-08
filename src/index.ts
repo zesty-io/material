@@ -1,5 +1,5 @@
 export { default as legacyTheme } from './LegacyTheme';
-export { default as theme } from './theme';
+export { default as theme } from './something';
 export { default as FieldTypeText } from './FieldTypeText';
 export { default as FieldTypeSort } from './FieldTypeSort';
 export { default as FieldTypeUrl } from './FieldTypeUrl';
