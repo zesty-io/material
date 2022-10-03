@@ -1,6 +1,6 @@
 {
   "name": "@zesty-io/material",
-  "version": "0.2.5",
+  "version": "0.2.4",
   "description": "Contains custom components which are in addition to the @mui design-system",
   "author": "Zesty.io",
   "license": "MIT",
@@ -12,13 +12,11 @@
     "url": "https://github.com/zesty-io/material/issues"
   },
   "homepage": "https://zesty-io.github.io/material",
-  "main": "cjs/index.js",
-  "module": "es/index.js",
-  "types": "es/index.d.ts",
+  "main": "./cjs/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir cjs",
+    "build": "npm ci && tsc",
     "prerelease": "npm test",
     "release": "npm run build && npm publish --access public",
     "release:alpha": "npm run build && npm publish --access public --tag alpha",
@@ -53,5 +51,9 @@
     "react-dom": "^18.1.0",
     "react-json-view": "^1.21.3",
     "typescript": "^4.6.3"
-  }
+  },
+  "files": [
+    "cjs",
+    "es"
+  ]
 }
