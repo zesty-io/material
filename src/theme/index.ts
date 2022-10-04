@@ -47,6 +47,53 @@ theme = createTheme(theme, {
         disableElevation: true,
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          padding: "0px 8px",
+          borderRadius: '8px',
+        },
+        input: {
+          padding: "10px 0px",
+        },
+        sizeSmall: {
+          'input' : {
+            padding: "8px 0px",
+          },
+        },
+        notchedOutline: {
+          // @ts-ignore
+          borderColor: `${theme.palette.border} !important`,
+          opacity: 1,
+        },
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        input: {
+          ...theme.typography.body2,
+          '::placeholder': {
+            color: theme.palette.text.disabled
+          }
+        }
+      }
+    },
+    MuiInputAdornment : {
+      styleOverrides: {
+        root: {
+          '& > .MuiSvgIcon-root': {
+            margin: '4px',
+          }
+        }
+      }
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        sizeSmall: {
+          padding: '4px',
+        }
+      }
+    }
   },
 });
 

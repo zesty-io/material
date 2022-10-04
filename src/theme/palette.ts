@@ -11,6 +11,7 @@ declare module '@mui/material/styles' {
     blue?: Partial<Color>;
     green?: Partial<Color>;
     purple?: Partial<Color>;
+    border?: string;
   }
 }
 
@@ -43,6 +44,7 @@ const palette: PaletteOptions = {
   text: {
     primary: "#101828",
     secondary: "#475467",
+    disabled: "#101828",
   },
   grey: {
     50: "#F9FAFB",
@@ -140,6 +142,7 @@ const palette: PaletteOptions = {
     800: '#6A1B9A',
     900: '#4A148C',
   },
+  border: "#F2F4F7",
   action: {
     active: "rgba(16, 24, 40, 0.40)",
     hover: "rgba(16, 24, 40, 0.04)",
