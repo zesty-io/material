@@ -12,7 +12,6 @@ export default {
 const Template: Story<TextFieldProps> = (args) => {
 
   return (
-    <>
       <TextField
       {...args}
       InputProps={{
@@ -32,24 +31,6 @@ const Template: Story<TextFieldProps> = (args) => {
         ),
       }}
     />
-    <TextField
-    sx={{mt: 1}}
-      size="small"
-      {...args}
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <Search fontSize="small"  />
-          </InputAdornment>
-        ),
-        endAdornment: (
-          <InputAdornment position="start">
-            <Close fontSize="small"  />
-          </InputAdornment>
-        ),
-      }}
-    />
-    </>
     
   );
 };

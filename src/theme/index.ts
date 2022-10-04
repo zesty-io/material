@@ -2,6 +2,18 @@ import palette from './palette';
 import typography from './typography';
 import { createTheme, Theme } from '@mui/material/styles';
 
+
+declare module '@mui/material/styles' {
+  interface Theme {
+    palette: PaletteOptions
+    typography: TypographyVariantsOptions
+  }
+
+  interface Theme {
+    palette: PaletteOptions
+  }
+}
+
 let theme: Theme = createTheme({
   palette,
   typography,
@@ -20,7 +32,7 @@ theme = createTheme(theme, {
       styleOverrides: {
         root: {
           borderBottom: 2,
-          borderColor: theme.palette.grey[100],
+          borderColor: theme?.palette?.grey?.[100],
           borderStyle: "solid",
         },
       },
@@ -62,9 +74,8 @@ theme = createTheme(theme, {
           },
         },
         notchedOutline: {
-          // @ts-ignore
+          // Important to override all pseudo classes
           borderColor: `${theme.palette.border} !important`,
-          opacity: 1,
         },
       }
     },
@@ -73,7 +84,7 @@ theme = createTheme(theme, {
         input: {
           ...theme.typography.body2,
           '::placeholder': {
-            color: theme.palette.text.disabled
+            color: theme?.palette?.text?.disabled
           }
         }
       }
