@@ -105,6 +105,21 @@ theme = createTheme(theme, {
           padding: '4px',
         }
       }
+    },
+    MuiDialogTitle: {
+      styleOverrides: {
+        root: {
+          ...theme.typography.h5,
+          fontWeight: 600,
+        }
+      }
+    },
+    MuiDialogContentText: {
+      styleOverrides: {
+        root: {
+          ...theme.typography.body2,
+        }
+      }
     }
   },
 });
