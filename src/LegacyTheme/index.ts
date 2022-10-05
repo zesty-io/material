@@ -1,3 +1,5 @@
+// No checking legacy theme to not have conflicting module augmentation
+// @ts-nocheck
 import palette from './palette';
 import typography from './typography';
 import { createTheme, Theme } from '@mui/material/styles';
