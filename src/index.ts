@@ -12,3 +12,5 @@ export { default as FieldTypeOneToMany} from './FieldTypeOneToMany';
 export { default as CopyButton } from './CopyButton';
 export { default as ConfirmDialog } from './ConfirmDialog';
 export { default as VirtualizedAutocomplete } from './VitualizedAutocomplete';
+
+export * from './icons';
