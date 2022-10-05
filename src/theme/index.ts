@@ -55,6 +55,7 @@ theme = createTheme(theme, {
       },
     },
     MuiButton: {
+      styleOverrides: { textTransform: 'none' },
       defaultProps: {
         disableElevation: true,
       },
