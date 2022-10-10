@@ -1,6 +1,6 @@
 {
   "name": "@zesty-io/material",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Contains custom components which are in addition to the @mui design-system",
   "author": "Zesty.io",
   "license": "MIT",
@@ -46,9 +46,9 @@
     "@types/react-window": "^1.8.5",
     "babel-loader": "^8.2.5",
     "gh-pages": "^3.2.3",
-    "react": "^18.1.0",
+    "react": "^17.0.2",
     "react-docgen-typescript": "^2.2.2",
-    "react-dom": "^18.1.0",
+    "react-dom": "^17.0.2",
     "react-json-view": "^1.21.3",
     "typescript": "^4.6.3"
   },
