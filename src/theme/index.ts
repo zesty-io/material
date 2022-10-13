@@ -1,16 +1,17 @@
 import palette from './palette';
 import typography from './typography';
-import { createTheme, Theme } from '@mui/material/styles';
+import { alpha, createTheme, Theme, } from '@mui/material/styles';
+import { Color } from '@mui/material';
 
 
 declare module '@mui/material/styles' {
-  interface Theme {
-    palette: PaletteOptions
-    typography: TypographyVariantsOptions
+
+  interface Palette {
+    border: string;
   }
 
   interface Theme {
-    palette: PaletteOptions
+    typography: TypographyVariantsOptions
   }
 }
 
@@ -119,6 +120,38 @@ theme = createTheme(theme, {
         root: {
           ...theme.typography.body2,
         }
+      }
+    },
+    MuiTreeItem: {
+      styleOverrides: {
+          content: {
+              paddingTop: '6px',
+              paddingBottom: '6px',
+              paddingLeft: 0,
+              paddingRight: '12px',
+              borderRadius: 4,
+              width: "unset",
+
+              '&.Mui-selected': {
+                  background: alpha(theme?.palette?.primary?.main, 0.04),
+                  ' .MuiTreeItem-label .MuiSvgIcon-root': {
+                      color: theme?.palette?.primary?.main,
+                  },
+                  ' .MuiTypography-root': {
+                      color: theme?.palette?.primary?.dark,
+                  }
+              }
+          },
+          label: {
+              paddingLeft: '0',
+          },
+          iconContainer: {
+              marginRight: '0',
+              width: '24px',
+              'svg': {
+                  fontSize: '24px',
+              }
+          }
       }
     }
   },
