@@ -179,6 +179,13 @@ theme = createTheme(theme, {
         }
       },
     },
+    MuiMenu: {
+      styleOverrides: {
+        list: {
+            minWidth: '240px',
+        }
+      },
+    },
     MuiTreeItem: {
       styleOverrides: {
           content: {
