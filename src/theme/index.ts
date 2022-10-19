@@ -122,6 +122,13 @@ theme = createTheme(theme, {
         }
       }
     },
+    MuiBackdrop: {
+      styleOverrides: {
+          root: {
+              backgroundColor: alpha(theme.palette.grey[900], 0.5),
+          },
+      },
+  },
     MuiTreeItem: {
       styleOverrides: {
           content: {
