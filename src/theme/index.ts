@@ -1,11 +1,8 @@
 import palette from './palette';
 import typography from './typography';
 import { alpha, createTheme, Theme, } from '@mui/material/styles';
-import { Color } from '@mui/material';
-
 
 declare module '@mui/material/styles' {
-
   interface Palette {
     border: string;
   }
@@ -33,7 +30,7 @@ theme = createTheme(theme, {
       styleOverrides: {
         root: {
           borderBottom: 2,
-          borderColor: theme?.palette?.grey?.[100],
+          borderColor: theme.palette.grey[100],
           borderStyle: "solid",
         },
       },
@@ -56,7 +53,23 @@ theme = createTheme(theme, {
       },
     },
     MuiButton: {
-      styleOverrides: { root: { textTransform: 'none' } },
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+        sizeSmall: {
+          fontSize: '14px',
+        },
+        outlined: {
+            borderColor: theme.palette.border,
+        },
+        containedInherit: {
+            backgroundColor: theme.palette.grey[100],
+        },
+        textInherit: {
+          color: theme.palette.text.secondary,
+        }
+      },
       defaultProps: {
         disableElevation: true,
       },
@@ -86,10 +99,19 @@ theme = createTheme(theme, {
         input: {
           ...theme.typography.body2,
           '::placeholder': {
-            color: theme?.palette?.text?.disabled
+            color: theme.palette.text.disabled
           }
         }
       }
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+          root: {
+              ...theme.typography.body2,
+              color: theme.palette.text.primary,
+              marginBottom: '4px',
+          },
+      },
     },
     MuiInputAdornment : {
       styleOverrides: {
@@ -107,11 +129,28 @@ theme = createTheme(theme, {
         }
       }
     },
+    MuiDialog: {
+      styleOverrides: {
+        paperWidthXs: {
+          width: '480px',
+          maxWidth: '480px',
+        }
+      }
+    },
     MuiDialogTitle: {
       styleOverrides: {
         root: {
           ...theme.typography.h5,
           fontWeight: 600,
+          padding: '20px',
+        }
+      }
+    },
+    MuiDialogContent: {
+      styleOverrides: {
+        root: {
+          padding: '20px',
+          paddingTop: 0,
         }
       }
     },
@@ -121,6 +160,31 @@ theme = createTheme(theme, {
           ...theme.typography.body2,
         }
       }
+    },
+    MuiDialogActions: {
+      styleOverrides: {
+        root: {
+          padding: '20px',
+          paddingTop: 0,
+        }
+      }
+    },
+    MuiBackdrop: {
+      styleOverrides: {
+        root: {
+          backgroundColor: alpha(theme.palette.grey[900], 0.5),
+        },
+        invisible: {
+          backgroundColor: 'transparent',
+        }
+      },
+    },
+    MuiMenu: {
+      styleOverrides: {
+        list: {
+            minWidth: '240px',
+        }
+      },
     },
     MuiTreeItem: {
       styleOverrides: {
@@ -133,12 +197,12 @@ theme = createTheme(theme, {
               width: "unset",
 
               '&.Mui-selected': {
-                  background: alpha(theme?.palette?.primary?.main, 0.04),
+                  background: alpha(theme.palette.primary.main, 0.04),
                   ' .MuiTreeItem-label .MuiSvgIcon-root': {
-                      color: theme?.palette?.primary?.main,
+                      color: theme.palette.primary.main,
                   },
                   ' .MuiTypography-root': {
-                      color: theme?.palette?.primary?.dark,
+                      color: theme.palette.primary.dark,
                   }
               }
           },
