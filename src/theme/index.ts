@@ -54,7 +54,9 @@ theme = createTheme(theme, {
     },
     MuiButton: {
       styleOverrides: {
-        root: { textTransform: 'none' },
+        root: {
+          textTransform: 'none',
+        },
         sizeSmall: {
           fontSize: '14px',
         },
@@ -63,6 +65,9 @@ theme = createTheme(theme, {
         },
         containedInherit: {
             backgroundColor: theme.palette.grey[100],
+        },
+        textInherit: {
+          color: theme.palette.text.secondary,
         }
       },
       defaultProps: {
