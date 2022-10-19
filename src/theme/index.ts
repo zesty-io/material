@@ -174,6 +174,9 @@ theme = createTheme(theme, {
         root: {
           backgroundColor: alpha(theme.palette.grey[900], 0.5),
         },
+        invisible: {
+          backgroundColor: 'transparent',
+        }
       },
     },
     MuiTreeItem: {
