@@ -1,11 +1,8 @@
 import palette from './palette';
 import typography from './typography';
 import { alpha, createTheme, Theme, } from '@mui/material/styles';
-import { Color } from '@mui/material';
-
 
 declare module '@mui/material/styles' {
-
   interface Palette {
     border: string;
   }
@@ -33,7 +30,7 @@ theme = createTheme(theme, {
       styleOverrides: {
         root: {
           borderBottom: 2,
-          borderColor: theme?.palette?.grey?.[100],
+          borderColor: theme.palette.grey[100],
           borderStyle: "solid",
         },
       },
@@ -56,7 +53,18 @@ theme = createTheme(theme, {
       },
     },
     MuiButton: {
-      styleOverrides: { root: { textTransform: 'none' } },
+      styleOverrides: {
+        root: { textTransform: 'none' },
+        sizeSmall: {
+          fontSize: '14px',
+        },
+        outlined: {
+            borderColor: theme.palette.border,
+        },
+        containedInherit: {
+            backgroundColor: theme.palette.grey[100],
+        }
+      },
       defaultProps: {
         disableElevation: true,
       },
@@ -86,7 +94,7 @@ theme = createTheme(theme, {
         input: {
           ...theme.typography.body2,
           '::placeholder': {
-            color: theme?.palette?.text?.disabled
+            color: theme.palette.text.disabled
           }
         }
       }
@@ -174,12 +182,12 @@ theme = createTheme(theme, {
               width: "unset",
 
               '&.Mui-selected': {
-                  background: alpha(theme?.palette?.primary?.main, 0.04),
+                  background: alpha(theme.palette.primary.main, 0.04),
                   ' .MuiTreeItem-label .MuiSvgIcon-root': {
-                      color: theme?.palette?.primary?.main,
+                      color: theme.palette.primary.main,
                   },
                   ' .MuiTypography-root': {
-                      color: theme?.palette?.primary?.dark,
+                      color: theme.palette.primary.dark,
                   }
               }
           },
