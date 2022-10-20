@@ -82,6 +82,9 @@ theme = createTheme(theme, {
         },
         input: {
           padding: "10px 0px",
+          ':read-only': {
+            color: theme.palette.text.secondary,
+          },
         },
         sizeSmall: {
           'input' : {
@@ -194,6 +197,32 @@ theme = createTheme(theme, {
           },
         }
       },
+    },
+    MuiSlider: {
+      styleOverrides: {
+          rail: {
+              backgroundColor: theme.palette.grey[400],
+          }
+      }
+    },
+    MuiChip: {
+      styleOverrides: {
+        root:{
+            borderRadius: '4px',
+        }
+      }
+    },
+    MuiAlert: {
+      styleOverrides: {
+        icon: {
+            alignSelf: 'center',
+        },
+        standardWarning: {
+            ' .MuiAlert-icon': {
+                color: theme.palette.common.black,
+            }
+        },
+      }
     },
     MuiTreeItem: {
       styleOverrides: {
