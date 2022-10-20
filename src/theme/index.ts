@@ -60,8 +60,8 @@ theme = createTheme(theme, {
         sizeSmall: {
           fontSize: '14px',
         },
-        outlined: {
-            borderColor: theme.palette.border,
+        outlinedInherit: {
+          borderColor: theme.palette.border,
         },
         containedInherit: {
             backgroundColor: theme.palette.grey[100],
@@ -183,6 +183,15 @@ theme = createTheme(theme, {
       styleOverrides: {
         list: {
             minWidth: '240px',
+        }
+      },
+    },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          '&:before': {
+              backgroundColor: theme.palette.border,
+          },
         }
       },
     },
