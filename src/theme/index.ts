@@ -61,10 +61,12 @@ theme = createTheme(theme, {
           fontSize: '14px',
         },
         outlinedInherit: {
+          color: theme.palette.text.secondary,
           borderColor: theme.palette.border,
         },
         containedInherit: {
-            backgroundColor: theme.palette.grey[100],
+          color: theme.palette.text.secondary,
+          backgroundColor: theme.palette.grey[100],
         },
         textInherit: {
           color: theme.palette.text.secondary,
