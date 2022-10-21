@@ -60,11 +60,13 @@ theme = createTheme(theme, {
         sizeSmall: {
           fontSize: '14px',
         },
-        outlined: {
-            borderColor: theme.palette.border,
+        outlinedInherit: {
+          color: theme.palette.text.secondary,
+          borderColor: theme.palette.border,
         },
         containedInherit: {
-            backgroundColor: theme.palette.grey[100],
+          color: theme.palette.text.secondary,
+          backgroundColor: theme.palette.grey[100],
         },
         textInherit: {
           color: theme.palette.text.secondary,
@@ -82,6 +84,9 @@ theme = createTheme(theme, {
         },
         input: {
           padding: "10px 0px",
+          ':read-only': {
+            color: theme.palette.text.secondary,
+          },
         },
         sizeSmall: {
           'input' : {
@@ -185,6 +190,41 @@ theme = createTheme(theme, {
             minWidth: '240px',
         }
       },
+    },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          '&:before': {
+              backgroundColor: theme.palette.border,
+          },
+        }
+      },
+    },
+    MuiSlider: {
+      styleOverrides: {
+          rail: {
+              backgroundColor: theme.palette.grey[400],
+          }
+      }
+    },
+    MuiChip: {
+      styleOverrides: {
+        root:{
+            borderRadius: '4px',
+        }
+      }
+    },
+    MuiAlert: {
+      styleOverrides: {
+        icon: {
+            alignSelf: 'center',
+        },
+        standardWarning: {
+            ' .MuiAlert-icon': {
+                color: theme.palette.common.black,
+            }
+        },
+      }
     },
     MuiTreeItem: {
       styleOverrides: {
