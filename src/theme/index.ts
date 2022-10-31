@@ -53,6 +53,14 @@ theme = createTheme(theme, {
       },
     },
     MuiButton: {
+      variants: [
+        {
+          props: { size: 'xsmall' },
+          style: {
+            padding: "2px 10px",
+          },
+        },
+      ],
       styleOverrides: {
         root: {
           textTransform: 'none',
