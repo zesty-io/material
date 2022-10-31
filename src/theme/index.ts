@@ -211,7 +211,16 @@ theme = createTheme(theme, {
       styleOverrides: {
         root:{
             borderRadius: '4px',
-        }
+        },
+        colorDefault: {
+          backgroundColor: theme.palette.grey[100],
+          ':hover': {
+              backgroundColor: theme.palette.grey[200],
+          },
+          ':focus': {
+              backgroundColor: theme.palette.grey[300],
+          }
+        },
       }
     },
     MuiAlert: {
