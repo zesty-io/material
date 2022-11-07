@@ -84,6 +84,20 @@ theme = createTheme(theme, {
         disableElevation: true,
       },
     },
+    MuiButtonGroup: {
+      defaultProps: {
+        disableElevation: true,
+      },
+      styleOverrides: {
+        groupedContained: {
+          color: theme.palette.primary.main,
+          backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.hoverOpacity),
+          '&:hover': {
+              backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
+          },
+        }
+      },
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
