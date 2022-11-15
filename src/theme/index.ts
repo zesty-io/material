@@ -260,7 +260,8 @@ theme = createTheme(theme, {
     MuiDataGrid: {
       styleOverrides: {
         root: {
-            border: 'none',
+          borderColor: theme.palette.border,
+          borderRadius: '8px',
         },
       },
     },
