@@ -257,6 +257,13 @@ theme = createTheme(theme, {
         },
       }
     },
+    MuiDataGrid: {
+      styleOverrides: {
+        root: {
+            border: 'none',
+        },
+      },
+    },
     MuiTreeItem: {
       styleOverrides: {
           content: {
