@@ -1,5 +1,5 @@
 import { Color } from '@mui/material';
-import { PaletteOptions } from '@mui/material/styles';
+import { alpha, PaletteOptions } from '@mui/material/styles';
 
 // Module augmentation
 declare module '@mui/material/styles' {
@@ -44,7 +44,7 @@ const palette: PaletteOptions = {
   text: {
     primary: "#101828",
     secondary: "#475467",
-    disabled: "#101828",
+    disabled: alpha("#101828", 0.38),
   },
   grey: {
     50: "#F9FAFB",
