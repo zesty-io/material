@@ -271,6 +271,13 @@ theme = createTheme(theme, {
         }
       },
     },
+    MuiListItemButton: {
+      styleOverrides: {
+        divider: {
+          borderColor: theme.palette.border,
+        }
+      },
+    },
     MuiTreeItem: {
       styleOverrides: {
           content: {
