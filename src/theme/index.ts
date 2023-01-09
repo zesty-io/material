@@ -28,9 +28,9 @@ theme = createTheme(theme, {
     MuiTab: {
       styleOverrides: {
         root: {
-          borderBottom: 2,
-          borderColor: theme.palette.grey[100],
-          borderStyle: "solid",
+          padding: '14px',
+          minHeight: 'unset',
+          textTransform: 'none',
         },
       },
     },
