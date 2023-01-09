@@ -44,7 +44,7 @@ const palette: PaletteOptions = {
   text: {
     primary: "#101828",
     secondary: "#475467",
-    disabled: alpha("#101828", 0.38),
+    disabled: alpha("#101828", 0.56),
   },
   grey: {
     50: "#F9FAFB",

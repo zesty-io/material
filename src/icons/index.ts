@@ -5,3 +5,4 @@ export { Database } from "./Database";
 export { Markdown } from "./Markdown";
 export { OneToOne } from "./OneToOne";
 export { EditNote } from "./EditNote";
+export { FileTable } from "./FileTable";
