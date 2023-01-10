@@ -184,6 +184,9 @@ theme = createTheme(theme, {
           padding: "20px",
           paddingTop: 0,
         },
+        dividers: {
+          borderColor: theme.palette.border,
+        },
       },
     },
     MuiDialogContentText: {
