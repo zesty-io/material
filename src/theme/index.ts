@@ -142,6 +142,7 @@ theme = createTheme(theme, {
           ...theme.typography.body2,
           color: theme.palette.text.primary,
           marginBottom: "4px",
+          fontWeight: 600,
         },
       },
     },
@@ -314,6 +315,27 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiLink: {
+      styleOverrides: {
+          root: {
+              color: theme.palette.info.dark,
+              textDecorationColor: theme.palette.info.main,
+              '&:hover': {
+                  textDecorationColor: theme.palette.info.dark,
+              },
+          },
+      },
+  },
+  MuiTooltip: {
+    styleOverrides: {
+        popper: {
+            maxWidth: '240px',
+        },
+        tooltip: {
+            ...theme.typography.body3,
+        }
+    },
+  },
     MuiTreeItem: {
       styleOverrides: {
         content: {

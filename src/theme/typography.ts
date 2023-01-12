@@ -62,6 +62,7 @@ const typography: TypographyVariantsOptions = {
   overline: {
     fontSize: "12px",
     letterSpacing: "1px",
+    lineHeight: "32px",
   },
   
 };
