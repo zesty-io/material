@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import FieldTypeText, { FieldTypeTextProps } from './';
+import { Brain } from '../icons/Brain';
+import { IconButton } from '@mui/material';
 
 export default {
   title: 'FieldTypeText',
@@ -31,6 +33,7 @@ Default.args = {
   placeholder: 'Placeholder Text...',
   label: 'Text label',
   helperText: 'Text helper text',
+  endLabel: <IconButton size="small"><Brain fontSize='small' /></IconButton>
 };
 
 export const TextArea = Template.bind({});
