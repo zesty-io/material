@@ -122,8 +122,7 @@ theme = createTheme(theme, {
           },
         },
         notchedOutline: {
-          // Important to override all pseudo classes
-          borderColor: `${theme.palette.border} !important`,
+          borderColor: theme.palette.border,
         },
       },
     },
