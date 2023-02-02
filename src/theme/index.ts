@@ -108,6 +108,7 @@ theme = createTheme(theme, {
         root: {
           padding: "0px 8px",
           borderRadius: "8px",
+          backgroundColor: theme.palette.common.white,
         },
         input: {
           padding: "10px 0px",
@@ -277,6 +278,18 @@ theme = createTheme(theme, {
         },
         columnHeaders: {
           borderColor: theme.palette.border,
+          backgroundColor: theme.palette.grey[50],
+        },
+        columnHeader: {
+            '&:focus': {
+                outline: 'unset',
+            },
+          },
+        columnHeaderTitle: {
+            fontWeight: 600,
+        },
+        columnSeparator: {
+            visibility: "hidden",
         },
       },
     },
