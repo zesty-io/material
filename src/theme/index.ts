@@ -264,6 +264,18 @@ theme = createTheme(theme, {
             color: theme.palette.common.black,
           },
         },
+        standardInfo: {
+          backgroundColor: alpha(theme.palette.info.main, 0.1),
+          " .MuiAlert-icon": {
+              color: theme.palette.info.main,
+          },
+        },
+        standardError: {
+          backgroundColor: alpha(theme.palette.error.main, 0.1),
+          " .MuiAlert-icon": {
+              color: theme.palette.error.main,
+          },
+        },
       },
     },
     MuiDataGrid: {
