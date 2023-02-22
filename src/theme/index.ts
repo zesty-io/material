@@ -108,6 +108,10 @@ theme = createTheme(theme, {
         root: {
           padding: "0px 8px",
           borderRadius: "8px",
+          backgroundColor: theme.palette.common.white,
+          '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+            borderColor: theme.palette.border,
+        },
         },
         input: {
           padding: "10px 0px",
@@ -121,8 +125,7 @@ theme = createTheme(theme, {
           },
         },
         notchedOutline: {
-          // Important to override all pseudo classes
-          borderColor: `${theme.palette.border} !important`,
+          borderColor: theme.palette.border,
         },
       },
     },
@@ -264,6 +267,18 @@ theme = createTheme(theme, {
             color: theme.palette.common.black,
           },
         },
+        standardInfo: {
+          backgroundColor: alpha(theme.palette.info.main, 0.1),
+          " .MuiAlert-icon": {
+              color: theme.palette.info.main,
+          },
+        },
+        standardError: {
+          backgroundColor: alpha(theme.palette.error.main, 0.1),
+          " .MuiAlert-icon": {
+              color: theme.palette.error.main,
+          },
+        },
       },
     },
     MuiDataGrid: {
@@ -277,6 +292,18 @@ theme = createTheme(theme, {
         },
         columnHeaders: {
           borderColor: theme.palette.border,
+          backgroundColor: theme.palette.grey[50],
+        },
+        columnHeader: {
+            '&:focus': {
+                outline: 'unset',
+            },
+          },
+        columnHeaderTitle: {
+            fontWeight: 600,
+        },
+        columnSeparator: {
+            visibility: "hidden",
         },
       },
     },
