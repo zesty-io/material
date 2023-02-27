@@ -289,13 +289,15 @@ theme = createTheme(theme, {
         },
         cell: {
           borderColor: theme.palette.border,
+          padding: '0 16px',
         },
         columnHeaders: {
           borderColor: theme.palette.border,
           backgroundColor: theme.palette.grey[50],
         },
         columnHeader: {
-            '&:focus': {
+          padding: '0 16px',
+          '&:focus': {
                 outline: 'unset',
             },
           },
