@@ -176,6 +176,9 @@ theme = createTheme(theme, {
     },
     MuiDialog: {
       styleOverrides: {
+        paper: {
+          borderRadius: '8px',
+        },
         paperWidthXs: {
           width: "480px",
           maxWidth: "480px",
@@ -277,7 +280,7 @@ theme = createTheme(theme, {
           },
         },
         standardInfo: {
-          backgroundColor: alpha(theme.palette.info.main, 0.1),
+          backgroundColor: alpha(theme.palette.blue[500], 0.1),
           " .MuiAlert-icon": {
               color: theme.palette.info.main,
           },

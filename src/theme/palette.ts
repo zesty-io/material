@@ -3,6 +3,15 @@ import { alpha, PaletteOptions } from '@mui/material/styles';
 
 // Module augmentation
 declare module '@mui/material/styles' {
+  export interface Palette {
+    red: Color;
+    deepPurple: Color;
+    deepOrange: Color;
+    pink: Color;
+    blue: Color;
+    green: Color;
+    purple: Color;
+  }
   export interface PaletteOptions {
     red?: Partial<Color>;
     deepPurple?: Partial<Color>;
