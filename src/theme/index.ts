@@ -129,12 +129,21 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          ...theme.typography.body2,
+          margin: "4px 0px 0px 0px",
+        },
+      },
+    },
     MuiInputBase: {
       styleOverrides: {
         input: {
           ...theme.typography.body2,
           "::placeholder": {
             color: theme.palette.text.disabled,
+            opacity: 1,
           },
         },
       },
