@@ -129,12 +129,21 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          ...theme.typography.body2,
+          margin: "4px 0px 0px 0px",
+        },
+      },
+    },
     MuiInputBase: {
       styleOverrides: {
         input: {
           ...theme.typography.body2,
           "::placeholder": {
             color: theme.palette.text.disabled,
+            opacity: 1,
           },
         },
       },
@@ -167,6 +176,9 @@ theme = createTheme(theme, {
     },
     MuiDialog: {
       styleOverrides: {
+        paper: {
+          borderRadius: '8px',
+        },
         paperWidthXs: {
           width: "480px",
           maxWidth: "480px",
@@ -268,7 +280,7 @@ theme = createTheme(theme, {
           },
         },
         standardInfo: {
-          backgroundColor: alpha(theme.palette.info.main, 0.1),
+          backgroundColor: alpha(theme.palette.blue[500], 0.1),
           " .MuiAlert-icon": {
               color: theme.palette.info.main,
           },
@@ -289,13 +301,15 @@ theme = createTheme(theme, {
         },
         cell: {
           borderColor: theme.palette.border,
+          padding: '0 16px',
         },
         columnHeaders: {
           borderColor: theme.palette.border,
           backgroundColor: theme.palette.grey[50],
         },
         columnHeader: {
-            '&:focus': {
+          padding: '0 16px',
+          '&:focus': {
                 outline: 'unset',
             },
           },
