@@ -108,6 +108,10 @@ theme = createTheme(theme, {
         root: {
           padding: "0px 8px",
           borderRadius: "8px",
+          backgroundColor: theme.palette.common.white,
+          '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+            borderColor: theme.palette.border,
+        },
         },
         input: {
           padding: "10px 0px",
@@ -121,8 +125,15 @@ theme = createTheme(theme, {
           },
         },
         notchedOutline: {
-          // Important to override all pseudo classes
-          borderColor: `${theme.palette.border} !important`,
+          borderColor: theme.palette.border,
+        },
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          ...theme.typography.body2,
+          margin: "4px 0px 0px 0px",
         },
       },
     },
@@ -132,6 +143,7 @@ theme = createTheme(theme, {
           ...theme.typography.body2,
           "::placeholder": {
             color: theme.palette.text.disabled,
+            opacity: 1,
           },
         },
       },
@@ -164,6 +176,9 @@ theme = createTheme(theme, {
     },
     MuiDialog: {
       styleOverrides: {
+        paper: {
+          borderRadius: '8px',
+        },
         paperWidthXs: {
           width: "480px",
           maxWidth: "480px",
@@ -264,6 +279,18 @@ theme = createTheme(theme, {
             color: theme.palette.common.black,
           },
         },
+        standardInfo: {
+          backgroundColor: alpha(theme.palette.blue[500], 0.1),
+          " .MuiAlert-icon": {
+              color: theme.palette.info.main,
+          },
+        },
+        standardError: {
+          backgroundColor: alpha(theme.palette.error.main, 0.1),
+          " .MuiAlert-icon": {
+              color: theme.palette.error.main,
+          },
+        },
       },
     },
     MuiDataGrid: {
@@ -274,9 +301,23 @@ theme = createTheme(theme, {
         },
         cell: {
           borderColor: theme.palette.border,
+          padding: '0 16px',
         },
         columnHeaders: {
           borderColor: theme.palette.border,
+          backgroundColor: theme.palette.grey[50],
+        },
+        columnHeader: {
+          padding: '0 16px',
+          '&:focus': {
+                outline: 'unset',
+            },
+          },
+        columnHeaderTitle: {
+            fontWeight: 600,
+        },
+        columnSeparator: {
+            visibility: "hidden",
         },
       },
     },
