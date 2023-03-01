@@ -28,9 +28,9 @@ theme = createTheme(theme, {
     MuiTab: {
       styleOverrides: {
         root: {
-          padding: '14px',
-          minHeight: 'unset',
-          textTransform: 'none',
+          padding: "14px",
+          minHeight: "unset",
+          textTransform: "none",
         },
       },
     },
@@ -320,25 +320,28 @@ theme = createTheme(theme, {
     },
     MuiLink: {
       styleOverrides: {
-          root: {
-              color: theme.palette.info.dark,
-              textDecorationColor: theme.palette.info.main,
-              '&:hover': {
-                  textDecorationColor: theme.palette.info.dark,
-              },
+        root: {
+          color: theme.palette.info.dark,
+          textDecorationColor: theme.palette.info.main,
+          "&:hover": {
+            textDecorationColor: theme.palette.info.dark,
           },
+        },
       },
-  },
-  MuiTooltip: {
-    styleOverrides: {
+      defaultProps: {
+        underline: "hover",
+      },
+    },
+    MuiTooltip: {
+      styleOverrides: {
         popper: {
-            maxWidth: '240px',
+          maxWidth: "240px",
         },
         tooltip: {
-            ...theme.typography.body3,
-        }
+          ...theme.typography.body3,
+        },
+      },
     },
-  },
     MuiTreeItem: {
       styleOverrides: {
         content: {
