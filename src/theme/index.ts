@@ -28,9 +28,20 @@ theme = createTheme(theme, {
     MuiTab: {
       styleOverrides: {
         root: {
-          padding: "14px",
-          minHeight: "unset",
-          textTransform: "none",
+          padding: '8px',
+          margin: '8px',
+          borderRadius: '8px',
+          minHeight: 'unset',
+          minWidth: 'unset',
+          textTransform: 'none',
+          '&:hover': {
+            backgroundColor: theme.palette.grey[100],
+          },
+          '&.Mui-selected': {
+            '&:hover': {
+              backgroundColor: theme.palette.deepOrange[50],
+            },
+          },
         },
       },
     },
