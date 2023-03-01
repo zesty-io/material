@@ -111,7 +111,10 @@ theme = createTheme(theme, {
           backgroundColor: theme.palette.common.white,
           '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
             borderColor: theme.palette.border,
-        },
+          },
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: theme.palette.border,
+          },
         },
         input: {
           padding: "10px 0px",
