@@ -28,9 +28,20 @@ theme = createTheme(theme, {
     MuiTab: {
       styleOverrides: {
         root: {
-          padding: '14px',
+          padding: '8px',
+          margin: '8px',
+          borderRadius: '8px',
           minHeight: 'unset',
+          minWidth: 'unset',
           textTransform: 'none',
+          '&:hover': {
+            backgroundColor: theme.palette.grey[100],
+          },
+          '&.Mui-selected': {
+            '&:hover': {
+              backgroundColor: theme.palette.deepOrange[50],
+            },
+          },
         },
       },
     },
@@ -111,7 +122,10 @@ theme = createTheme(theme, {
           backgroundColor: theme.palette.common.white,
           '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
             borderColor: theme.palette.border,
-        },
+          },
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: theme.palette.border,
+          },
         },
         input: {
           padding: "10px 0px",
@@ -361,25 +375,28 @@ theme = createTheme(theme, {
     },
     MuiLink: {
       styleOverrides: {
-          root: {
-              color: theme.palette.info.dark,
-              textDecorationColor: theme.palette.info.main,
-              '&:hover': {
-                  textDecorationColor: theme.palette.info.dark,
-              },
+        root: {
+          color: theme.palette.info.dark,
+          textDecorationColor: theme.palette.info.main,
+          "&:hover": {
+            textDecorationColor: theme.palette.info.dark,
           },
+        },
       },
-  },
-  MuiTooltip: {
-    styleOverrides: {
+      defaultProps: {
+        underline: "hover",
+      },
+    },
+    MuiTooltip: {
+      styleOverrides: {
         popper: {
-            maxWidth: '240px',
+          maxWidth: "240px",
         },
         tooltip: {
-            ...theme.typography.body3,
-        }
+          ...theme.typography.body3,
+        },
+      },
     },
-  },
     MuiTreeItem: {
       styleOverrides: {
         content: {
