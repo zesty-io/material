@@ -190,6 +190,14 @@ theme = createTheme(theme, {
     },
     MuiDialog: {
       styleOverrides: {
+        root: {
+          "*::-webkit-scrollbar-track-piece": {
+            backgroundColor: `${theme.palette.grey[100]} !important`,
+          },
+          "*::-webkit-scrollbar-thumb": {
+            backgroundColor: `${theme.palette.grey[300]} !important`,
+          },
+        },
         paper: {
           borderRadius: "8px",
         },
@@ -427,6 +435,18 @@ theme = createTheme(theme, {
           width: "24px",
           svg: {
             fontSize: "24px",
+          },
+        },
+      },
+    },
+    MuiPopper: {
+      styleOverrides: {
+        root: {
+          "*::-webkit-scrollbar-track-piece": {
+            backgroundColor: `${theme.palette.grey[100]} !important`,
+          },
+          "*::-webkit-scrollbar-thumb": {
+            backgroundColor: `${theme.palette.grey[300]} !important`,
           },
         },
       },
