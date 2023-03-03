@@ -126,6 +126,9 @@ theme = createTheme(theme, {
           "&:hover .MuiOutlinedInput-notchedOutline": {
             borderColor: theme.palette.border,
           },
+          "&.Mui-focused:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.primary.main,
+          },
         },
         input: {
           padding: "10px 0px",
@@ -190,14 +193,6 @@ theme = createTheme(theme, {
     },
     MuiDialog: {
       styleOverrides: {
-        root: {
-          "*::-webkit-scrollbar-track-piece": {
-            backgroundColor: `${theme.palette.grey[100]} !important`,
-          },
-          "*::-webkit-scrollbar-thumb": {
-            backgroundColor: `${theme.palette.grey[300]} !important`,
-          },
-        },
         paper: {
           borderRadius: "8px",
         },
@@ -435,18 +430,6 @@ theme = createTheme(theme, {
           width: "24px",
           svg: {
             fontSize: "24px",
-          },
-        },
-      },
-    },
-    MuiPopper: {
-      styleOverrides: {
-        root: {
-          "*::-webkit-scrollbar-track-piece": {
-            backgroundColor: `${theme.palette.grey[100]} !important`,
-          },
-          "*::-webkit-scrollbar-thumb": {
-            backgroundColor: `${theme.palette.grey[300]} !important`,
           },
         },
       },
