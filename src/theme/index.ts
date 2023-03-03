@@ -28,17 +28,17 @@ theme = createTheme(theme, {
     MuiTab: {
       styleOverrides: {
         root: {
-          padding: '8px',
-          margin: '8px',
-          borderRadius: '8px',
-          minHeight: 'unset',
-          minWidth: 'unset',
-          textTransform: 'none',
-          '&:hover': {
+          padding: "8px",
+          margin: "8px",
+          borderRadius: "8px",
+          minHeight: "unset",
+          minWidth: "unset",
+          textTransform: "none",
+          "&:hover": {
             backgroundColor: theme.palette.grey[100],
           },
-          '&.Mui-selected': {
-            '&:hover': {
+          "&.Mui-selected": {
+            "&:hover": {
               backgroundColor: theme.palette.deepOrange[50],
             },
           },
@@ -120,10 +120,10 @@ theme = createTheme(theme, {
           padding: "0px 8px",
           borderRadius: "8px",
           backgroundColor: theme.palette.common.white,
-          '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+          "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
             borderColor: theme.palette.border,
           },
-          '&:hover .MuiOutlinedInput-notchedOutline': {
+          "&:hover .MuiOutlinedInput-notchedOutline": {
             borderColor: theme.palette.border,
           },
         },
@@ -191,7 +191,7 @@ theme = createTheme(theme, {
     MuiDialog: {
       styleOverrides: {
         paper: {
-          borderRadius: '8px',
+          borderRadius: "8px",
         },
         paperWidthXs: {
           width: "480px",
@@ -296,13 +296,13 @@ theme = createTheme(theme, {
         standardInfo: {
           backgroundColor: alpha(theme.palette.blue[500], 0.1),
           " .MuiAlert-icon": {
-              color: theme.palette.info.main,
+            color: theme.palette.info.main,
           },
         },
         standardError: {
           backgroundColor: alpha(theme.palette.error.main, 0.1),
           " .MuiAlert-icon": {
-              color: theme.palette.error.main,
+            color: theme.palette.error.main,
           },
         },
       },
@@ -315,23 +315,26 @@ theme = createTheme(theme, {
         },
         cell: {
           borderColor: theme.palette.border,
-          padding: '0 16px',
+          padding: "0 16px",
+          "&:focus": {
+            outline: "none",
+          },
         },
         columnHeaders: {
           borderColor: theme.palette.border,
           backgroundColor: theme.palette.grey[50],
         },
         columnHeader: {
-          padding: '0 16px',
-          '&:focus': {
-                outline: 'unset',
-            },
+          padding: "0 16px",
+          "&:focus": {
+            outline: "none",
           },
+        },
         columnHeaderTitle: {
-            fontWeight: 600,
+          fontWeight: 600,
         },
         columnSeparator: {
-            visibility: "hidden",
+          visibility: "hidden",
         },
       },
     },
