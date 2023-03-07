@@ -1,8 +1,8 @@
 // No checking legacy theme to not have conflicting module augmentation
 // @ts-nocheck
-import palette from './palette';
-import typography from './typography';
-import { createTheme, Theme } from '@mui/material/styles';
+import palette from "./palette";
+import typography from "./typography";
+import { createTheme, Theme } from "@mui/material/styles";
 
 let theme: Theme = createTheme({
   palette,
@@ -14,14 +14,14 @@ theme = createTheme(theme, {
     MuiAccordionSummary: {
       styleOverrides: {
         root: {
-          backgroundColor: '#e4e9f1',
+          backgroundColor: "#e4e9f1",
         },
       },
     },
     MuiButton: {
       styleOverrides: {
         root: {
-          minWidth: 'auto',
+          minWidth: "auto",
         },
       },
     },
@@ -30,8 +30,8 @@ theme = createTheme(theme, {
         tooltip: {
           color: theme.palette.primary.contrastText,
           backgroundColor: theme.palette.primary.main,
-          fontSize: '14px',
-          lineHeight: '20px',
+          fontSize: "14px",
+          lineHeight: "20px",
         },
         arrow: {
           color: theme.palette.primary.main,
@@ -58,14 +58,14 @@ theme = createTheme(theme, {
     MuiCard: {
       styleOverrides: {
         root: {
-          overflow: 'visible',
+          overflow: "visible",
         },
       },
     },
     MuiCardHeader: {
       styleOverrides: {
         root: {
-          backgroundColor: '#e4e9f1',
+          backgroundColor: "#e4e9f1",
         },
       },
     },
@@ -82,6 +82,26 @@ theme = createTheme(theme, {
             } !important`,
           }),
         }),
+      },
+    },
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          boxSizing: "content-box",
+          "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
+            width: "8px",
+            height: "8px",
+          },
+          "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece":
+            {
+              backgroundColor: "#f2f4f7",
+              borderRadius: "4px",
+            },
+          "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
+            backgroundColor: "#d0d5dd",
+            borderRadius: "4px",
+          },
+        },
       },
     },
   },
