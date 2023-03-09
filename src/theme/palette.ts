@@ -11,6 +11,7 @@ declare module '@mui/material/styles' {
     blue: Color;
     green: Color;
     purple: Color;
+    yellow: Color;
   }
   export interface PaletteOptions {
     red?: Partial<Color>;
@@ -20,6 +21,7 @@ declare module '@mui/material/styles' {
     blue?: Partial<Color>;
     green?: Partial<Color>;
     purple?: Partial<Color>;
+    yellow?: Partial<Color>;
     border?: string;
   }
 }
@@ -140,16 +142,28 @@ const palette: PaletteOptions = {
     900: '#054F31',
   },
   purple: {
-    50: '#F3E5F5',
-    100: '#E1BEE7',
-    200: '#CE93D8',
-    300: '#BA68C8',
-    400: '#AB47BC',
-    500: '#9C27B0',
-    600: '#8E24AA',
-    700: '#7B1FA2',
-    800: '#6A1B9A',
-    900: '#4A148C',
+    50: '#F4F3FF',
+    100: '#EBE9FE',
+    200: '#D9D6FE',
+    300: '#BDB4FE',
+    400: '#9B8AFB',
+    500: '#7A5AF8',
+    600: '#6938EF',
+    700: '#5925DC',
+    800: '#4A1FB8',
+    900: '#3E1C96',
+  },
+  yellow: {
+    50: '#FFFCF5',
+    100: '#FEF0C7',
+    200: '#FEDF89',
+    300: '#FEC84B',
+    400: '#FDB022',
+    500: '#F79009',
+    600: '#DC6803',
+    700: '#B54708',
+    800: '#93370D',
+    900: '#7A2E0E',
   },
   border: "#F2F4F7",
   action: {
