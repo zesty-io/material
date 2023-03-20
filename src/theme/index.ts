@@ -65,9 +65,9 @@ theme = createTheme(theme, {
     MuiButton: {
       variants: [
         {
-          props: { size: "xsmall" },
+          props: { size: "xLarge" },
           style: {
-            padding: "2px 10px",
+            padding: "11px 22px",
           },
         },
       ],

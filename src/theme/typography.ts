@@ -5,6 +5,8 @@ import { TypographyStyleOptions } from '@mui/material/styles/createTypography';
 declare module '@mui/material/styles' {
   export interface TypographyVariantsOptions {
     body3?: TypographyStyleOptions;
+    display1?: TypographyStyleOptions;
+    display2?: TypographyStyleOptions;
   }
 }
 
@@ -64,7 +66,16 @@ const typography: TypographyVariantsOptions = {
     letterSpacing: "1px",
     lineHeight: "32px",
   },
-  
+  display1: {
+    fontSize: "52px",
+    lineHeight: "56px",
+    letterSpacing: "-0.32px",
+  },
+  display2: {
+    fontSize: "44px",
+    lineHeight: "48px",
+    letterSpacing: "-0.32px",
+  },
 };
 
 export default typography;
