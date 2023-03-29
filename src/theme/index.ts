@@ -453,6 +453,13 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          borderColor: theme.palette.border
+        }
+      }
+    }
   },
 });
 
