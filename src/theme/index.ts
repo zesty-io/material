@@ -434,6 +434,32 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
+            width: "8px",
+            height: "8px",
+          },
+          "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece":
+            {
+              backgroundColor: theme.palette.grey[100],
+              borderRadius: "4px",
+            },
+          "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
+            backgroundColor: theme.palette.grey[300],
+            borderRadius: "4px",
+          },
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          borderColor: theme.palette.border
+        }
+      }
+    }
   },
 });
 
