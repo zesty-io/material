@@ -2,9 +2,8 @@
 // @ts-nocheck
 import palette from "./palette";
 import typography from "./typography";
-import { createTheme, Theme } from "@mui/material/styles";
-
-let theme: Theme = createTheme({
+import { createTheme } from "@mui/material/styles";
+let theme = createTheme({
   palette,
   typography,
 });
@@ -22,6 +21,15 @@ theme = createTheme(theme, {
       styleOverrides: {
         root: {
           minWidth: "auto",
+          boxShadow: "none",
+          textTransform: "none",
+        },
+      },
+    },
+    MuiButtonGroup: {
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
         },
       },
     },
@@ -69,21 +77,6 @@ theme = createTheme(theme, {
         },
       },
     },
-    MuiToggleButton: {
-      styleOverrides: {
-        root: ({ ownerState, theme }: any) => ({
-          backgroundColor: `${
-            theme.palette[ownerState.color].contrastText
-          } !important`,
-          ...(ownerState.selected && {
-            color: `${theme.palette[ownerState.color].contrastText} !important`,
-            backgroundColor: `${
-              theme.palette[ownerState.color].main
-            } !important`,
-          }),
-        }),
-      },
-    },
     MuiCssBaseline: {
       styleOverrides: {
         body: {
@@ -101,6 +94,38 @@ theme = createTheme(theme, {
             backgroundColor: "#d0d5dd",
             borderRadius: "4px",
           },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          padding: "0px 8px",
+          borderRadius: "8px",
+          backgroundColor: theme.palette.common.white,
+          "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#E4E7EC",
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#E4E7EC",
+          },
+          "&.Mui-focused:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.primary.main,
+          },
+        },
+        input: {
+          padding: "10px 0px",
+          ":read-only": {
+            color: theme.palette.text.secondary,
+          },
+        },
+        sizeSmall: {
+          input: {
+            padding: "8px 0px",
+          },
+        },
+        notchedOutline: {
+          borderColor: "#E4E7EC",
         },
       },
     },
