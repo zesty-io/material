@@ -129,6 +129,20 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: theme.palette.info.dark,
+          textDecorationColor: theme.palette.info.main,
+          "&:hover": {
+            textDecorationColor: theme.palette.info.dark,
+          },
+        },
+      },
+      defaultProps: {
+        underline: "hover",
+      },
+    },
   },
 });
 
