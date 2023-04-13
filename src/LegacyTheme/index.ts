@@ -2,9 +2,8 @@
 // @ts-nocheck
 import palette from "./palette";
 import typography from "./typography";
-import { createTheme, Theme } from "@mui/material/styles";
-
-let theme: Theme = createTheme({
+import { createTheme } from "@mui/material/styles";
+let theme = createTheme({
   palette,
   typography,
 });
@@ -22,6 +21,15 @@ theme = createTheme(theme, {
       styleOverrides: {
         root: {
           minWidth: "auto",
+          boxShadow: "none",
+          textTransform: "none",
+        },
+      },
+    },
+    MuiButtonGroup: {
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
         },
       },
     },
@@ -69,21 +77,6 @@ theme = createTheme(theme, {
         },
       },
     },
-    MuiToggleButton: {
-      styleOverrides: {
-        root: ({ ownerState, theme }: any) => ({
-          backgroundColor: `${
-            theme.palette[ownerState.color].contrastText
-          } !important`,
-          ...(ownerState.selected && {
-            color: `${theme.palette[ownerState.color].contrastText} !important`,
-            backgroundColor: `${
-              theme.palette[ownerState.color].main
-            } !important`,
-          }),
-        }),
-      },
-    },
     MuiCssBaseline: {
       styleOverrides: {
         body: {
@@ -102,6 +95,52 @@ theme = createTheme(theme, {
             borderRadius: "4px",
           },
         },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          padding: "0px 8px",
+          borderRadius: "8px",
+          backgroundColor: theme.palette.common.white,
+          "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#F2F4F7",
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#F2F4F7",
+          },
+          "&.Mui-focused:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#FF5D0A",
+          },
+        },
+        input: {
+          padding: "10px 0px",
+          ":read-only": {
+            color: "#475467",
+          },
+        },
+        sizeSmall: {
+          input: {
+            padding: "8px 0px",
+          },
+        },
+        notchedOutline: {
+          borderColor: "#F2F4F7",
+        },
+      },
+    },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: theme.palette.info.dark,
+          textDecorationColor: theme.palette.info.main,
+          "&:hover": {
+            textDecorationColor: theme.palette.info.dark,
+          },
+        },
+      },
+      defaultProps: {
+        underline: "hover",
       },
     },
   },
