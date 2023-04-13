@@ -104,19 +104,19 @@ theme = createTheme(theme, {
           borderRadius: "8px",
           backgroundColor: theme.palette.common.white,
           "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#E4E7EC",
+            borderColor: "#F2F4F7",
           },
           "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#E4E7EC",
+            borderColor: "#F2F4F7",
           },
           "&.Mui-focused:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.palette.primary.main,
+            borderColor: "#FF5D0A",
           },
         },
         input: {
           padding: "10px 0px",
           ":read-only": {
-            color: theme.palette.text.secondary,
+            color: "#475467",
           },
         },
         sizeSmall: {
@@ -125,7 +125,7 @@ theme = createTheme(theme, {
           },
         },
         notchedOutline: {
-          borderColor: "#E4E7EC",
+          borderColor: "#F2F4F7",
         },
       },
     },
