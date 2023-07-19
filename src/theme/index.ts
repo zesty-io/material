@@ -511,6 +511,10 @@ const getTheme = (mode?: PaletteMode) => {
           root: {
             color: theme.palette.text.secondary,
             "&.Mui-selected": {
+              backgroundColor: alpha(
+                theme.palette.primary.main,
+                theme.palette.action.selectedOpacity
+              ),
               color: theme.palette.primary.main,
               svg: {
                 color: theme.palette.primary.main,

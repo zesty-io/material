@@ -185,7 +185,8 @@ const darkThemePalette = {
   },
   action: {
     active: "#98A2B3",
-    hover: "rgba(255, 93, 10, 0.08)",
+    hover: alpha("#FF5D0A", 0.08),
+    selectedOpacity: 0.08,
   },
 };
 
