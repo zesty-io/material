@@ -180,6 +180,12 @@ const darkThemePalette = {
   ...lightThemePalette,
   text: {
     primary: "#ffffff",
+    secondary: "#98A2B3",
+    disabled: "#D0D5DD",
+  },
+  action: {
+    active: "#98A2B3",
+    hover: "rgba(255, 93, 10, 0.08)",
   },
 };
 

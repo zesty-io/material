@@ -18,11 +18,11 @@ declare module "@mui/material/styles" {
 }
 
 const getTheme = (mode?: PaletteMode) => {
+  // Set the default to light mode
+  const _mode = mode ?? "light";
   let palette: PaletteOptions;
-  console.log("MODE: ", mode);
 
-  // Set palette depending on mode, default is light
-  switch (mode) {
+  switch (_mode) {
     case "light":
       palette = {
         mode,
@@ -43,6 +43,8 @@ const getTheme = (mode?: PaletteMode) => {
     palette,
     typography,
   });
+
+  const isLightMode = _mode === "light";
 
   theme = createTheme(theme, {
     components: {
@@ -147,15 +149,29 @@ const getTheme = (mode?: PaletteMode) => {
           root: {
             padding: "0px 8px",
             borderRadius: "8px",
-            backgroundColor: theme.palette.common.white,
+            backgroundColor: isLightMode
+              ? theme.palette.common.white
+              : theme.palette.grey[800],
             "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-              borderColor: theme.palette.border,
+              borderColor: isLightMode
+                ? theme.palette.border
+                : theme.palette.grey[800],
             },
             "&:hover .MuiOutlinedInput-notchedOutline": {
-              borderColor: theme.palette.border,
+              borderColor: isLightMode
+                ? theme.palette.border
+                : theme.palette.grey[800],
             },
-            "&.Mui-focused:hover .MuiOutlinedInput-notchedOutline": {
-              borderColor: theme.palette.primary.main,
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused:hover .MuiOutlinedInput-notchedOutline":
+              {
+                borderColor: isLightMode
+                  ? theme.palette.primary.main
+                  : theme.palette.grey[800],
+              },
+            "&.MuiInputBase-adornedStart .MuiInputAdornment-root": {
+              color: isLightMode
+                ? theme.palette.action.active
+                : theme.palette.grey[400],
             },
           },
           input: {
@@ -170,7 +186,9 @@ const getTheme = (mode?: PaletteMode) => {
             },
           },
           notchedOutline: {
-            borderColor: theme.palette.border,
+            borderColor: isLightMode
+              ? theme.palette.border
+              : theme.palette.grey[800],
           },
         },
       },
@@ -485,6 +503,19 @@ const getTheme = (mode?: PaletteMode) => {
         styleOverrides: {
           root: {
             borderColor: theme.palette.border,
+          },
+        },
+      },
+      MuiListItem: {
+        styleOverrides: {
+          root: {
+            color: theme.palette.text.secondary,
+            "&.Mui-selected": {
+              color: theme.palette.primary.main,
+              svg: {
+                color: theme.palette.primary.main,
+              },
+            },
           },
         },
       },
