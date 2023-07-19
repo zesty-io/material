@@ -489,11 +489,15 @@ const getTheme = (mode?: PaletteMode) => {
             },
             "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece":
               {
-                backgroundColor: theme.palette.grey[100],
+                backgroundColor: isLightMode
+                  ? theme.palette.grey[100]
+                  : theme.palette.grey[800],
                 borderRadius: "4px",
               },
             "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
-              backgroundColor: theme.palette.grey[300],
+              backgroundColor: isLightMode
+                ? theme.palette.grey[300]
+                : theme.palette.grey[700],
               borderRadius: "4px",
             },
           },
