@@ -466,15 +466,21 @@ const getTheme = (mode?: PaletteMode) => {
             paddingRight: "12px",
             borderRadius: 4,
             width: "unset",
-            "&.Mui-selected": {
-              background: alpha(theme.palette.primary.main, 0.04),
-              " .MuiTreeItem-label .MuiSvgIcon-root": {
-                color: theme.palette.primary.main,
+            "&.Mui-selected, &.Mui-selected:hover, &.Mui-selected.Mui-focused":
+              {
+                background: alpha(
+                  theme.palette.primary.main,
+                  isLightMode
+                    ? theme.palette.action.hoverOpacity
+                    : theme.palette.action.selectedOpacity
+                ),
+                " .MuiTreeItem-label .MuiSvgIcon-root": {
+                  color: theme.palette.primary.main,
+                },
+                " .MuiTypography-root": {
+                  color: theme.palette.primary.dark,
+                },
               },
-              " .MuiTypography-root": {
-                color: theme.palette.primary.dark,
-              },
-            },
           },
           label: {
             paddingLeft: "0",
