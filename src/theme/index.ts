@@ -451,6 +451,14 @@ const getTheme = (mode?: PaletteMode) => {
       },
       MuiTreeItem: {
         styleOverrides: {
+          root: {
+            color: isLightMode
+              ? theme.palette.text.secondary
+              : theme.palette.text.disabled,
+            svg: {
+              color: theme.palette.action.active,
+            },
+          },
           content: {
             paddingTop: "6px",
             paddingBottom: "6px",
@@ -529,7 +537,6 @@ const getTheme = (mode?: PaletteMode) => {
       },
     },
   });
-
   return theme;
 };
 
