@@ -1,11 +1,6 @@
 import { lightThemePalette, darkThemePalette } from "./palette";
 import typography from "./typography";
-import {
-  alpha,
-  createTheme,
-  PaletteOptions,
-  Theme,
-} from "@mui/material/styles";
+import { alpha, createTheme, Theme } from "@mui/material/styles";
 import { PaletteMode } from "@mui/material";
 
 declare module "@mui/material/styles" {
@@ -17,35 +12,18 @@ declare module "@mui/material/styles" {
   }
 }
 
-const getTheme = (mode?: PaletteMode) => {
-  // Set the default to light mode
-  const _mode = mode ?? "light";
-  let palette: PaletteOptions;
-
-  switch (_mode) {
-    case "light":
-      palette = {
-        mode,
-        ...lightThemePalette,
-      };
-      break;
-
-    case "dark":
-      palette = { mode, ...darkThemePalette };
-      break;
-
-    default:
-      palette = { mode, ...lightThemePalette };
-      break;
-  }
+const getTheme = (mode: PaletteMode = "light") => {
+  const isLightMode = mode === "light";
+  const palette = isLightMode
+    ? { mode, ...lightThemePalette }
+    : { mode, ...darkThemePalette };
 
   let theme: Theme = createTheme({
     palette,
     typography,
   });
 
-  const isLightMode = _mode === "light";
-
+  // Component overrides
   theme = createTheme(theme, {
     components: {
       MuiFormLabel: {
@@ -153,14 +131,10 @@ const getTheme = (mode?: PaletteMode) => {
               ? theme.palette.common.white
               : theme.palette.grey[800],
             "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-              borderColor: isLightMode
-                ? theme.palette.border
-                : theme.palette.grey[800],
+              borderColor: theme.palette.border,
             },
             "&:hover .MuiOutlinedInput-notchedOutline": {
-              borderColor: isLightMode
-                ? theme.palette.border
-                : theme.palette.grey[800],
+              borderColor: theme.palette.border,
             },
             "&.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused:hover .MuiOutlinedInput-notchedOutline":
               {
@@ -169,9 +143,7 @@ const getTheme = (mode?: PaletteMode) => {
                   : theme.palette.grey[800],
               },
             "&.MuiInputBase-adornedStart .MuiInputAdornment-root": {
-              color: isLightMode
-                ? theme.palette.action.active
-                : theme.palette.grey[400],
+              color: theme.palette.action.active,
             },
           },
           input: {
@@ -186,9 +158,7 @@ const getTheme = (mode?: PaletteMode) => {
             },
           },
           notchedOutline: {
-            borderColor: isLightMode
-              ? theme.palette.border
-              : theme.palette.grey[800],
+            borderColor: theme.palette.border,
           },
         },
       },
@@ -236,6 +206,22 @@ const getTheme = (mode?: PaletteMode) => {
             padding: "4px",
           },
         },
+        variants: [
+          {
+            props: { size: "xSmall" },
+            style: {
+              width: "20px",
+              height: "20px",
+              padding: "2px",
+            },
+          },
+          {
+            props: { shape: "square" },
+            style: {
+              borderRadius: "4px",
+            },
+          },
+        ],
       },
       MuiDialog: {
         styleOverrides: {
@@ -478,7 +464,9 @@ const getTheme = (mode?: PaletteMode) => {
                   color: theme.palette.primary.main,
                 },
                 " .MuiTypography-root": {
-                  color: theme.palette.primary.dark,
+                  color: isLightMode
+                    ? theme.palette.primary.dark
+                    : theme.palette.primary.main,
                 },
               },
           },
@@ -543,6 +531,7 @@ const getTheme = (mode?: PaletteMode) => {
       },
     },
   });
+
   return theme;
 };
 

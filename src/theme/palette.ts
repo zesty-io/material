@@ -188,6 +188,7 @@ const darkThemePalette = {
     hover: alpha("#FF5D0A", 0.08),
     selectedOpacity: 0.08,
   },
+  border: "#1D2939",
 };
 
 export { lightThemePalette, darkThemePalette };
