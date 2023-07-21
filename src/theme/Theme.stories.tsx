@@ -1,16 +1,19 @@
-import React from 'react';
-import ReactJson from 'react-json-view'
-import { Story, Meta } from '@storybook/react/types-6-0';
-import theme from '.';
+import React from "react";
+import ReactJson from "react-json-view";
+import { Story, Meta } from "@storybook/react/types-6-0";
+import { darkTheme, lightTheme } from ".";
 
 export default {
-  title: 'Theme',
+  title: "Theme",
 } as Meta;
 
-const Template: Story = (args) => {
-  return (
-    <ReactJson src={theme} />
-  );
+const LightTheme: Story = (args) => {
+  return <ReactJson src={lightTheme} />;
 };
 
-export const Default = Template.bind({});
+const DarkTheme: Story = (args) => {
+  return <ReactJson src={darkTheme} />;
+};
+
+export const light = LightTheme.bind({});
+export const dark = DarkTheme.bind({});

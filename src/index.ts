@@ -1,5 +1,5 @@
 export { default as legacyTheme } from "./LegacyTheme";
-export { default as getTheme } from "./theme";
+export { darkTheme, lightTheme } from "./theme";
 export { default as FieldTypeText } from "./FieldTypeText";
 export { default as FieldTypeSort } from "./FieldTypeSort";
 export { default as FieldTypeUrl } from "./FieldTypeUrl";
