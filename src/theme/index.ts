@@ -2,7 +2,6 @@ import { lightThemePalette, darkThemePalette } from "./palette";
 import typography from "./typography";
 import { alpha, createTheme, Theme } from "@mui/material/styles";
 import { PaletteMode } from "@mui/material";
-
 declare module "@mui/material/styles" {
   interface Palette {
     border: string;
@@ -12,9 +11,16 @@ declare module "@mui/material/styles" {
   }
 }
 
-// Components with no specific dark or light mode color differences
-const getSharedComponents = (theme: Theme) => {
-  return {
+export let theme = createTheme({
+  typography,
+  palette: {
+    mode: "light",
+    ...lightThemePalette,
+  },
+});
+
+theme = createTheme(theme, {
+  components: {
     MuiFormLabel: {
       styleOverrides: {
         root: {
@@ -111,6 +117,38 @@ const getSharedComponents = (theme: Theme) => {
         },
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          padding: "0px 8px",
+          borderRadius: "8px",
+          backgroundColor: theme.palette.common.white,
+          "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.border,
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.border,
+          },
+          "&.Mui-focused:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.primary.main,
+          },
+        },
+        input: {
+          padding: "10px 0px",
+          ":read-only": {
+            color: theme.palette.text.secondary,
+          },
+        },
+        sizeSmall: {
+          input: {
+            padding: "8px 0px",
+          },
+        },
+        notchedOutline: {
+          borderColor: theme.palette.border,
+        },
+      },
+    },
     MuiFormHelperText: {
       styleOverrides: {
         root: {
@@ -162,12 +200,6 @@ const getSharedComponents = (theme: Theme) => {
             width: "20px",
             height: "20px",
             padding: "2px",
-          },
-        },
-        {
-          props: { shape: "square" },
-          style: {
-            borderRadius: "4px",
           },
         },
       ],
@@ -384,89 +416,8 @@ const getSharedComponents = (theme: Theme) => {
         },
       },
     },
-    MuiDivider: {
-      styleOverrides: {
-        root: {
-          borderColor: theme.palette.border,
-        },
-      },
-    },
-    MuiListItem: {
-      styleOverrides: {
-        root: {
-          color: theme.palette.text.secondary,
-          "&.Mui-selected": {
-            backgroundColor: alpha(
-              theme.palette.primary.main,
-              theme.palette.action.selectedOpacity
-            ),
-            color: theme.palette.primary.main,
-            svg: {
-              color: theme.palette.primary.main,
-            },
-          },
-        },
-      },
-    },
-  };
-};
-
-export let lightTheme = createTheme({
-  typography,
-  palette: {
-    mode: "light",
-    ...lightThemePalette,
-  },
-});
-
-// Components with specific light theme styles
-lightTheme = createTheme(lightTheme, {
-  components: {
-    ...getSharedComponents(lightTheme),
-    MuiOutlinedInput: {
-      styleOverrides: {
-        root: {
-          padding: "0px 8px",
-          borderRadius: "8px",
-          backgroundColor: lightTheme.palette.common.white,
-          "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-            borderColor: lightTheme.palette.border,
-          },
-          "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: lightTheme.palette.border,
-          },
-          "&.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused:hover .MuiOutlinedInput-notchedOutline":
-            {
-              borderColor: lightTheme.palette.primary.main,
-            },
-          "&.MuiInputBase-adornedStart .MuiInputAdornment-root": {
-            color: lightTheme.palette.action.active,
-          },
-        },
-        input: {
-          padding: "10px 0px",
-          ":read-only": {
-            color: lightTheme.palette.text.secondary,
-          },
-        },
-        sizeSmall: {
-          input: {
-            padding: "8px 0px",
-          },
-        },
-        notchedOutline: {
-          borderColor: lightTheme.palette.border,
-        },
-      },
-    },
     MuiTreeItem: {
       styleOverrides: {
-        root: {
-          color: lightTheme.palette.text.secondary,
-          svg: {
-            color: lightTheme.palette.action.active,
-          },
-        },
         content: {
           paddingTop: "6px",
           paddingBottom: "6px",
@@ -474,16 +425,13 @@ lightTheme = createTheme(lightTheme, {
           paddingRight: "12px",
           borderRadius: 4,
           width: "unset",
-          "&.Mui-selected, &.Mui-selected:hover, &.Mui-selected.Mui-focused": {
-            background: alpha(
-              lightTheme.palette.primary.main,
-              lightTheme.palette.action.hoverOpacity
-            ),
+          "&.Mui-selected": {
+            background: alpha(theme.palette.primary.main, 0.04),
             " .MuiTreeItem-label .MuiSvgIcon-root": {
-              color: lightTheme.palette.primary.main,
+              color: theme.palette.primary.main,
             },
             " .MuiTypography-root": {
-              color: lightTheme.palette.primary.dark,
+              color: theme.palette.primary.dark,
             },
           },
         },
@@ -508,12 +456,36 @@ lightTheme = createTheme(lightTheme, {
           },
           "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece":
             {
-              backgroundColor: lightTheme.palette.grey[100],
+              backgroundColor: theme.palette.grey[100],
               borderRadius: "4px",
             },
           "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
-            backgroundColor: lightTheme.palette.grey[300],
+            backgroundColor: theme.palette.grey[300],
             borderRadius: "4px",
+          },
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          borderColor: theme.palette.border,
+        },
+      },
+    },
+    MuiListItem: {
+      styleOverrides: {
+        root: {
+          color: theme.palette.text.secondary,
+          "&.Mui-selected": {
+            backgroundColor: alpha(
+              theme.palette.primary.main,
+              theme.palette.action.selectedOpacity
+            ),
+            color: theme.palette.primary.main,
+            svg: {
+              color: theme.palette.primary.main,
+            },
           },
         },
       },
@@ -521,18 +493,15 @@ lightTheme = createTheme(lightTheme, {
   },
 });
 
-export let darkTheme = createTheme({
-  typography,
+export let darkTheme = createTheme(theme, {
   palette: {
     mode: "dark",
     ...darkThemePalette,
   },
 });
-
 // Components with specific dark theme styles
 darkTheme = createTheme(darkTheme, {
   components: {
-    ...getSharedComponents(darkTheme),
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
@@ -557,6 +526,9 @@ darkTheme = createTheme(darkTheme, {
           padding: "10px 0px",
           ":read-only": {
             color: darkTheme.palette.text.secondary,
+          },
+          "::placeholder": {
+            color: darkTheme.palette.text.disabled,
           },
         },
         sizeSmall: {
