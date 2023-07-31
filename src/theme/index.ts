@@ -1,7 +1,7 @@
 import { lightThemePalette, darkThemePalette } from "./palette";
 import typography from "./typography";
-import { alpha, createTheme, Theme } from "@mui/material/styles";
-import { PaletteMode } from "@mui/material";
+import { alpha, Components, createTheme } from "@mui/material/styles";
+
 declare module "@mui/material/styles" {
   interface Palette {
     border: string;
@@ -11,486 +11,542 @@ declare module "@mui/material/styles" {
   }
 }
 
+declare module "@mui/material/IconButton" {
+  interface IconButtonPropsSizeOverrides {
+    xSmall: true;
+  }
+}
+
+declare module "@mui/material/Button" {
+  interface ButtonPropsSizeOverrides {
+    xsmall: true;
+  }
+}
+
+const components: Components = {
+  MuiFormLabel: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        ...theme.typography.body2,
+      }),
+    },
+  },
+  MuiTab: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        padding: "8px",
+        margin: "8px",
+        borderRadius: "8px",
+        minHeight: "unset",
+        minWidth: "unset",
+        textTransform: "none",
+        "&:hover": {
+          backgroundColor: theme.palette.grey[100],
+        },
+        "&.Mui-selected": {
+          "&:hover": {
+            backgroundColor: theme.palette.deepOrange[50],
+          },
+        },
+      }),
+    },
+  },
+  MuiCardHeader: {
+    styleOverrides: {
+      root: {
+        padding: "16px 16px 0px",
+      },
+    },
+  },
+  MuiCardContent: {
+    styleOverrides: {
+      root: {
+        padding: "8px 16px 16px",
+        ":last-child": {
+          paddingBottom: "16px",
+        },
+      },
+    },
+  },
+  MuiButton: {
+    variants: [
+      {
+        props: { size: "xsmall" },
+        style: {
+          padding: "2px 10px",
+        },
+      },
+    ],
+    styleOverrides: {
+      root: {
+        textTransform: "none",
+      },
+      sizeSmall: {
+        fontSize: "14px",
+      },
+      outlinedInherit: ({ theme }: { theme: any }) => ({
+        color: theme.palette.text.secondary,
+        borderColor: theme.palette.border,
+      }),
+      containedInherit: ({ theme }: { theme: any }) => ({
+        color: theme.palette.text.secondary,
+        backgroundColor: theme.palette.grey[100],
+      }),
+      textInherit: ({ theme }: { theme: any }) => ({
+        color: theme.palette.text.secondary,
+      }),
+    },
+    defaultProps: {
+      disableElevation: true,
+    },
+  },
+  MuiButtonGroup: {
+    defaultProps: {
+      disableElevation: true,
+    },
+    styleOverrides: {
+      groupedContained: ({ theme }: { theme: any }) => ({
+        color: theme.palette.primary.main,
+        backgroundColor: alpha(
+          theme.palette.primary.main,
+          theme.palette.action.hoverOpacity
+        ),
+        "&:hover": {
+          backgroundColor: alpha(
+            theme.palette.primary.main,
+            theme.palette.action.selectedOpacity
+          ),
+        },
+      }),
+    },
+  },
+  MuiOutlinedInput: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        padding: "0px 8px",
+        borderRadius: "8px",
+        backgroundColor: theme.palette.common.white,
+        "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
+          borderColor: theme.palette.border,
+        },
+        "&:hover .MuiOutlinedInput-notchedOutline": {
+          borderColor: theme.palette.border,
+        },
+        "&.Mui-focused:hover .MuiOutlinedInput-notchedOutline": {
+          borderColor: theme.palette.primary.main,
+        },
+        "&.MuiInputBase-adornedStart .MuiInputAdornment-root": {
+          color: theme.palette.action.active,
+        },
+      }),
+      input: ({ theme }: { theme: any }) => ({
+        padding: "10px 0px",
+        ":read-only": {
+          color: theme.palette.text.secondary,
+        },
+        "::placeholder": {
+          color: theme.palette.text.disabled,
+        },
+      }),
+      sizeSmall: {
+        input: {
+          padding: "8px 0px",
+        },
+      },
+      notchedOutline: ({ theme }: { theme: any }) => ({
+        borderColor: theme.palette.border,
+      }),
+    },
+  },
+  MuiFormHelperText: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        ...theme.typography.body2,
+        margin: "4px 0px 0px 0px",
+      }),
+    },
+  },
+  MuiInputBase: {
+    styleOverrides: {
+      input: ({ theme }: { theme: any }) => ({
+        ...theme.typography.body2,
+        "::placeholder": {
+          color: theme.palette.text.disabled,
+          opacity: 1,
+        },
+      }),
+    },
+  },
+  MuiInputLabel: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        ...theme.typography.body2,
+        color: theme.palette.text.primary,
+        marginBottom: "4px",
+        fontWeight: 600,
+      }),
+    },
+  },
+  MuiInputAdornment: {
+    styleOverrides: {
+      root: {
+        "& > .MuiSvgIcon-root": {
+          margin: "4px",
+        },
+      },
+    },
+  },
+  MuiIconButton: {
+    styleOverrides: {
+      sizeSmall: {
+        padding: "4px",
+      },
+    },
+    variants: [
+      {
+        props: { size: "xSmall" },
+        style: {
+          width: "20px",
+          height: "20px",
+          padding: "2px",
+        },
+      },
+    ],
+  },
+  MuiDialog: {
+    styleOverrides: {
+      paper: {
+        borderRadius: "8px",
+      },
+      paperWidthXs: {
+        width: "480px",
+        maxWidth: "480px",
+      },
+    },
+  },
+  MuiDialogTitle: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        ...theme.typography.h5,
+        fontWeight: 600,
+        padding: "20px",
+      }),
+    },
+  },
+  MuiDialogContent: {
+    styleOverrides: {
+      root: {
+        padding: "20px",
+        paddingTop: 0,
+      },
+      dividers: ({ theme }: { theme: any }) => ({
+        borderColor: theme.palette.border,
+      }),
+    },
+  },
+  MuiDialogContentText: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        ...theme.typography.body2,
+      }),
+    },
+  },
+  MuiDialogActions: {
+    styleOverrides: {
+      root: {
+        padding: "20px",
+        paddingTop: 0,
+      },
+    },
+  },
+  MuiBackdrop: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        backgroundColor: alpha(theme.palette.grey[900], 0.5),
+      }),
+      invisible: {
+        backgroundColor: "transparent",
+      },
+    },
+  },
+  MuiMenu: {
+    styleOverrides: {
+      list: {
+        minWidth: "240px",
+      },
+    },
+  },
+  MuiAccordion: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        "&:before": {
+          backgroundColor: theme.palette.border,
+        },
+      }),
+    },
+  },
+  MuiSlider: {
+    styleOverrides: {
+      rail: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.grey[400],
+      }),
+    },
+  },
+  MuiChip: {
+    styleOverrides: {
+      root: {
+        borderRadius: "4px",
+      },
+      // @ts-ignore
+      colorDefault: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.grey[100],
+        ":hover": {
+          backgroundColor: theme.palette.grey[200],
+        },
+        ":focus": {
+          backgroundColor: theme.palette.grey[300],
+        },
+      }),
+    },
+  },
+  MuiAlert: {
+    styleOverrides: {
+      icon: {
+        alignSelf: "center",
+      },
+      standardWarning: ({ theme }: { theme: any }) => ({
+        " .MuiAlert-icon": {
+          color: theme.palette.common.black,
+        },
+      }),
+      standardInfo: ({ theme }: { theme: any }) => ({
+        backgroundColor: alpha(theme.palette.blue[500], 0.1),
+        " .MuiAlert-icon": {
+          color: theme.palette.info.main,
+        },
+      }),
+      standardError: ({ theme }: { theme: any }) => ({
+        backgroundColor: alpha(theme.palette.error.main, 0.1),
+        " .MuiAlert-icon": {
+          color: theme.palette.error.main,
+        },
+      }),
+    },
+  },
+  MuiDataGrid: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        borderColor: theme.palette.border,
+        borderRadius: "8px",
+      }),
+      cell: ({ theme }: { theme: any }) => ({
+        borderColor: theme.palette.border,
+        padding: "0 16px",
+        "&:focus": {
+          outline: "none",
+        },
+      }),
+      columnHeaders: ({ theme }: { theme: any }) => ({
+        borderColor: theme.palette.border,
+        backgroundColor: theme.palette.grey[50],
+      }),
+      columnHeader: {
+        padding: "0 16px",
+        "&:focus": {
+          outline: "none",
+        },
+      },
+      columnHeaderTitle: {
+        fontWeight: 600,
+      },
+      columnSeparator: {
+        visibility: "hidden",
+      },
+    },
+  },
+  MuiFab: {
+    styleOverrides: {
+      root: {
+        boxShadow: "none",
+      },
+    },
+  },
+  MuiSpeedDial: {
+    styleOverrides: {
+      actions: {
+        paddingTop: "38px !important",
+      },
+    },
+  },
+  MuiSpeedDialAction: {
+    styleOverrides: {
+      fab: {
+        marginTop: "6px",
+        marginBottom: "6px",
+      },
+      staticTooltipLabel: ({ theme }: { theme: any }) => ({
+        ...theme.typography.body2,
+        fontWeight: 500,
+        color: theme.palette.common.white,
+        backgroundColor: "transparent",
+        whiteSpace: "nowrap",
+        boxShadow: "none",
+        paddingRight: 0,
+      }),
+    },
+  },
+  MuiListItemButton: {
+    styleOverrides: {
+      divider: ({ theme }: { theme: any }) => ({
+        borderColor: theme.palette.border,
+      }),
+    },
+  },
+  MuiLink: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        color: theme.palette.info.dark,
+        textDecorationColor: theme.palette.info.main,
+        "&:hover": {
+          textDecorationColor: theme.palette.info.dark,
+        },
+      }),
+    },
+    defaultProps: {
+      underline: "hover",
+    },
+  },
+  MuiTooltip: {
+    styleOverrides: {
+      popper: {
+        maxWidth: "240px",
+      },
+      tooltip: ({ theme }: { theme: any }) => ({
+        ...theme.typography.body3,
+      }),
+    },
+  },
+  MuiTreeItem: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        color: theme.palette.text.disabled,
+        svg: {
+          color: theme.palette.action.active,
+        },
+      }),
+      content: ({ theme }: { theme: any }) => ({
+        paddingTop: "6px",
+        paddingBottom: "6px",
+        paddingLeft: 0,
+        paddingRight: "12px",
+        borderRadius: 4,
+        width: "unset",
+        "&.Mui-focused:hover": {
+          background: alpha(
+            theme.palette.primary.main,
+            theme.palette.action.selectedOpacity
+          ),
+        },
+        "&.Mui-selected, &.Mui-selected:hover, &.Mui-selected.Mui-focused": {
+          background: alpha(
+            theme.palette.primary.main,
+            theme.palette.action.selectedOpacity
+          ),
+          " .MuiTreeItem-label .MuiSvgIcon-root": {
+            color: theme.palette.primary.main,
+          },
+          " .MuiTypography-root": {
+            color: theme.palette.primary.main,
+          },
+        },
+      }),
+      label: {
+        paddingLeft: "0",
+      },
+      iconContainer: {
+        marginRight: "0",
+        width: "24px",
+        svg: {
+          fontSize: "24px",
+        },
+      },
+    },
+  },
+  MuiCssBaseline: {
+    styleOverrides: {
+      body: {
+        "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
+          width: "8px",
+          height: "8px",
+        },
+        "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece":
+          ({ theme }: { theme: any }) => ({
+            backgroundColor: theme.palette.grey[100],
+            borderRadius: "4px",
+          }),
+        "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": ({
+          theme,
+        }: {
+          theme: any;
+        }) => ({
+          backgroundColor: theme.palette.grey[300],
+          borderRadius: "4px",
+        }),
+      },
+    },
+  },
+  MuiDivider: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        borderColor: theme.palette.border,
+      }),
+    },
+  },
+  MuiListItem: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        color: theme.palette.text.secondary,
+        "&.Mui-selected": {
+          backgroundColor: alpha(
+            theme.palette.primary.main,
+            theme.palette.action.selectedOpacity
+          ),
+          color: theme.palette.primary.main,
+          svg: {
+            color: theme.palette.primary.main,
+          },
+        },
+      }),
+    },
+  },
+  MuiScopedCssBaseline: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
+          width: "8px",
+          height: "8px",
+        },
+        "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece":
+          {
+            backgroundColor: theme.palette.grey[800],
+            borderRadius: "4px",
+          },
+        "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
+          backgroundColor: theme.palette.grey[700],
+          borderRadius: "4px",
+        },
+      }),
+    },
+  },
+};
+
 export let theme = createTheme({
   typography,
   palette: {
     mode: "light",
     ...lightThemePalette,
   },
-});
-
-theme = createTheme(theme, {
-  components: {
-    MuiFormLabel: {
-      styleOverrides: {
-        root: {
-          ...theme.typography.body2,
-        },
-      },
-    },
-    MuiTab: {
-      styleOverrides: {
-        root: {
-          padding: "8px",
-          margin: "8px",
-          borderRadius: "8px",
-          minHeight: "unset",
-          minWidth: "unset",
-          textTransform: "none",
-          "&:hover": {
-            backgroundColor: theme.palette.grey[100],
-          },
-          "&.Mui-selected": {
-            "&:hover": {
-              backgroundColor: theme.palette.deepOrange[50],
-            },
-          },
-        },
-      },
-    },
-    MuiCardHeader: {
-      styleOverrides: {
-        root: {
-          padding: "16px 16px 0px",
-        },
-      },
-    },
-    MuiCardContent: {
-      styleOverrides: {
-        root: {
-          padding: "8px 16px 16px",
-          ":last-child": {
-            paddingBottom: "16px",
-          },
-        },
-      },
-    },
-    MuiButton: {
-      variants: [
-        {
-          props: { size: "xsmall" },
-          style: {
-            padding: "2px 10px",
-          },
-        },
-      ],
-      styleOverrides: {
-        root: {
-          textTransform: "none",
-        },
-        sizeSmall: {
-          fontSize: "14px",
-        },
-        outlinedInherit: {
-          color: theme.palette.text.secondary,
-          borderColor: theme.palette.border,
-        },
-        containedInherit: {
-          color: theme.palette.text.secondary,
-          backgroundColor: theme.palette.grey[100],
-        },
-        textInherit: {
-          color: theme.palette.text.secondary,
-        },
-      },
-      defaultProps: {
-        disableElevation: true,
-      },
-    },
-    MuiButtonGroup: {
-      defaultProps: {
-        disableElevation: true,
-      },
-      styleOverrides: {
-        groupedContained: {
-          color: theme.palette.primary.main,
-          backgroundColor: alpha(
-            theme.palette.primary.main,
-            theme.palette.action.hoverOpacity
-          ),
-          "&:hover": {
-            backgroundColor: alpha(
-              theme.palette.primary.main,
-              theme.palette.action.selectedOpacity
-            ),
-          },
-        },
-      },
-    },
-    MuiOutlinedInput: {
-      styleOverrides: {
-        root: {
-          padding: "0px 8px",
-          borderRadius: "8px",
-          backgroundColor: theme.palette.common.white,
-          "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.palette.border,
-          },
-          "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.palette.border,
-          },
-          "&.Mui-focused:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.palette.primary.main,
-          },
-        },
-        input: {
-          padding: "10px 0px",
-          ":read-only": {
-            color: theme.palette.text.secondary,
-          },
-        },
-        sizeSmall: {
-          input: {
-            padding: "8px 0px",
-          },
-        },
-        notchedOutline: {
-          borderColor: theme.palette.border,
-        },
-      },
-    },
-    MuiFormHelperText: {
-      styleOverrides: {
-        root: {
-          ...theme.typography.body2,
-          margin: "4px 0px 0px 0px",
-        },
-      },
-    },
-    MuiInputBase: {
-      styleOverrides: {
-        input: {
-          ...theme.typography.body2,
-          "::placeholder": {
-            color: theme.palette.text.disabled,
-            opacity: 1,
-          },
-        },
-      },
-    },
-    MuiInputLabel: {
-      styleOverrides: {
-        root: {
-          ...theme.typography.body2,
-          color: theme.palette.text.primary,
-          marginBottom: "4px",
-          fontWeight: 600,
-        },
-      },
-    },
-    MuiInputAdornment: {
-      styleOverrides: {
-        root: {
-          "& > .MuiSvgIcon-root": {
-            margin: "4px",
-          },
-        },
-      },
-    },
-    MuiIconButton: {
-      styleOverrides: {
-        sizeSmall: {
-          padding: "4px",
-        },
-      },
-      variants: [
-        {
-          props: { size: "xSmall" },
-          style: {
-            width: "20px",
-            height: "20px",
-            padding: "2px",
-          },
-        },
-      ],
-    },
-    MuiDialog: {
-      styleOverrides: {
-        paper: {
-          borderRadius: "8px",
-        },
-        paperWidthXs: {
-          width: "480px",
-          maxWidth: "480px",
-        },
-      },
-    },
-    MuiDialogTitle: {
-      styleOverrides: {
-        root: {
-          ...theme.typography.h5,
-          fontWeight: 600,
-          padding: "20px",
-        },
-      },
-    },
-    MuiDialogContent: {
-      styleOverrides: {
-        root: {
-          padding: "20px",
-          paddingTop: 0,
-        },
-        dividers: {
-          borderColor: theme.palette.border,
-        },
-      },
-    },
-    MuiDialogContentText: {
-      styleOverrides: {
-        root: {
-          ...theme.typography.body2,
-        },
-      },
-    },
-    MuiDialogActions: {
-      styleOverrides: {
-        root: {
-          padding: "20px",
-          paddingTop: 0,
-        },
-      },
-    },
-    MuiBackdrop: {
-      styleOverrides: {
-        root: {
-          backgroundColor: alpha(theme.palette.grey[900], 0.5),
-        },
-        invisible: {
-          backgroundColor: "transparent",
-        },
-      },
-    },
-    MuiMenu: {
-      styleOverrides: {
-        list: {
-          minWidth: "240px",
-        },
-      },
-    },
-    MuiAccordion: {
-      styleOverrides: {
-        root: {
-          "&:before": {
-            backgroundColor: theme.palette.border,
-          },
-        },
-      },
-    },
-    MuiSlider: {
-      styleOverrides: {
-        rail: {
-          backgroundColor: theme.palette.grey[400],
-        },
-      },
-    },
-    MuiChip: {
-      styleOverrides: {
-        root: {
-          borderRadius: "4px",
-        },
-        colorDefault: {
-          backgroundColor: theme.palette.grey[100],
-          ":hover": {
-            backgroundColor: theme.palette.grey[200],
-          },
-          ":focus": {
-            backgroundColor: theme.palette.grey[300],
-          },
-        },
-      },
-    },
-    MuiAlert: {
-      styleOverrides: {
-        icon: {
-          alignSelf: "center",
-        },
-        standardWarning: {
-          " .MuiAlert-icon": {
-            color: theme.palette.common.black,
-          },
-        },
-        standardInfo: {
-          backgroundColor: alpha(theme.palette.blue[500], 0.1),
-          " .MuiAlert-icon": {
-            color: theme.palette.info.main,
-          },
-        },
-        standardError: {
-          backgroundColor: alpha(theme.palette.error.main, 0.1),
-          " .MuiAlert-icon": {
-            color: theme.palette.error.main,
-          },
-        },
-      },
-    },
-    MuiDataGrid: {
-      styleOverrides: {
-        root: {
-          borderColor: theme.palette.border,
-          borderRadius: "8px",
-        },
-        cell: {
-          borderColor: theme.palette.border,
-          padding: "0 16px",
-          "&:focus": {
-            outline: "none",
-          },
-        },
-        columnHeaders: {
-          borderColor: theme.palette.border,
-          backgroundColor: theme.palette.grey[50],
-        },
-        columnHeader: {
-          padding: "0 16px",
-          "&:focus": {
-            outline: "none",
-          },
-        },
-        columnHeaderTitle: {
-          fontWeight: 600,
-        },
-        columnSeparator: {
-          visibility: "hidden",
-        },
-      },
-    },
-    MuiFab: {
-      styleOverrides: {
-        root: {
-          boxShadow: "none",
-        },
-      },
-    },
-    MuiSpeedDial: {
-      styleOverrides: {
-        actions: {
-          paddingTop: "38px !important",
-        },
-      },
-    },
-    MuiSpeedDialAction: {
-      styleOverrides: {
-        fab: {
-          marginTop: "6px",
-          marginBottom: "6px",
-        },
-        staticTooltipLabel: {
-          ...theme.typography.body2,
-          fontWeight: 500,
-          color: theme.palette.common.white,
-          backgroundColor: "transparent",
-          whiteSpace: "nowrap",
-          boxShadow: "none",
-          paddingRight: 0,
-        },
-      },
-    },
-    MuiListItemButton: {
-      styleOverrides: {
-        divider: {
-          borderColor: theme.palette.border,
-        },
-      },
-    },
-    MuiLink: {
-      styleOverrides: {
-        root: {
-          color: theme.palette.info.dark,
-          textDecorationColor: theme.palette.info.main,
-          "&:hover": {
-            textDecorationColor: theme.palette.info.dark,
-          },
-        },
-      },
-      defaultProps: {
-        underline: "hover",
-      },
-    },
-    MuiTooltip: {
-      styleOverrides: {
-        popper: {
-          maxWidth: "240px",
-        },
-        tooltip: {
-          ...theme.typography.body3,
-        },
-      },
-    },
-    MuiTreeItem: {
-      styleOverrides: {
-        content: {
-          paddingTop: "6px",
-          paddingBottom: "6px",
-          paddingLeft: 0,
-          paddingRight: "12px",
-          borderRadius: 4,
-          width: "unset",
-          "&.Mui-selected": {
-            background: alpha(theme.palette.primary.main, 0.04),
-            " .MuiTreeItem-label .MuiSvgIcon-root": {
-              color: theme.palette.primary.main,
-            },
-            " .MuiTypography-root": {
-              color: theme.palette.primary.dark,
-            },
-          },
-        },
-        label: {
-          paddingLeft: "0",
-        },
-        iconContainer: {
-          marginRight: "0",
-          width: "24px",
-          svg: {
-            fontSize: "24px",
-          },
-        },
-      },
-    },
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
-            width: "8px",
-            height: "8px",
-          },
-          "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece":
-            {
-              backgroundColor: theme.palette.grey[100],
-              borderRadius: "4px",
-            },
-          "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
-            backgroundColor: theme.palette.grey[300],
-            borderRadius: "4px",
-          },
-        },
-      },
-    },
-    MuiDivider: {
-      styleOverrides: {
-        root: {
-          borderColor: theme.palette.border,
-        },
-      },
-    },
-    MuiListItem: {
-      styleOverrides: {
-        root: {
-          color: theme.palette.text.secondary,
-          "&.Mui-selected": {
-            backgroundColor: alpha(
-              theme.palette.primary.main,
-              theme.palette.action.selectedOpacity
-            ),
-            color: theme.palette.primary.main,
-            svg: {
-              color: theme.palette.primary.main,
-            },
-          },
-        },
-      },
-    },
-  },
+  components,
 });
 
 export let darkTheme = createTheme(theme, {
@@ -498,112 +554,16 @@ export let darkTheme = createTheme(theme, {
     mode: "dark",
     ...darkThemePalette,
   },
-});
-// Components with specific dark theme styles
-darkTheme = createTheme(darkTheme, {
   components: {
     MuiOutlinedInput: {
       styleOverrides: {
-        root: {
-          padding: "0px 8px",
-          borderRadius: "8px",
-          backgroundColor: darkTheme.palette.grey[800],
-          "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-            borderColor: darkTheme.palette.border,
-          },
-          "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: darkTheme.palette.border,
-          },
+        root: ({ theme }: { theme: any }) => ({
+          backgroundColor: theme.palette.grey[800],
           "&.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused:hover .MuiOutlinedInput-notchedOutline":
             {
-              borderColor: darkTheme.palette.grey[800],
+              borderColor: theme.palette.grey[800],
             },
-          "&.MuiInputBase-adornedStart .MuiInputAdornment-root": {
-            color: darkTheme.palette.action.active,
-          },
-        },
-        input: {
-          padding: "10px 0px",
-          ":read-only": {
-            color: darkTheme.palette.text.secondary,
-          },
-          "::placeholder": {
-            color: darkTheme.palette.text.disabled,
-          },
-        },
-        sizeSmall: {
-          input: {
-            padding: "8px 0px",
-          },
-        },
-        notchedOutline: {
-          borderColor: darkTheme.palette.border,
-        },
-      },
-    },
-    MuiTreeItem: {
-      styleOverrides: {
-        root: {
-          color: darkTheme.palette.text.disabled,
-          svg: {
-            color: darkTheme.palette.action.active,
-          },
-        },
-        content: {
-          paddingTop: "6px",
-          paddingBottom: "6px",
-          paddingLeft: 0,
-          paddingRight: "12px",
-          borderRadius: 4,
-          width: "unset",
-          "&.Mui-focused:hover": {
-            background: alpha(
-              darkTheme.palette.primary.main,
-              darkTheme.palette.action.selectedOpacity
-            ),
-          },
-          "&.Mui-selected, &.Mui-selected:hover, &.Mui-selected.Mui-focused": {
-            background: alpha(
-              darkTheme.palette.primary.main,
-              darkTheme.palette.action.selectedOpacity
-            ),
-            " .MuiTreeItem-label .MuiSvgIcon-root": {
-              color: darkTheme.palette.primary.main,
-            },
-            " .MuiTypography-root": {
-              color: darkTheme.palette.primary.main,
-            },
-          },
-        },
-        label: {
-          paddingLeft: "0",
-        },
-        iconContainer: {
-          marginRight: "0",
-          width: "24px",
-          svg: {
-            fontSize: "24px",
-          },
-        },
-      },
-    },
-    MuiScopedCssBaseline: {
-      styleOverrides: {
-        root: {
-          "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
-            width: "8px",
-            height: "8px",
-          },
-          "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece":
-            {
-              backgroundColor: darkTheme.palette.grey[800],
-              borderRadius: "4px",
-            },
-          "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
-            backgroundColor: darkTheme.palette.grey[700],
-            borderRadius: "4px",
-          },
-        },
+        }),
       },
     },
   },
