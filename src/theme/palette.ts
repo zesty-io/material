@@ -189,6 +189,9 @@ const darkThemePalette = {
     selectedOpacity: 0.08,
   },
   border: "#1D2939",
+  background: {
+    paper: "#101828",
+  },
 };
 
 export { lightThemePalette, darkThemePalette };
