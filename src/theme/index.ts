@@ -556,6 +556,12 @@ darkTheme = createTheme(darkTheme, {
           paddingRight: "12px",
           borderRadius: 4,
           width: "unset",
+          "&.Mui-focused:hover": {
+            background: alpha(
+              darkTheme.palette.primary.main,
+              darkTheme.palette.action.selectedOpacity
+            ),
+          },
           "&.Mui-selected, &.Mui-selected:hover, &.Mui-selected.Mui-focused": {
             background: alpha(
               darkTheme.palette.primary.main,
@@ -581,9 +587,9 @@ darkTheme = createTheme(darkTheme, {
         },
       },
     },
-    MuiCssBaseline: {
+    MuiScopedCssBaseline: {
       styleOverrides: {
-        body: {
+        root: {
           "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
             width: "8px",
             height: "8px",
