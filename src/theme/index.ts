@@ -125,7 +125,7 @@ const components: Components = {
       root: ({ theme }: { theme: any }) => ({
         padding: "0px 8px",
         borderRadius: "8px",
-        backgroundColor: theme.palette.common.white,
+        backgroundColor: theme.palette.background.paper,
         "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
           borderColor: theme.palette.border,
         },
@@ -555,17 +555,6 @@ export let darkTheme = createTheme(theme, {
     ...darkThemePalette,
   },
   components: {
-    MuiOutlinedInput: {
-      styleOverrides: {
-        root: ({ theme }: { theme: any }) => ({
-          backgroundColor: theme.palette.grey[800],
-          "&.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused:hover .MuiOutlinedInput-notchedOutline":
-            {
-              borderColor: theme.palette.grey[800],
-            },
-        }),
-      },
-    },
     MuiIconButton: {
       styleOverrides: {
         root: {
