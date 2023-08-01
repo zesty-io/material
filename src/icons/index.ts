@@ -7,4 +7,3 @@ export { OneToOne } from "./OneToOne";
 export { EditNote } from "./EditNote";
 export { FileTable } from "./FileTable";
 export { Brain } from "./Brain";
-export { MenuListDropDown } from "./MenuListDropDown";
