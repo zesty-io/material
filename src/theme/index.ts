@@ -566,5 +566,14 @@ export let darkTheme = createTheme(theme, {
         }),
       },
     },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          "&:hover": {
+            backgroundColor: theme.palette.grey[800],
+          },
+        },
+      },
+    },
   },
 });
