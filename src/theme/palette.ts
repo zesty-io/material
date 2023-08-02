@@ -178,9 +178,6 @@ const lightThemePalette: PaletteOptions = {
 
 const darkThemePalette = {
   ...lightThemePalette,
-  primary: {
-    main: "#EC4A0A",
-  },
   text: {
     primary: "#ffffff",
     secondary: "#98A2B3",

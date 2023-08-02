@@ -198,6 +198,9 @@ const components: Components = {
   },
   MuiIconButton: {
     styleOverrides: {
+      root: {
+        borderRadius: "4px",
+      },
       sizeSmall: {
         padding: "4px",
       },
