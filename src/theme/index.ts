@@ -13,7 +13,8 @@ declare module "@mui/material/styles" {
 
 declare module "@mui/material/IconButton" {
   interface IconButtonPropsSizeOverrides {
-    xSmall: true;
+    xsmall: true;
+    xxsmall: true;
   }
 }
 
@@ -207,7 +208,15 @@ const components: Components = {
     },
     variants: [
       {
-        props: { size: "xSmall" },
+        props: { size: "xsmall" },
+        style: {
+          width: "24px",
+          height: "24px",
+          padding: "3px",
+        },
+      },
+      {
+        props: { size: "xxsmall" },
         style: {
           width: "20px",
           height: "20px",
