@@ -25,3 +25,6 @@ storybook-static
 *.njsproj
 *.sln
 *.sw?
+
+# Built package
+zesty-io-material-*.tgz
