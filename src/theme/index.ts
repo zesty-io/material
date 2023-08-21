@@ -6,9 +6,6 @@ declare module "@mui/material/styles" {
   interface Palette {
     border: string;
   }
-  interface Theme {
-    typography: TypographyVariantsOptions;
-  }
 }
 
 declare module "@mui/material/IconButton" {
@@ -32,22 +29,33 @@ const components: Components = {
       }),
     },
   },
+  MuiTabs: {
+    styleOverrides: {
+      root: {
+        minHeight: "44px",
+      },
+      flexContainer: {
+        gap: "16px",
+      },
+    },
+  },
   MuiTab: {
     styleOverrides: {
       root: ({ theme }: { theme: any }) => ({
-        padding: "8px",
-        margin: "8px",
-        borderRadius: "8px",
+        color: theme.palette.text.disabled,
+        paddingLeft: 0,
+        paddingRight: 0,
         minHeight: "unset",
         minWidth: "unset",
         textTransform: "none",
         "&:hover": {
-          backgroundColor: theme.palette.grey[100],
+          color: theme.palette.text.primary,
         },
         "&.Mui-selected": {
-          "&:hover": {
-            backgroundColor: theme.palette.deepOrange[50],
-          },
+          color: theme.palette.text.primary,
+        },
+        "& .MuiTab-iconWrapper": {
+          marginRight: "4px",
         },
       }),
     },
@@ -106,7 +114,7 @@ const components: Components = {
       disableElevation: true,
     },
     styleOverrides: {
-      groupedContained: ({ theme }: { theme: any }) => ({
+      groupedContainedPrimary: ({ theme }: { theme: any }) => ({
         color: theme.palette.primary.main,
         backgroundColor: alpha(
           theme.palette.primary.main,
@@ -285,6 +293,15 @@ const components: Components = {
     styleOverrides: {
       list: {
         minWidth: "240px",
+      },
+    },
+  },
+  MuiMenuItem: {
+    styleOverrides: {
+      root: {
+        ' .MuiListItemIcon-root': {
+          minWidth: "32px",
+        },
       },
     },
   },
@@ -528,6 +545,27 @@ const components: Components = {
             color: theme.palette.primary.main,
           },
         },
+      }),
+    },
+  },
+  MuiBreadcrumbs: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        '& button[aria-label="Show path"]': {
+          backgroundColor: "transparent",
+          margin: 0,
+          color: theme.palette.action.active,
+          'svg': {
+            width: "20px",
+            height: "20px",
+          },
+          "&:hover": {
+            color: theme.palette.primary.main,
+          },
+        },
+      }),
+      separator: ({ theme }: { theme: any }) => ({
+        color: theme.palette.grey[400],
       }),
     },
   },
