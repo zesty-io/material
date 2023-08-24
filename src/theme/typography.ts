@@ -13,22 +13,27 @@ const typography: TypographyVariantsOptions = {
   h1: {
     fontSize: "36px",
     lineHeight: "44px",
+    letterSpacing: "-0.56px",
   },
   h2: {
     fontSize: "32px",
     lineHeight: "40px",
+    letterSpacing: "-0.56px",
   },
   h3: {
     fontSize: "28px",
     lineHeight: "36px",
+    letterSpacing: "-0.56px",
   },
   h4: {
     fontSize: "24px",
     lineHeight: "32px",
+    letterSpacing: "-0.56px",
   },
   h5: {
     fontSize: "20px",
     lineHeight: "28px",
+    letterSpacing: "-0.56px",
   },
   h6: {
     fontSize: "16px",
@@ -64,7 +69,6 @@ const typography: TypographyVariantsOptions = {
     letterSpacing: "1px",
     lineHeight: "32px",
   },
-  
 };
 
 export default typography;

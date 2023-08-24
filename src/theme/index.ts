@@ -36,6 +36,7 @@ const components: Components = {
       },
       flexContainer: {
         gap: "16px",
+        height: "44px",
       },
     },
   },
@@ -211,7 +212,7 @@ const components: Components = {
         borderRadius: "4px",
       },
       sizeSmall: {
-        padding: "4px",
+        padding: "6px",
       },
     },
     variants: [
@@ -566,6 +567,7 @@ const components: Components = {
       }),
       separator: ({ theme }: { theme: any }) => ({
         color: theme.palette.grey[400],
+        height: "20px",
       }),
     },
   },
