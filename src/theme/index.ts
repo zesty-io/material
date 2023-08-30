@@ -300,7 +300,7 @@ const components: Components = {
   MuiMenuItem: {
     styleOverrides: {
       root: {
-        ' .MuiListItemIcon-root': {
+        " .MuiListItemIcon-root": {
           minWidth: "32px",
         },
       },
@@ -378,7 +378,7 @@ const components: Components = {
       }),
       columnHeaders: ({ theme }: { theme: any }) => ({
         borderColor: theme.palette.border,
-        backgroundColor: theme.palette.grey[50],
+        backgroundColor: theme.palette.grey[100],
       }),
       columnHeader: {
         padding: "0 16px",
@@ -556,7 +556,7 @@ const components: Components = {
           backgroundColor: "transparent",
           margin: 0,
           color: theme.palette.action.active,
-          'svg': {
+          svg: {
             width: "20px",
             height: "20px",
           },
@@ -568,6 +568,7 @@ const components: Components = {
       separator: ({ theme }: { theme: any }) => ({
         color: theme.palette.grey[400],
         height: "20px",
+        alignItems: "center",
       }),
     },
   },
