@@ -591,6 +591,13 @@ const components: Components = {
       }),
     },
   },
+  MuiToggleButton: {
+    styleOverrides: {
+      sizeSmall: {
+        fontSize: "16px",
+      },
+    },
+  },
 };
 
 export let theme = createTheme({
