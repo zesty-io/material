@@ -8,3 +8,4 @@ export { EditNote } from "./EditNote";
 export { FileTable } from "./FileTable";
 export { Brain } from "./Brain";
 export { Home } from "./Home";
+export { ScreenShare } from './ScreenShare';

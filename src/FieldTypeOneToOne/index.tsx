@@ -3,7 +3,7 @@ import { AutocompleteProps, Popper, styled, TextField, FormLabel, FormControl, I
 import Autocomplete, { autocompleteClasses } from '@mui/material/Autocomplete';
 import { ListboxComponent } from '../utils/virtualization';
 
-export interface FieldTypeOneToOneProps extends Omit<AutocompleteProps<any, false, false, false>, 'onOpen' | 'renderInput'> {
+export interface FieldTypeOneToOneProps extends Omit<AutocompleteProps<any, boolean, boolean, boolean>, 'onOpen' | 'renderInput'> {
   label?: string;
   helperText?: string;
   placeholder?: string;

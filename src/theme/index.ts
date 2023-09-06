@@ -6,9 +6,6 @@ declare module "@mui/material/styles" {
   interface Palette {
     border: string;
   }
-  interface Theme {
-    typography: TypographyVariantsOptions;
-  }
 }
 
 declare module "@mui/material/IconButton" {
@@ -32,22 +29,34 @@ const components: Components = {
       }),
     },
   },
+  MuiTabs: {
+    styleOverrides: {
+      root: {
+        minHeight: "44px",
+      },
+      flexContainer: {
+        gap: "16px",
+        height: "44px",
+      },
+    },
+  },
   MuiTab: {
     styleOverrides: {
       root: ({ theme }: { theme: any }) => ({
-        padding: "8px",
-        margin: "8px",
-        borderRadius: "8px",
+        color: theme.palette.text.disabled,
+        paddingLeft: 0,
+        paddingRight: 0,
         minHeight: "unset",
         minWidth: "unset",
         textTransform: "none",
         "&:hover": {
-          backgroundColor: theme.palette.grey[100],
+          color: theme.palette.text.primary,
         },
         "&.Mui-selected": {
-          "&:hover": {
-            backgroundColor: theme.palette.deepOrange[50],
-          },
+          color: theme.palette.text.primary,
+        },
+        "& .MuiTab-iconWrapper": {
+          marginRight: "4px",
         },
       }),
     },
@@ -106,7 +115,7 @@ const components: Components = {
       disableElevation: true,
     },
     styleOverrides: {
-      groupedContained: ({ theme }: { theme: any }) => ({
+      groupedContainedPrimary: ({ theme }: { theme: any }) => ({
         color: theme.palette.primary.main,
         backgroundColor: alpha(
           theme.palette.primary.main,
@@ -203,7 +212,7 @@ const components: Components = {
         borderRadius: "4px",
       },
       sizeSmall: {
-        padding: "4px",
+        padding: "6px",
       },
     },
     variants: [
@@ -288,6 +297,15 @@ const components: Components = {
       },
     },
   },
+  MuiMenuItem: {
+    styleOverrides: {
+      root: {
+        " .MuiListItemIcon-root": {
+          minWidth: "32px",
+        },
+      },
+    },
+  },
   MuiAccordion: {
     styleOverrides: {
       root: ({ theme }: { theme: any }) => ({
@@ -360,7 +378,7 @@ const components: Components = {
       }),
       columnHeaders: ({ theme }: { theme: any }) => ({
         borderColor: theme.palette.border,
-        backgroundColor: theme.palette.grey[50],
+        backgroundColor: theme.palette.grey[100],
       }),
       columnHeader: {
         padding: "0 16px",
@@ -531,6 +549,29 @@ const components: Components = {
       }),
     },
   },
+  MuiBreadcrumbs: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        '& button[aria-label="Show path"]': {
+          backgroundColor: "transparent",
+          margin: 0,
+          color: theme.palette.action.active,
+          svg: {
+            width: "20px",
+            height: "20px",
+          },
+          "&:hover": {
+            color: theme.palette.primary.main,
+          },
+        },
+      }),
+      separator: ({ theme }: { theme: any }) => ({
+        color: theme.palette.grey[400],
+        height: "20px",
+        alignItems: "center",
+      }),
+    },
+  },
   MuiScopedCssBaseline: {
     styleOverrides: {
       root: ({ theme }: { theme: any }) => ({
@@ -548,6 +589,13 @@ const components: Components = {
           borderRadius: "4px",
         },
       }),
+    },
+  },
+  MuiToggleButton: {
+    styleOverrides: {
+      sizeSmall: {
+        fontSize: "16px",
+      },
     },
   },
 };
