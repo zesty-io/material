@@ -300,6 +300,8 @@ const components: Components = {
   MuiMenuItem: {
     styleOverrides: {
       root: {
+        // Overrides the media query of the MenuItem that sets minHeight
+        minHeight: "40px !important",
         " .MuiListItemIcon-root": {
           minWidth: "32px",
         },
