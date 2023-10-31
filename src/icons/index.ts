@@ -10,3 +10,6 @@ export { Brain } from "./Brain";
 export { Home } from "./Home";
 export { ScreenShare } from "./ScreenShare";
 export { DatabaseSearch } from "./DatabaseSearch";
+export { Google } from "./Google";
+export { Github } from "./Github";
+export { Microsoft } from "./Microsoft";
