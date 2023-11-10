@@ -13,3 +13,4 @@ export { DatabaseSearch } from "./DatabaseSearch";
 export { Google } from "./Google";
 export { Github } from "./Github";
 export { Microsoft } from "./Microsoft";
+export { ImageSync } from "./ImageSync";
