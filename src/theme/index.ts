@@ -352,9 +352,12 @@ const components: Components = {
         },
       }),
       standardInfo: ({ theme }: { theme: any }) => ({
-        backgroundColor: alpha(theme.palette.blue[500], 0.1),
+        backgroundColor: theme.palette.blue[100],
         " .MuiAlert-icon": {
           color: theme.palette.info.main,
+        },
+        "& .MuiAlert-message": {
+          color: theme.palette.info.dark,
         },
       }),
       standardError: ({ theme }: { theme: any }) => ({
