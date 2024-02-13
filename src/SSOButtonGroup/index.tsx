@@ -19,7 +19,7 @@ export interface SSOButtonGroupProps {
   /**
    * Callback invoked upon successful authentication.
    */
-  onSuccess: () => void;
+  onSuccess: (message: object) => void;
 
   /**
    * Callback invoked when an error occurs during authentication.
@@ -40,11 +40,11 @@ const SSOButtonGroup = ({
   onSuccess,
   onError,
 }: SSOButtonGroupProps) => {
-  const [initiate, isAuthenticated, ssoError] = useSSO(authServiceUrl);
+  const [initiate, isAuthenticated, ssoError, message] = useSSO(authServiceUrl);
 
   useEffect(() => {
     if (isAuthenticated && onSuccess) {
-      onSuccess();
+      onSuccess(message);
     } else if (ssoError && onError) {
       onError(ssoError);
     }
