@@ -10,13 +10,13 @@ interface Message {
 
 let tabWindow: Window | null = null;
 export const useSSO = (authServiceUrl: string) => {
+  const [message, setMessage] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState("");
+
   const receiveMessage = (event: MessageEvent<Message>) => {
-    if (
-      event.origin === authServiceUrl &&
-      event.data.source === "zesty"
-    ) {
+    if (event.origin === authServiceUrl && event.data.source === "zesty") {
+      setMessage(event.data);
       if (event.data.status === "200") {
         setIsAuthenticated(true);
       } else {
@@ -39,10 +39,8 @@ export const useSSO = (authServiceUrl: string) => {
     if (tabWindow) {
       tabWindow.close();
     }
-    tabWindow = window.open(
-      `${authServiceUrl}/${service}/login`
-    )!;
+    tabWindow = window.open(`${authServiceUrl}/${service}/login`)!;
   };
 
-  return [initiate, isAuthenticated, error] as const;
+  return [initiate, isAuthenticated, error, message] as const;
 };
