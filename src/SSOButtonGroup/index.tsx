@@ -46,7 +46,7 @@ const SSOButtonGroup = ({
     if (isAuthenticated && onSuccess) {
       onSuccess(message);
     } else if (ssoError && onError) {
-      onError(ssoError);
+      onError(ssoError.message);
     }
   }, [isAuthenticated, ssoError]);
 

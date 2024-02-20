@@ -8,19 +8,27 @@ interface Message {
   error_message: string;
 }
 
+interface Error {
+  message: string;
+  status: string;
+};
+
+
 let tabWindow: Window | null = null;
 export const useSSO = (authServiceUrl: string) => {
   const [message, setMessage] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [error, setError] = useState("");
-
+  const [error, setError] = useState<Error | null>(null);
   const receiveMessage = (event: MessageEvent<Message>) => {
     if (event.origin === authServiceUrl && event.data.source === "zesty") {
       setMessage(event.data);
       if (event.data.status === "200") {
         setIsAuthenticated(true);
       } else {
-        setError(event.data.error_message);
+        setError({
+          message: event.data.error_message,
+          status: event.data.status,
+        });
       }
       if (tabWindow) {
         tabWindow.close();
