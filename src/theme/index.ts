@@ -603,6 +603,14 @@ const components: Components = {
       },
     },
   },
+  MuiListItemText: {
+    styleOverrides: {
+      dense: {
+        marginTop: "4px",
+        marginBottom: "4px",
+      },
+    },
+  },
 };
 
 export let theme = createTheme({
