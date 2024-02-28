@@ -249,7 +249,7 @@ const components: Components = {
     styleOverrides: {
       root: ({ theme }: { theme: any }) => ({
         ...theme.typography.h5,
-        fontWeight: 600,
+        fontWeight: 700,
         padding: "20px",
       }),
     },
