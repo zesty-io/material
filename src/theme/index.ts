@@ -22,6 +22,13 @@ declare module "@mui/material/Button" {
 }
 
 const components: Components = {
+  MuiTypography: {
+    styleOverrides: {
+      root: {
+        display: "inline-block",
+      },
+    },
+  },
   MuiFormLabel: {
     styleOverrides: {
       root: ({ theme }: { theme: any }) => ({
@@ -202,6 +209,9 @@ const components: Components = {
       root: {
         "& > .MuiSvgIcon-root": {
           margin: "4px",
+        },
+        "&.MuiInputAdornment-positionStart": {
+          marginRight: "4px",
         },
       },
     },
