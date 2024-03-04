@@ -1,8 +1,8 @@
-import { TypographyVariantsOptions } from '@mui/material/styles';
-import { TypographyStyleOptions } from '@mui/material/styles/createTypography';
+import { TypographyVariantsOptions } from "@mui/material/styles";
+import { TypographyStyleOptions } from "@mui/material/styles/createTypography";
 
 // Module augmentation
-declare module '@mui/material/styles' {
+declare module "@mui/material/styles" {
   export interface TypographyVariantsOptions {
     body3?: TypographyStyleOptions;
   }
@@ -40,28 +40,28 @@ const typography: TypographyVariantsOptions = {
     lineHeight: "22px",
   },
   body1: {
-    fontSize: '16px',
-    lineHeight : '24px',
+    fontSize: "16px",
+    lineHeight: "24px",
   },
   body2: {
-    fontSize: '14px',
-    lineHeight : '20px',
+    fontSize: "14px",
+    lineHeight: "20px",
   },
   body3: {
-    fontSize: '12px',
-    lineHeight: '18px',
-    letterSpacing: '0.15px',
+    fontSize: "12px",
+    lineHeight: "18px",
+    letterSpacing: "0.15px",
   },
   subtitle1: {
-    fontSize: '16px',
+    fontSize: "16px",
     lineHeight: "28px",
   },
   subtitle2: {
-    fontSize: '14px',
+    fontSize: "14px",
     lineHeight: "22px",
   },
   caption: {
-    fontSize: '12px',
+    fontSize: "12px",
     lineHeight: "20px",
   },
   overline: {

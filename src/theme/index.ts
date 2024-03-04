@@ -22,13 +22,6 @@ declare module "@mui/material/Button" {
 }
 
 const components: Components = {
-  MuiTypography: {
-    styleOverrides: {
-      root: {
-        display: "inline-block",
-      },
-    },
-  },
   MuiFormLabel: {
     styleOverrides: {
       root: ({ theme }: { theme: any }) => ({
