@@ -1,6 +1,6 @@
 {
   "name": "@zesty-io/material",
-  "version": "0.12.19",
+  "version": "0.12.4",
   "description": "Contains custom components which are in addition to the @mui design-system",
   "author": "Zesty.io",
   "license": "MIT",
