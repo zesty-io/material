@@ -203,9 +203,6 @@ const components: Components = {
         "& > .MuiSvgIcon-root": {
           margin: "4px",
         },
-        "&.MuiInputAdornment-positionStart": {
-          marginRight: "4px",
-        },
       },
     },
   },
