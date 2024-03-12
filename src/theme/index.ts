@@ -614,6 +614,17 @@ const components: Components = {
       },
     },
   },
+  MuiPickersDay: {
+    styleOverrides: {
+      root: ({ theme }: { theme: any }) => ({
+        "&.MuiPickersDay-today": {
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.common.white,
+          border: "none",
+        },
+      }),
+    },
+  },
 };
 
 export let theme = createTheme({
