@@ -51,7 +51,6 @@ const typography: TypographyVariantsOptions = {
     fontSize: "12px",
     lineHeight: "18px",
     letterSpacing: "0.15px",
-    display: "inline-block",
   },
   subtitle1: {
     fontSize: "16px",
