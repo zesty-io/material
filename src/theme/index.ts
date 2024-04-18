@@ -348,16 +348,19 @@ const components: Components = {
     styleOverrides: {
       icon: {
         alignSelf: "center",
+        marginRight: "8px",
       },
       standardWarning: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.yellow[100],
+        color: theme.palette.warning.dark,
         " .MuiAlert-icon": {
-          color: theme.palette.common.black,
+          color: theme.palette.warning.dark,
         },
       }),
       standardInfo: ({ theme }: { theme: any }) => ({
         backgroundColor: theme.palette.blue[100],
         " .MuiAlert-icon": {
-          color: theme.palette.info.main,
+          color: theme.palette.info.dark,
         },
         "& .MuiAlert-message": {
           color: theme.palette.info.dark,
@@ -367,13 +370,6 @@ const components: Components = {
         backgroundColor: alpha(theme.palette.error.main, 0.1),
         " .MuiAlert-icon": {
           color: theme.palette.error.main,
-        },
-      }),
-      filledWarning: ({ theme }: { theme: any }) => ({
-        backgroundColor: theme.palette.yellow[100],
-        color: theme.palette.warning.dark,
-        " .MuiAlert-icon": {
-          color: theme.palette.warning.dark,
         },
       }),
     },
