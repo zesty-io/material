@@ -625,6 +625,13 @@ const components: Components = {
       }),
     },
   },
+  MuiCheckbox: {
+    styleOverrides: {
+      root: {
+        color: "text.disabled",
+      },
+    },
+  }
 };
 
 export let theme = createTheme({
