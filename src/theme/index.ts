@@ -105,6 +105,9 @@ const components: Components = {
       textInherit: ({ theme }: { theme: any }) => ({
         color: theme.palette.text.secondary,
       }),
+      containedWarning: ({ theme }: { theme: any }) => ({
+        color: theme.palette.common.white,
+      }),
     },
     defaultProps: {
       disableElevation: true,
