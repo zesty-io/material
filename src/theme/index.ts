@@ -119,12 +119,12 @@ const components: Components = {
         color: theme.palette.primary.main,
         backgroundColor: alpha(
           theme.palette.primary.main,
-          theme.palette.action.hoverOpacity
+          theme.palette.action.hoverOpacity,
         ),
         "&:hover": {
           backgroundColor: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
         },
       }),
@@ -369,6 +369,13 @@ const components: Components = {
           color: theme.palette.error.main,
         },
       }),
+      filledWarning: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.yellow[100],
+        color: theme.palette.warning.dark,
+        " .MuiAlert-icon": {
+          color: theme.palette.warning.dark,
+        },
+      }),
     },
   },
   MuiDataGrid: {
@@ -482,13 +489,13 @@ const components: Components = {
         "&.Mui-focused:hover": {
           background: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
         },
         "&.Mui-selected, &.Mui-selected:hover, &.Mui-selected.Mui-focused": {
           background: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
           " .MuiTreeItem-label .MuiSvgIcon-root": {
             color: theme.palette.primary.main,
@@ -547,7 +554,7 @@ const components: Components = {
         "&.Mui-selected": {
           backgroundColor: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
           color: theme.palette.primary.main,
           svg: {

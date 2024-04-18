@@ -39,7 +39,7 @@ const lightThemePalette: PaletteOptions = {
   },
   warning: {
     main: "#F79009",
-    dark: "B54708",
+    dark: "#B54708",
     light: "#FEF0C7",
   },
   error: {
