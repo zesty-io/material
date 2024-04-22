@@ -105,6 +105,9 @@ const components: Components = {
       textInherit: ({ theme }: { theme: any }) => ({
         color: theme.palette.text.secondary,
       }),
+      containedWarning: ({ theme }: { theme: any }) => ({
+        color: theme.palette.common.white,
+      }),
     },
     defaultProps: {
       disableElevation: true,
@@ -119,12 +122,12 @@ const components: Components = {
         color: theme.palette.primary.main,
         backgroundColor: alpha(
           theme.palette.primary.main,
-          theme.palette.action.hoverOpacity
+          theme.palette.action.hoverOpacity,
         ),
         "&:hover": {
           backgroundColor: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
         },
       }),
@@ -348,16 +351,19 @@ const components: Components = {
     styleOverrides: {
       icon: {
         alignSelf: "center",
+        marginRight: "8px",
       },
       standardWarning: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.yellow[100],
+        color: theme.palette.warning.dark,
         " .MuiAlert-icon": {
-          color: theme.palette.common.black,
+          color: theme.palette.warning.dark,
         },
       }),
       standardInfo: ({ theme }: { theme: any }) => ({
         backgroundColor: theme.palette.blue[100],
         " .MuiAlert-icon": {
-          color: theme.palette.info.main,
+          color: theme.palette.info.dark,
         },
         "& .MuiAlert-message": {
           color: theme.palette.info.dark,
@@ -482,13 +488,13 @@ const components: Components = {
         "&.Mui-focused:hover": {
           background: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
         },
         "&.Mui-selected, &.Mui-selected:hover, &.Mui-selected.Mui-focused": {
           background: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
           " .MuiTreeItem-label .MuiSvgIcon-root": {
             color: theme.palette.primary.main,
@@ -547,7 +553,7 @@ const components: Components = {
         "&.Mui-selected": {
           backgroundColor: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
           color: theme.palette.primary.main,
           svg: {
