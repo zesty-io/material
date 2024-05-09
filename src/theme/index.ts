@@ -349,10 +349,35 @@ const components: Components = {
   },
   MuiAlert: {
     styleOverrides: {
+      root: {
+        borderRadius: "8px",
+        padding: "8px 12px",
+        "& .MuiAlert-icon, .MuiAlert-message, .MuiAlert-action ": {
+          color: "#fff",
+        },
+        "& .MuiAlert-action": {
+          alignItems: "center",
+          padding: 0,
+          paddingLeft: "16px",
+          marginRight: "0px",
+        },
+      },
       icon: {
         alignSelf: "center",
         marginRight: "8px",
       },
+      filledSuccess: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.success.dark,
+      }),
+      filledInfo: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.info.main,
+      }),
+      filledWarning: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.warning.main,
+      }),
+      filledError: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.error.dark,
+      }),
       standardWarning: ({ theme }: { theme: any }) => ({
         backgroundColor: theme.palette.yellow[100],
         color: theme.palette.warning.dark,
