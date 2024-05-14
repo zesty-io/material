@@ -1,7 +1,7 @@
 import { lightThemePalette, darkThemePalette } from "./palette";
 import typography from "./typography";
 import { alpha, Components, createTheme } from "@mui/material/styles";
-import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
+import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -641,7 +641,7 @@ const components: Components = {
   },
   MuiAutocomplete: {
     defaultProps: {
-      popupIcon: <ArrowDropDownRoundedIcon />,
+      popupIcon: <KeyboardArrowDownRoundedIcon />,
     },
   },
 };
