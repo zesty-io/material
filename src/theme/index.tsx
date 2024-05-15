@@ -644,6 +644,11 @@ const components: Components = {
       popupIcon: <KeyboardArrowDownRoundedIcon />,
     },
   },
+  MuiSelect: {
+    defaultProps: {
+      IconComponent: KeyboardArrowDownRoundedIcon,
+    },
+  },
 };
 
 export let theme = createTheme({
