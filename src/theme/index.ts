@@ -352,20 +352,22 @@ const components: Components = {
       root: {
         borderRadius: "8px",
         padding: "8px 12px",
-        "& .MuiAlert-icon, .MuiAlert-message, .MuiAlert-action ": {
-          color: "#fff",
-        },
-        "& .MuiAlert-action": {
-          alignItems: "center",
-          padding: 0,
-          paddingLeft: "16px",
-          marginRight: "0px",
-        },
       },
-      icon: {
+      action: ({ theme }: { theme: any }) => ({
+        color: theme.palette.common.white,
+        alignItems: "center",
+        padding: 0,
+        paddingLeft: "16px",
+        marginRight: 0,
+      }),
+      message: ({ theme }: { theme: any }) => ({
+        color: theme.palette.common.white,
+      }),
+      icon: ({ theme }: { theme: any }) => ({
         alignSelf: "center",
         marginRight: "8px",
-      },
+        color: theme.palette.common.white,
+      }),
       filledSuccess: ({ theme }: { theme: any }) => ({
         backgroundColor: theme.palette.success.dark,
       }),
@@ -662,7 +664,7 @@ const components: Components = {
         color: "text.disabled",
       },
     },
-  }
+  },
 };
 
 export let theme = createTheme({
