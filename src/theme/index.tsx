@@ -1,6 +1,7 @@
 import { lightThemePalette, darkThemePalette } from "./palette";
 import typography from "./typography";
 import { alpha, Components, createTheme } from "@mui/material/styles";
+import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -243,7 +244,7 @@ const components: Components = {
   MuiDialog: {
     styleOverrides: {
       paper: {
-        borderRadius: "8px",
+        borderRadius: "4px",
       },
       paperWidthXs: {
         width: "480px",
@@ -637,7 +638,17 @@ const components: Components = {
         color: "text.disabled",
       },
     },
-  }
+  },
+  MuiAutocomplete: {
+    defaultProps: {
+      popupIcon: <KeyboardArrowDownRoundedIcon />,
+    },
+  },
+  MuiSelect: {
+    defaultProps: {
+      IconComponent: KeyboardArrowDownRoundedIcon,
+    },
+  },
 };
 
 export let theme = createTheme({
