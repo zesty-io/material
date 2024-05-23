@@ -1,6 +1,6 @@
 import { lightThemePalette, darkThemePalette } from "./palette";
 import typography from "./typography";
-import { alpha, Components, createTheme } from "@mui/material/styles";
+import { alpha, Components, createTheme, Theme } from "@mui/material/styles";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 
 declare module "@mui/material/styles" {
@@ -333,17 +333,40 @@ const components: Components = {
   },
   MuiChip: {
     styleOverrides: {
-      root: {
+      root: ({ theme }: { theme: any }) => ({
         borderRadius: "4px",
-      },
+      }),
       // @ts-ignore
       colorDefault: ({ theme }: { theme: any }) => ({
         backgroundColor: theme.palette.grey[100],
+        color: theme.palette.text.secondary,
         ":hover": {
           backgroundColor: theme.palette.grey[200],
         },
         ":focus": {
           backgroundColor: theme.palette.grey[300],
+        },
+      }),
+      colorInfo: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.blue[100],
+        color: theme.palette.blue[600],
+      }),
+      colorSuccess: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.green[50],
+        color: theme.palette.green[600],
+      }),
+      colorWarning: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.yellow[100],
+        color: theme.palette.yellow[600],
+      }),
+      colorError: ({ theme }: { theme: any }) => ({
+        backgroundColor: theme.palette.red[100],
+        color: theme.palette.red[600],
+      }),
+      sizeSmall: ({ theme }: { theme: any }) => ({
+        "& .MuiChip-label": {
+          ...theme.typography.body3,
+          fontWeight: 600,
         },
       }),
     },
