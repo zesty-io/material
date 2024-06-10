@@ -376,6 +376,7 @@ const components: Components = {
       root: {
         borderRadius: "8px",
         padding: "8px 12px",
+        gap: "12px",
       },
       action: ({ theme }: { theme: any }) => ({
         color: theme.palette.common.white,
@@ -385,11 +386,12 @@ const components: Components = {
         marginRight: 0,
       }),
       message: ({ theme }: { theme: any }) => ({
+        alignSelf: "center",
         color: theme.palette.common.white,
       }),
       icon: ({ theme }: { theme: any }) => ({
         alignSelf: "center",
-        marginRight: "8px",
+        marginRight: 0,
         color: theme.palette.common.white,
       }),
       filledSuccess: ({ theme }: { theme: any }) => ({
