@@ -614,6 +614,9 @@ const components: Components = {
           },
         },
       }),
+      divider: ({ theme }: { theme: any }) => ({
+        borderColor: theme.palette.border,
+      }),
     },
   },
   MuiBreadcrumbs: {
