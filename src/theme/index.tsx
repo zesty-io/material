@@ -412,6 +412,9 @@ const components: Components = {
         " .MuiAlert-icon": {
           color: theme.palette.warning.dark,
         },
+        "& .MuiAlert-message": {
+          color: theme.palette.warning.dark,
+        },
       }),
       standardInfo: ({ theme }: { theme: any }) => ({
         backgroundColor: theme.palette.blue[100],
@@ -425,6 +428,9 @@ const components: Components = {
       standardError: ({ theme }: { theme: any }) => ({
         backgroundColor: alpha(theme.palette.error.main, 0.1),
         " .MuiAlert-icon": {
+          color: theme.palette.error.main,
+        },
+        "& .MuiAlert-message": {
           color: theme.palette.error.main,
         },
       }),
