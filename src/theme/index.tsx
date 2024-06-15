@@ -520,6 +520,7 @@ const components: Components = {
       },
       tooltip: ({ theme }: { theme: any }) => ({
         ...theme.typography.body3,
+        backgroundColor: alpha(theme.palette.grey[900], 0.9),
       }),
     },
   },
