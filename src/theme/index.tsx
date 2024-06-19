@@ -526,6 +526,7 @@ const components: Components = {
       },
       tooltip: ({ theme }: { theme: any }) => ({
         ...theme.typography.body3,
+        backgroundColor: alpha(theme.palette.grey[900], 0.9),
       }),
     },
   },
@@ -619,6 +620,9 @@ const components: Components = {
             color: theme.palette.primary.main,
           },
         },
+      }),
+      divider: ({ theme }: { theme: any }) => ({
+        borderColor: theme.palette.border,
       }),
     },
   },
