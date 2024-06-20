@@ -15,3 +15,4 @@ export { Github } from "./Github";
 export { Microsoft } from "./Microsoft";
 export { ImageSync } from "./ImageSync";
 export { Bynder } from "./Bynder";
+export { FileReplace } from "./FileReplace";
