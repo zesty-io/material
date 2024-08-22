@@ -705,6 +705,15 @@ const components: Components = {
     defaultProps: {
       popupIcon: <KeyboardArrowDownRoundedIcon />,
     },
+    styleOverrides: {
+      inputRoot: ({ ownerState }: { ownerState: any }) => ({
+        ...(ownerState.size === "medium" && {
+          paddingTop: 2,
+          paddingBottom: 2,
+          height: 40,
+        }),
+      }),
+    },
   },
   MuiSelect: {
     defaultProps: {
