@@ -338,8 +338,8 @@ const components: Components = {
       }),
       // @ts-ignore
       colorDefault: ({ theme }: { theme: any }) => ({
-        backgroundColor: theme.palette.grey[100],
-        color: theme.palette.text.secondary,
+        backgroundColor: theme.palette.background.paper,
+        color: theme.palette.text.primary,
         ":hover": {
           backgroundColor: theme.palette.grey[200],
         },
