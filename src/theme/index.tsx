@@ -54,7 +54,7 @@ const components: Components = {
           color: theme.palette.text.primary,
         },
         "&.Mui-selected": {
-          color: theme.palette.text.primary,
+          color: theme.palette.grey[700],
         },
         "& .MuiTab-iconWrapper": {
           marginRight: "4px",
@@ -123,12 +123,12 @@ const components: Components = {
         color: theme.palette.primary.main,
         backgroundColor: alpha(
           theme.palette.primary.main,
-          theme.palette.action.hoverOpacity,
+          theme.palette.action.hoverOpacity
         ),
         "&:hover": {
           backgroundColor: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity,
+            theme.palette.action.selectedOpacity
           ),
         },
       }),
@@ -346,6 +346,9 @@ const components: Components = {
         ":focus": {
           backgroundColor: theme.palette.grey[300],
         },
+        "&.MuiChip-outlined": {
+          borderColor: theme.palette.border,
+        },
       }),
       colorInfo: ({ theme }: { theme: any }) => ({
         backgroundColor: theme.palette.blue[100],
@@ -548,13 +551,13 @@ const components: Components = {
         "&.Mui-focused:hover": {
           background: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity,
+            theme.palette.action.selectedOpacity
           ),
         },
         "&.Mui-selected, &.Mui-selected:hover, &.Mui-selected.Mui-focused": {
           background: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity,
+            theme.palette.action.selectedOpacity
           ),
           " .MuiTreeItem-label .MuiSvgIcon-root": {
             color: theme.palette.primary.main,
@@ -613,7 +616,7 @@ const components: Components = {
         "&.Mui-selected": {
           backgroundColor: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity,
+            theme.palette.action.selectedOpacity
           ),
           color: theme.palette.primary.main,
           svg: {
@@ -718,6 +721,14 @@ const components: Components = {
   MuiSelect: {
     defaultProps: {
       IconComponent: KeyboardArrowDownRoundedIcon,
+    },
+    styleOverrides: {
+      select: ({ theme }: { theme: any }) => ({
+        "&.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input:read-only":
+          {
+            color: theme.palette.text.primary,
+          },
+      }),
     },
   },
 };
