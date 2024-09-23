@@ -54,7 +54,7 @@ const components: Components = {
           color: theme.palette.text.primary,
         },
         "&.Mui-selected": {
-          color: theme.palette.text.primary,
+          color: theme.palette.grey[700],
         },
         "& .MuiTab-iconWrapper": {
           marginRight: "4px",
@@ -123,12 +123,12 @@ const components: Components = {
         color: theme.palette.primary.main,
         backgroundColor: alpha(
           theme.palette.primary.main,
-          theme.palette.action.hoverOpacity,
+          theme.palette.action.hoverOpacity
         ),
         "&:hover": {
           backgroundColor: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity,
+            theme.palette.action.selectedOpacity
           ),
         },
       }),
@@ -338,13 +338,16 @@ const components: Components = {
       }),
       // @ts-ignore
       colorDefault: ({ theme }: { theme: any }) => ({
-        backgroundColor: theme.palette.grey[100],
-        color: theme.palette.text.secondary,
+        backgroundColor: theme.palette.background.paper,
+        color: theme.palette.text.primary,
         ":hover": {
           backgroundColor: theme.palette.grey[200],
         },
         ":focus": {
           backgroundColor: theme.palette.grey[300],
+        },
+        "&.MuiChip-outlined": {
+          borderColor: theme.palette.border,
         },
       }),
       colorInfo: ({ theme }: { theme: any }) => ({
@@ -548,13 +551,13 @@ const components: Components = {
         "&.Mui-focused:hover": {
           background: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity,
+            theme.palette.action.selectedOpacity
           ),
         },
         "&.Mui-selected, &.Mui-selected:hover, &.Mui-selected.Mui-focused": {
           background: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity,
+            theme.palette.action.selectedOpacity
           ),
           " .MuiTreeItem-label .MuiSvgIcon-root": {
             color: theme.palette.primary.main,
@@ -613,7 +616,7 @@ const components: Components = {
         "&.Mui-selected": {
           backgroundColor: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity,
+            theme.palette.action.selectedOpacity
           ),
           color: theme.palette.primary.main,
           svg: {
@@ -705,10 +708,27 @@ const components: Components = {
     defaultProps: {
       popupIcon: <KeyboardArrowDownRoundedIcon />,
     },
+    styleOverrides: {
+      inputRoot: ({ ownerState }: { ownerState: any }) => ({
+        ...(ownerState.size === "medium" && {
+          paddingTop: 2,
+          paddingBottom: 2,
+          height: 40,
+        }),
+      }),
+    },
   },
   MuiSelect: {
     defaultProps: {
       IconComponent: KeyboardArrowDownRoundedIcon,
+    },
+    styleOverrides: {
+      select: ({ theme }: { theme: any }) => ({
+        "&.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input:read-only":
+          {
+            color: theme.palette.text.primary,
+          },
+      }),
     },
   },
 };
