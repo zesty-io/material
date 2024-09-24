@@ -338,8 +338,8 @@ const components: Components = {
       }),
       // @ts-ignore
       colorDefault: ({ theme }: { theme: any }) => ({
-        backgroundColor: theme.palette.background.paper,
-        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.grey[100],
+        color: theme.palette.text.secondary,
         ":hover": {
           backgroundColor: theme.palette.grey[200],
         },
@@ -347,6 +347,8 @@ const components: Components = {
           backgroundColor: theme.palette.grey[300],
         },
         "&.MuiChip-outlined": {
+          backgroundColor: theme.palette.background.paper,
+          color: theme.palette.text.primary,
           borderColor: theme.palette.border,
         },
       }),
