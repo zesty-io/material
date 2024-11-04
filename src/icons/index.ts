@@ -16,3 +16,4 @@ export { Microsoft } from "./Microsoft";
 export { ImageSync } from "./ImageSync";
 export { Bynder } from "./Bynder";
 export { FileReplace } from "./FileReplace";
+export { Block } from "./Block";
