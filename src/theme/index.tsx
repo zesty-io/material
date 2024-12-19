@@ -242,9 +242,14 @@ const components: Components = {
     ],
   },
   MuiDialog: {
+    defaultProps: {
+      PaperProps: {
+        elevation: 8,
+      },
+    },
     styleOverrides: {
       paper: {
-        borderRadius: "4px",
+        borderRadius: "8px",
       },
       paperWidthXs: {
         width: "480px",
@@ -298,6 +303,16 @@ const components: Components = {
     },
   },
   MuiMenu: {
+    defaultProps: {
+      slotProps: {
+        paper: {
+          elevation: 8,
+          sx: {
+            borderRadius: 2,
+          },
+        },
+      },
+    },
     styleOverrides: {
       list: {
         minWidth: "240px",
@@ -709,6 +724,14 @@ const components: Components = {
   MuiAutocomplete: {
     defaultProps: {
       popupIcon: <KeyboardArrowDownRoundedIcon />,
+      slotProps: {
+        paper: {
+          elevation: 8,
+          sx: {
+            borderRadius: 2,
+          },
+        },
+      },
     },
     styleOverrides: {
       inputRoot: ({ ownerState }: { ownerState: any }) => ({
