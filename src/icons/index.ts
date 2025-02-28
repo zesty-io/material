@@ -17,3 +17,4 @@ export { ImageSync } from "./ImageSync";
 export { Bynder } from "./Bynder";
 export { FileReplace } from "./FileReplace";
 export { Block } from "./Block";
+export { ReplaceContentItem } from "./ReplaceContentItem";
