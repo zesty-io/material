@@ -689,11 +689,11 @@ const components: Components = {
     },
   },
   MuiToggleButton: {
-    styleOverrides: {
+    styleOverrides: ({ theme }: { theme: any }) => ({
       sizeSmall: {
-        fontSize: "16px",
+        ...theme.typography.body2,
       },
-    },
+    }),
   },
   MuiListItemText: {
     styleOverrides: {
