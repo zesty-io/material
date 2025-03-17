@@ -36,7 +36,7 @@ const lightThemePalette: PaletteOptions = {
     main: "#12B76A",
     dark: "#027A48",
     light: "#D1FADF",
-	contrastText: "#ffffff",
+    contrastText: "#ffffff",
   },
   warning: {
     main: "#F79009",
@@ -52,7 +52,7 @@ const lightThemePalette: PaletteOptions = {
     main: "#0BA5EC",
     dark: "#026AA2",
     light: "#7CD4FD",
-	contrastText: "#ffffff",
+    contrastText: "#ffffff",
   },
   text: {
     primary: "#101828",
@@ -172,8 +172,8 @@ const lightThemePalette: PaletteOptions = {
     active: "rgba(127, 127, 126, 0.6)",
     hover: "rgba(16, 24, 40, 0.04)",
     selected: "rgba(127,127, 126, 0.13)",
-	disabled: "rgba(127,127, 126, 0.48)",
-	disabledBackground: "rgba(127,127, 126, 0.2)",
+    disabled: "rgba(127,127, 126, 0.48)",
+    disabledBackground: "rgba(127,127, 126, 0.2)",
     focus: "rgba(16, 24, 40, 0.12)",
   },
 };
