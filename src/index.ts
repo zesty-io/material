@@ -3,8 +3,6 @@ export { theme, darkTheme } from "./theme";
 export { default as FieldTypeText } from "./FieldTypeText";
 export { default as FieldTypeSort } from "./FieldTypeSort";
 export { default as FieldTypeUrl } from "./FieldTypeUrl";
-export { default as FieldTypeDate } from "./FieldTypeDate";
-export { default as FieldTypeDateTime } from "./FieldTypeDateTime";
 export { default as FieldTypeColor } from "./FieldTypeColor";
 export { default as FieldTypeNumber } from "./FieldTypeNumber";
 export { default as FieldTypeOneToOne } from "./FieldTypeOneToOne";

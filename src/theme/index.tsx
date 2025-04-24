@@ -456,6 +456,7 @@ const components: Components = {
       }),
     },
   },
+  // @ts-expect-error MuiDataGrid not slotted
   MuiDataGrid: {
     styleOverrides: {
       root: ({ theme }: { theme: any }) => ({
@@ -473,12 +474,13 @@ const components: Components = {
         borderColor: theme.palette.border,
         backgroundColor: theme.palette.grey[100],
       }),
-      columnHeader: {
+      columnHeader:({ theme }: { theme: any }) => ({
         padding: "0 16px",
         "&:focus": {
-          outline: "none",
+            outline: "none",
         },
-      },
+        backgroundColor: theme.palette.grey[100],
+      }),
       columnHeaderTitle: {
         fontWeight: 600,
       },
