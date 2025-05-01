@@ -28,3 +28,4 @@ export { JavaScript } from "./JavaScript";
 export { Css } from "./Css";
 export { Less } from "./Less";
 export { Sass } from "./Sass";
+export { ShuffleVariant } from "./ShuffleVariant";
