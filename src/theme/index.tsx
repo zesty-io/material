@@ -756,6 +756,13 @@ const components: Components = {
       }),
     },
   },
+  MuiToggleButtonGroup: {
+    styleOverrides: {
+      grouped:({ theme }: { theme: any }) => ({
+        borderColor: theme.palette.border,
+      }),
+    },
+  },
 };
 
 export let theme = createTheme({
