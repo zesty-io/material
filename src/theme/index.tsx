@@ -121,15 +121,9 @@ const components: Components = {
     styleOverrides: {
       groupedContainedPrimary: ({ theme }: { theme: any }) => ({
         color: theme.palette.primary.main,
-        backgroundColor: alpha(
-          theme.palette.primary.main,
-          theme.palette.action.hoverOpacity
-        ),
+        backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.hoverOpacity),
         "&:hover": {
-          backgroundColor: alpha(
-            theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
-          ),
+          backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
         },
       }),
     },
@@ -474,10 +468,10 @@ const components: Components = {
         borderColor: theme.palette.border,
         backgroundColor: theme.palette.grey[100],
       }),
-      columnHeader:({ theme }: { theme: any }) => ({
+      columnHeader: ({ theme }: { theme: any }) => ({
         padding: "0 16px",
         "&:focus": {
-            outline: "none",
+          outline: "none",
         },
         backgroundColor: theme.palette.grey[100],
       }),
@@ -568,16 +562,10 @@ const components: Components = {
         borderRadius: 4,
         width: "unset",
         "&.Mui-focused:hover": {
-          background: alpha(
-            theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
-          ),
+          background: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
         },
         "&.Mui-selected, &.Mui-selected:hover, &.Mui-selected.Mui-focused": {
-          background: alpha(
-            theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
-          ),
+          background: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
           " .MuiTreeItem-label .MuiSvgIcon-root": {
             color: theme.palette.primary.main,
           },
@@ -598,6 +586,41 @@ const components: Components = {
       },
     },
   },
+  MuiTreeItem2: {
+    styleOverrides: {
+      content: ({ theme }: { theme: any }) => ({
+        px: "10px",
+        columnGap: 0,
+        borderRadius: 0,
+        color: "grey.400",
+        "&.Mui-selected, &.Mui-selected:hover": {
+          backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
+          color: theme.palette.primary.main,
+          "& .MuiTreeItem-iconContainer .MuiSvgIcon-root": {
+            fill: theme.palette.primary.main,
+          },
+        },
+        "&:hover": {
+          backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.hoverOpacity),
+        },
+      }),
+      label: ({ theme }: { theme: any }) => ({
+        ...theme.typography.body2,
+        columnGap: "4px",
+      }),
+      iconContainer: {
+        width: "18px",
+        height: "18px",
+        display: "grid",
+        alignContent: "center",
+        color: "grey.400",
+        "& svg": {
+          fontSize: 20,
+          fill: "grey.400",
+        },
+      },
+    },
+  },
   MuiCssBaseline: {
     styleOverrides: {
       body: {
@@ -605,16 +628,11 @@ const components: Components = {
           width: "8px",
           height: "8px",
         },
-        "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece":
-          ({ theme }: { theme: any }) => ({
-            backgroundColor: theme.palette.grey[100],
-            borderRadius: "4px",
-          }),
-        "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": ({
-          theme,
-        }: {
-          theme: any;
-        }) => ({
+        "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece": ({ theme }: { theme: any }) => ({
+          backgroundColor: theme.palette.grey[100],
+          borderRadius: "4px",
+        }),
+        "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": ({ theme }: { theme: any }) => ({
           backgroundColor: theme.palette.grey[300],
           borderRadius: "4px",
         }),
@@ -633,10 +651,7 @@ const components: Components = {
       root: ({ theme }: { theme: any }) => ({
         color: theme.palette.text.secondary,
         "&.Mui-selected": {
-          backgroundColor: alpha(
-            theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
-          ),
+          backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
           color: theme.palette.primary.main,
           svg: {
             color: theme.palette.primary.main,
@@ -678,11 +693,10 @@ const components: Components = {
           width: "8px",
           height: "8px",
         },
-        "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece":
-          {
-            backgroundColor: theme.palette.grey[800],
-            borderRadius: "4px",
-          },
+        "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece": {
+          backgroundColor: theme.palette.grey[800],
+          borderRadius: "4px",
+        },
         "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
           backgroundColor: theme.palette.grey[700],
           borderRadius: "4px",
@@ -692,9 +706,9 @@ const components: Components = {
   },
   MuiToggleButton: {
     styleOverrides: {
-      sizeSmall: {
-        fontSize: "16px",
-      },
+      sizeSmall: ({ theme }: { theme: any }) => ({
+        ...theme.typography.body2,
+      }),
     },
   },
   MuiListItemText: {
@@ -751,16 +765,15 @@ const components: Components = {
     },
     styleOverrides: {
       select: ({ theme }: { theme: any }) => ({
-        "&.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input:read-only":
-          {
-            color: theme.palette.text.primary,
-          },
+        "&.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input:read-only": {
+          color: theme.palette.text.primary,
+        },
       }),
     },
   },
   MuiToggleButtonGroup: {
     styleOverrides: {
-      grouped:({ theme }: { theme: any }) => ({
+      grouped: ({ theme }: { theme: any }) => ({
         borderColor: theme.palette.border,
       }),
     },

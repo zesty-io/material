@@ -1,5 +1,5 @@
 import { Color } from "@mui/material";
-import { alpha, PaletteOptions } from "@mui/material/styles";
+import { alpha, PaletteOptions, TypeBackground } from "@mui/material/styles";
 
 // Module augmentation
 declare module "@mui/material/styles" {
@@ -24,6 +24,10 @@ declare module "@mui/material/styles" {
     yellow?: Partial<Color>;
     border?: string;
   }
+
+  export interface TypeBackground {
+    editor: string;
+  }
 }
 
 const lightThemePalette: PaletteOptions = {
@@ -36,21 +40,25 @@ const lightThemePalette: PaletteOptions = {
     main: "#12B76A",
     dark: "#027A48",
     light: "#D1FADF",
+    contrastText: "#fff",
   },
   warning: {
     main: "#F79009",
     dark: "#B54708",
     light: "#FEF0C7",
+    contrastText: "#ffffff",
   },
   error: {
     main: "#F04438",
     dark: "#B42318",
     light: "#FECDCA",
+    contrastText: "#ffffff",
   },
   info: {
     main: "#0BA5EC",
     dark: "#026AA2",
     light: "#7CD4FD",
+    contrastText: "#ffffff",
   },
   text: {
     primary: "#101828",
@@ -173,6 +181,9 @@ const lightThemePalette: PaletteOptions = {
     disabled: "rgba(16, 24, 40, 0.26)",
     disabledBackground: "rgba(16, 24, 40, 0.12)",
     focus: "rgba(16, 24, 40, 0.12)",
+  },
+  background: {
+    editor: "#0F0F0F",
   },
 };
 
