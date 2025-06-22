@@ -26,7 +26,7 @@ declare module "@mui/material/styles" {
   }
 
   export interface TypeBackground {
-    editor: string;
+    editor?: string;
   }
 }
 
@@ -40,25 +40,25 @@ const lightThemePalette: PaletteOptions = {
     main: "#12B76A",
     dark: "#027A48",
     light: "#D1FADF",
-    contrastText: "#fff",
+    contrastText: "#FFFFFF",
   },
   warning: {
     main: "#F79009",
     dark: "#B54708",
     light: "#FEF0C7",
-    contrastText: "#ffffff",
+    contrastText: "#FFFFFF",
   },
   error: {
     main: "#F04438",
     dark: "#B42318",
     light: "#FECDCA",
-    contrastText: "#ffffff",
+    contrastText: "#FFFFFF",
   },
   info: {
     main: "#0BA5EC",
     dark: "#026AA2",
     light: "#7CD4FD",
-    contrastText: "#ffffff",
+    contrastText: "#FFFFFF",
   },
   text: {
     primary: "#101828",
@@ -187,7 +187,7 @@ const lightThemePalette: PaletteOptions = {
   },
 };
 
-const darkThemePalette = {
+const darkThemePalette: PaletteOptions = {
   ...lightThemePalette,
   text: {
     primary: "#ffffff",
@@ -195,12 +195,14 @@ const darkThemePalette = {
     disabled: "#D0D5DD",
   },
   action: {
+     ...lightThemePalette.action,
     active: "#98A2B3",
     hover: alpha("#FF5D0A", 0.08),
     selectedOpacity: 0.08,
   },
   border: "#1D2939",
   background: {
+    ...lightThemePalette.background,
     paper: "#101828",
   },
 };

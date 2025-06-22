@@ -1,5 +1,5 @@
 import { Color } from "@mui/material";
-import { alpha, PaletteOptions, TypographyVariantsOptions, TypeBackground } from "@mui/material/styles";
+import { alpha, PaletteOptions, TypographyVariantsOptions } from "@mui/material/styles";
 import { IconButtonPropsSizeOverrides } from "@mui/material/IconButton";
 
 declare module "@mui/material/Typography" {
@@ -21,7 +21,7 @@ declare module "@mui/material/styles" {
   }
 
   export interface TypeBackground {
-    editor: string;
+    editor?: string;
   }
 }
 
