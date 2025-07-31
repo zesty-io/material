@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 export type SSOService = "github" | "google" | "azure";
 
@@ -6,13 +7,13 @@ interface Message {
   source: "zesty";
   status: string;
   error_message: string;
+  token?: string;
 }
 
 interface Error {
   message: string;
   status: string;
-};
-
+}
 
 let tabWindow: Window | null = null;
 export const useSSO = (authServiceUrl: string) => {
@@ -23,6 +24,22 @@ export const useSSO = (authServiceUrl: string) => {
     if (event.origin === authServiceUrl && event.data.source === "zesty") {
       setMessage(event.data);
       if (event.data.status === "200") {
+        // Set the cookie for .content.one domain as well
+        if (event.data.token) {
+          let cookieName = "APP_SID";
+
+          if (authServiceUrl.includes("stage")) {
+            cookieName = "STAGE_APP_SID";
+          } else if (authServiceUrl.includes("dev")) {
+            cookieName = "DEV_APP_SID";
+          }
+
+          Cookies.set(cookieName, event.data.token, {
+            path: "/",
+            domain: ".content.one",
+          });
+        }
+
         setIsAuthenticated(true);
       } else {
         setError({
