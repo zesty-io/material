@@ -29,3 +29,4 @@ export { Css } from "./Css";
 export { Less } from "./Less";
 export { Sass } from "./Sass";
 export { ShuffleVariant } from "./ShuffleVariant";
+export { Repeater } from "./Repeater";
