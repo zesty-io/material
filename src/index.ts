@@ -14,3 +14,4 @@ export { default as SSOButtonGroup } from "./SSOButtonGroup";
 export { default as SSOButton } from "./SSOButton";
 export { IconButton } from "./IconButton";
 export * from "./icons";
+export * from "./i18n";
