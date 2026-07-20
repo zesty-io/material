@@ -28,3 +28,5 @@ storybook-static
 
 # Built package
 zesty-io-material-*.tgz
+
+.claude/worktrees
