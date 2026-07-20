@@ -25,6 +25,13 @@ export interface SSOButtonProps {
    * Optional properties for underlying MUI Button component.
    */
   ButtonProps?: ButtonProps;
+
+  /**
+   * Optional pre-translated label to render instead of the default
+   * "Continue with {service}" text. Consumers are responsible for
+   * translation; this component does not perform any i18n itself.
+   */
+  label?: string;
 }
 
 const ssoServiceMap = {
@@ -42,7 +49,13 @@ const ssoServiceMap = {
   },
 }
 
-const SSOButton = ({ sx, service, onClick, ButtonProps }: SSOButtonProps) => {
+const SSOButton = ({
+  sx,
+  service,
+  onClick,
+  ButtonProps,
+  label,
+}: SSOButtonProps) => {
   const ssoService = ssoServiceMap[service];
 
   return (
@@ -60,7 +73,7 @@ const SSOButton = ({ sx, service, onClick, ButtonProps }: SSOButtonProps) => {
       sx={{ justifyContent: "flex-start", ...sx }}
       {...ButtonProps}
     >
-      Continue with {ssoService.name}
+      {label ?? `Continue with ${ssoService.name}`}
     </Button>
   );
 };
