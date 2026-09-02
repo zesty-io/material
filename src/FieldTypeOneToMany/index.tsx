@@ -1,7 +1,14 @@
-import { ReactNode, useState } from 'react';
-import { AutocompleteProps, FormControl, FormLabel, Popper, styled, TextField } from '@mui/material';
-import Autocomplete, { autocompleteClasses } from '@mui/material/Autocomplete';
-import { ListboxComponent } from '../utils/virtualization';
+import { ReactNode, useState } from "react";
+import {
+  AutocompleteProps,
+  FormControl,
+  FormLabel,
+  Popper,
+  styled,
+  TextField,
+} from "@mui/material";
+import Autocomplete, { autocompleteClasses } from "@mui/material/Autocomplete";
+import { ListboxComponent } from "../utils/virtualization";
 
 interface FieldTypeOneToManyOption {
   /**
@@ -22,8 +29,11 @@ interface FieldTypeOneToManyOption {
 // type across getOptionLabel/onChange/renderOption once `multiple` is also
 // generic; kept as `any` to match the actual (loosely-typed) usage below
 // rather than reworking the Autocomplete generics as part of this change.
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface FieldTypeOneToManyProps extends Omit<AutocompleteProps<any, boolean, boolean, boolean>, 'onOpen' | 'renderInput'> {
+export interface FieldTypeOneToManyProps extends Omit<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  AutocompleteProps<any, boolean, boolean, boolean>,
+  "onOpen" | "renderInput"
+> {
   label?: string;
   helperText?: string;
   placeholder?: string;
@@ -39,7 +49,16 @@ export interface FieldTypeOneToManyProps extends Omit<AutocompleteProps<any, boo
   options: FieldTypeOneToManyOption[];
 }
 
-const FieldTypeOneToMany = ({label, helperText, placeholder, error, onOpen, options, required, ...props }: FieldTypeOneToManyProps) => {
+const FieldTypeOneToMany = ({
+  label,
+  helperText,
+  placeholder,
+  error,
+  onOpen,
+  options,
+  required,
+  ...props
+}: FieldTypeOneToManyProps) => {
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -64,7 +83,7 @@ const FieldTypeOneToMany = ({label, helperText, placeholder, error, onOpen, opti
         disableListWrap
         disableClearable
         disablePortal
-        size='small'
+        size="small"
         PopperComponent={StyledPopper}
         ListboxComponent={ListboxComponent}
         renderInput={(params) => (
@@ -88,8 +107,8 @@ export default FieldTypeOneToMany;
 
 const StyledPopper = styled(Popper)({
   [`& .${autocompleteClasses.listbox}`]: {
-    boxSizing: 'border-box',
-    '& ul': {
+    boxSizing: "border-box",
+    "& ul": {
       padding: 0,
       margin: 0,
     },

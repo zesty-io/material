@@ -123,12 +123,12 @@ const components: Components<Omit<Theme, "components">> = {
         color: theme.palette.primary.main,
         backgroundColor: alpha(
           theme.palette.primary.main,
-          theme.palette.action.hoverOpacity
+          theme.palette.action.hoverOpacity,
         ),
         "&:hover": {
           backgroundColor: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
         },
       }),
@@ -473,10 +473,10 @@ const components: Components<Omit<Theme, "components">> = {
         borderColor: theme.palette.border,
         backgroundColor: theme.palette.grey[100],
       }),
-      columnHeader:({ theme }: { theme: Theme }) => ({
+      columnHeader: ({ theme }: { theme: Theme }) => ({
         padding: "0 16px",
         "&:focus": {
-            outline: "none",
+          outline: "none",
         },
         backgroundColor: theme.palette.grey[100],
       }),
@@ -569,13 +569,13 @@ const components: Components<Omit<Theme, "components">> = {
         "&.Mui-focused:hover": {
           background: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
         },
         "&.Mui-selected, &.Mui-selected:hover, &.Mui-selected.Mui-focused": {
           background: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
           " .MuiTreeItem-label .MuiSvgIcon-root": {
             color: theme.palette.primary.main,
@@ -634,7 +634,7 @@ const components: Components<Omit<Theme, "components">> = {
         "&.Mui-selected": {
           backgroundColor: alpha(
             theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
+            theme.palette.action.selectedOpacity,
           ),
           color: theme.palette.primary.main,
           svg: {
@@ -760,7 +760,7 @@ const components: Components<Omit<Theme, "components">> = {
   },
   MuiToggleButtonGroup: {
     styleOverrides: {
-      grouped:({ theme }: { theme: Theme }) => ({
+      grouped: ({ theme }: { theme: Theme }) => ({
         borderColor: theme.palette.border,
       }),
     },

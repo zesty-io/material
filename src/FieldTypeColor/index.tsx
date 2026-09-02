@@ -1,18 +1,22 @@
-import MuiTextField, { OutlinedTextFieldProps } from '@mui/material/TextField';
-import { Button, FormControl, FormLabel, InputAdornment } from '@mui/material';
-import BrushIcon from '@mui/icons-material/Brush';
+import MuiTextField, { OutlinedTextFieldProps } from "@mui/material/TextField";
+import { Button, FormControl, FormLabel, InputAdornment } from "@mui/material";
+import BrushIcon from "@mui/icons-material/Brush";
 
-export type FieldTypeColorProps = Omit<OutlinedTextFieldProps, 'variant'>;
+export type FieldTypeColorProps = Omit<OutlinedTextFieldProps, "variant">;
 
-const FieldTypeColor = ({InputProps, label, required, ...props }: FieldTypeColorProps) => {
-
+const FieldTypeColor = ({
+  InputProps,
+  label,
+  required,
+  ...props
+}: FieldTypeColorProps) => {
   return (
     <FormControl fullWidth required={required}>
       <FormLabel>{label}</FormLabel>
       <MuiTextField
         size="small"
-        variant='outlined'
-        type='color'
+        variant="outlined"
+        type="color"
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
@@ -21,11 +25,12 @@ const FieldTypeColor = ({InputProps, label, required, ...props }: FieldTypeColor
                 variant="contained"
                 onClick={(e) => {
                   // References color input via event in order to open color picker
-                  const input = e.currentTarget?.parentElement?.parentElement?.firstElementChild as HTMLInputElement;
-                  input?.click()
+                  const input = e.currentTarget?.parentElement?.parentElement
+                    ?.firstElementChild as HTMLInputElement;
+                  input?.click();
                 }}
               >
-                <BrushIcon fontSize='small' />
+                <BrushIcon fontSize="small" />
               </Button>
             </InputAdornment>
           ),
