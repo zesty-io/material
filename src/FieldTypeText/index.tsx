@@ -2,8 +2,10 @@ import MuiTextField, { OutlinedTextFieldProps } from "@mui/material/TextField";
 import { FormControl, FormLabel, Box, InputAdornment } from "@mui/material";
 import { ReactNode } from "react";
 
-export interface FieldTypeTextProps
-  extends Omit<OutlinedTextFieldProps, "variant"> {
+export interface FieldTypeTextProps extends Omit<
+  OutlinedTextFieldProps,
+  "variant"
+> {
   /**
    * Max length of the field
    * @default 150

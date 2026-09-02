@@ -17,11 +17,15 @@ npm run build-storybook  # Static Storybook build
 npm run deploy           # build-storybook + publish to GitHub Pages
 npm run release          # build + npm publish --access public
 npm run release:alpha    # build + publish under the `alpha` dist-tag
+npm run format           # prettier --write on src/**/*.{ts,tsx}
+npm run format:check     # prettier --check on src/**/*.{ts,tsx}
 ```
 
 There are **no tests** — `npm test` is a placeholder (`echo 'add tests'`). Do not assume a test runner exists.
 
 `tsc` runs in `strict` mode and Storybook type-checks via `react-docgen-typescript`, so type errors surface in both the build and the Storybook dev server.
+
+**Formatting is enforced via a pre-commit hook.** Prettier runs on Prettier's own defaults (no `.prettierrc` — deliberately, to stay decision-free and consistent with manager-ui, which runs on the same defaults) against `src/**/*.{ts,tsx}` (scope narrowed by `.prettierignore` to just that source tree — the rest of the repo, e.g. `tsconfig.json`/`.storybook/`, is intentionally left untouched for now). `npm install` runs `husky` via the `prepare` script, which wires up `.husky/pre-commit` to run `pretty-quick --staged` — new/modified staged source files are auto-formatted at commit time. This is currently the only enforcement (bypassable with `git commit --no-verify`); CI wiring for `format:check` is tracked separately.
 
 ## Architecture & conventions
 

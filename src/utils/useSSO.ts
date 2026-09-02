@@ -11,8 +11,7 @@ interface Message {
 interface Error {
   message: string;
   status: string;
-};
-
+}
 
 let tabWindow: Window | null = null;
 export const useSSO = (authServiceUrl: string) => {

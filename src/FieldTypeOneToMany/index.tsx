@@ -1,9 +1,20 @@
-import { ReactNode, useState } from 'react';
-import { AutocompleteProps, FormControl, FormLabel, Popper, styled, TextField, TextFieldProps } from '@mui/material';
-import Autocomplete, { autocompleteClasses } from '@mui/material/Autocomplete';
-import { ListboxComponent } from '../utils/virtualization';
+import { ReactNode, useState } from "react";
+import {
+  AutocompleteProps,
+  FormControl,
+  FormLabel,
+  Popper,
+  styled,
+  TextField,
+  TextFieldProps,
+} from "@mui/material";
+import Autocomplete, { autocompleteClasses } from "@mui/material/Autocomplete";
+import { ListboxComponent } from "../utils/virtualization";
 
-export interface FieldTypeOneToManyProps extends Omit<AutocompleteProps<any, boolean, boolean, boolean>, 'onOpen' | 'renderInput'> {
+export interface FieldTypeOneToManyProps extends Omit<
+  AutocompleteProps<any, boolean, boolean, boolean>,
+  "onOpen" | "renderInput"
+> {
   label?: string;
   helperText?: string;
   placeholder?: string;
@@ -16,7 +27,7 @@ export interface FieldTypeOneToManyProps extends Omit<AutocompleteProps<any, boo
   /**
    * Structure for option
    */
-   options: {
+  options: {
     /**
      * Component to be rendered in the dropdown
      */
@@ -29,10 +40,19 @@ export interface FieldTypeOneToManyProps extends Omit<AutocompleteProps<any, boo
      * Label that should display in the input when selected
      */
     inputLabel: string;
-  }[]
+  }[];
 }
 
-const FieldTypeOneToMany = ({label, helperText, placeholder, error, onOpen, options, required, ...props }: FieldTypeOneToManyProps) => {
+const FieldTypeOneToMany = ({
+  label,
+  helperText,
+  placeholder,
+  error,
+  onOpen,
+  options,
+  required,
+  ...props
+}: FieldTypeOneToManyProps) => {
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -57,7 +77,7 @@ const FieldTypeOneToMany = ({label, helperText, placeholder, error, onOpen, opti
         disableListWrap
         disableClearable
         disablePortal
-        size='small'
+        size="small"
         PopperComponent={StyledPopper}
         ListboxComponent={ListboxComponent}
         renderInput={(params) => (
@@ -81,8 +101,8 @@ export default FieldTypeOneToMany;
 
 const StyledPopper = styled(Popper)({
   [`& .${autocompleteClasses.listbox}`]: {
-    boxSizing: 'border-box',
-    '& ul': {
+    boxSizing: "border-box",
+    "& ul": {
       padding: 0,
       margin: 0,
     },
