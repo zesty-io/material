@@ -14,14 +14,5 @@ module.exports = tseslint.config(
     rules: {
       ...reactHooks.configs.recommended.rules,
     },
-  },
-  {
-    // Typing MUI's styleOverrides/variants surface properly is a separate,
-    // larger effort — scope `any` usage there down to a warning instead of
-    // fixing (or disabling) it line-by-line.
-    files: ["src/theme/**/*.ts", "src/theme/**/*.tsx", "src/LegacyTheme/**/*.ts", "src/LegacyTheme/**/*.tsx"],
-    rules: {
-      "@typescript-eslint/no-explicit-any": "warn",
-    },
   }
 );

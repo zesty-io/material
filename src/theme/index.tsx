@@ -1,6 +1,6 @@
 import { lightThemePalette, darkThemePalette } from "./palette";
 import typography from "./typography";
-import { alpha, Components, createTheme } from "@mui/material/styles";
+import { alpha, Components, createTheme, Theme } from "@mui/material/styles";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 
 declare module "@mui/material/styles" {
@@ -22,10 +22,10 @@ declare module "@mui/material/Button" {
   }
 }
 
-const components: Components = {
+const components: Components<Omit<Theme, "components">> = {
   MuiFormLabel: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         ...theme.typography.body2,
       }),
     },
@@ -43,7 +43,7 @@ const components: Components = {
   },
   MuiTab: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         color: theme.palette.text.disabled,
         paddingLeft: 0,
         paddingRight: 0,
@@ -95,18 +95,18 @@ const components: Components = {
       sizeSmall: {
         fontSize: "14px",
       },
-      outlinedInherit: ({ theme }: { theme: any }) => ({
+      outlinedInherit: ({ theme }: { theme: Theme }) => ({
         color: theme.palette.text.secondary,
         borderColor: theme.palette.border,
       }),
-      containedInherit: ({ theme }: { theme: any }) => ({
+      containedInherit: ({ theme }: { theme: Theme }) => ({
         color: theme.palette.text.secondary,
         backgroundColor: theme.palette.grey[100],
       }),
-      textInherit: ({ theme }: { theme: any }) => ({
+      textInherit: ({ theme }: { theme: Theme }) => ({
         color: theme.palette.text.secondary,
       }),
-      containedWarning: ({ theme }: { theme: any }) => ({
+      containedWarning: ({ theme }: { theme: Theme }) => ({
         color: theme.palette.common.white,
       }),
     },
@@ -119,7 +119,7 @@ const components: Components = {
       disableElevation: true,
     },
     styleOverrides: {
-      groupedContainedPrimary: ({ theme }: { theme: any }) => ({
+      groupedContainedPrimary: ({ theme }: { theme: Theme }) => ({
         color: theme.palette.primary.main,
         backgroundColor: alpha(
           theme.palette.primary.main,
@@ -136,7 +136,7 @@ const components: Components = {
   },
   MuiOutlinedInput: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         padding: "0px 8px",
         borderRadius: "8px",
         backgroundColor: theme.palette.background.paper,
@@ -153,7 +153,7 @@ const components: Components = {
           color: theme.palette.action.active,
         },
       }),
-      input: ({ theme }: { theme: any }) => ({
+      input: ({ theme }: { theme: Theme }) => ({
         padding: "10px 0px",
         ":read-only": {
           color: theme.palette.text.secondary,
@@ -167,14 +167,14 @@ const components: Components = {
           padding: "8px 0px",
         },
       },
-      notchedOutline: ({ theme }: { theme: any }) => ({
+      notchedOutline: ({ theme }: { theme: Theme }) => ({
         borderColor: theme.palette.border,
       }),
     },
   },
   MuiFormHelperText: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         ...theme.typography.body2,
         margin: "4px 0px 0px 0px",
       }),
@@ -182,7 +182,7 @@ const components: Components = {
   },
   MuiInputBase: {
     styleOverrides: {
-      input: ({ theme }: { theme: any }) => ({
+      input: ({ theme }: { theme: Theme }) => ({
         ...theme.typography.body2,
         "::placeholder": {
           color: theme.palette.text.disabled,
@@ -193,7 +193,7 @@ const components: Components = {
   },
   MuiInputLabel: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         ...theme.typography.body2,
         color: theme.palette.text.primary,
         marginBottom: "4px",
@@ -259,7 +259,7 @@ const components: Components = {
   },
   MuiDialogTitle: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         ...theme.typography.h5,
         fontWeight: 700,
         padding: "20px",
@@ -272,14 +272,14 @@ const components: Components = {
         padding: "20px",
         paddingTop: 0,
       },
-      dividers: ({ theme }: { theme: any }) => ({
+      dividers: ({ theme }: { theme: Theme }) => ({
         borderColor: theme.palette.border,
       }),
     },
   },
   MuiDialogContentText: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         ...theme.typography.body2,
       }),
     },
@@ -294,7 +294,7 @@ const components: Components = {
   },
   MuiBackdrop: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         backgroundColor: alpha(theme.palette.grey[900], 0.5),
       }),
       invisible: {
@@ -332,7 +332,7 @@ const components: Components = {
   },
   MuiAccordion: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         "&:before": {
           backgroundColor: theme.palette.border,
         },
@@ -341,7 +341,7 @@ const components: Components = {
   },
   MuiSlider: {
     styleOverrides: {
-      rail: ({ theme }: { theme: any }) => ({
+      rail: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.grey[400],
       }),
     },
@@ -351,7 +351,7 @@ const components: Components = {
       root: () => ({
         borderRadius: "4px",
       }),
-      colorDefault: ({ theme }: { theme: any }) => ({
+      colorDefault: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.grey[100],
         color: theme.palette.text.secondary,
         ":hover": {
@@ -366,23 +366,23 @@ const components: Components = {
           borderColor: theme.palette.border,
         },
       }),
-      colorInfo: ({ theme }: { theme: any }) => ({
+      colorInfo: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.blue[100],
         color: theme.palette.blue[600],
       }),
-      colorSuccess: ({ theme }: { theme: any }) => ({
+      colorSuccess: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.green[50],
         color: theme.palette.green[600],
       }),
-      colorWarning: ({ theme }: { theme: any }) => ({
+      colorWarning: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.yellow[100],
         color: theme.palette.yellow[600],
       }),
-      colorError: ({ theme }: { theme: any }) => ({
+      colorError: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.red[100],
         color: theme.palette.red[600],
       }),
-      sizeSmall: ({ theme }: { theme: any }) => ({
+      sizeSmall: ({ theme }: { theme: Theme }) => ({
         "& .MuiChip-label": {
           ...theme.typography.body3,
           fontWeight: 600,
@@ -397,35 +397,35 @@ const components: Components = {
         padding: "8px 12px",
         gap: "12px",
       },
-      action: ({ theme }: { theme: any }) => ({
+      action: ({ theme }: { theme: Theme }) => ({
         color: theme.palette.common.white,
         alignItems: "center",
         padding: 0,
         paddingLeft: "16px",
         marginRight: 0,
       }),
-      message: ({ theme }: { theme: any }) => ({
+      message: ({ theme }: { theme: Theme }) => ({
         alignSelf: "center",
         color: theme.palette.common.white,
       }),
-      icon: ({ theme }: { theme: any }) => ({
+      icon: ({ theme }: { theme: Theme }) => ({
         alignSelf: "center",
         marginRight: 0,
         color: theme.palette.common.white,
       }),
-      filledSuccess: ({ theme }: { theme: any }) => ({
+      filledSuccess: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.success.dark,
       }),
-      filledInfo: ({ theme }: { theme: any }) => ({
+      filledInfo: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.info.main,
       }),
-      filledWarning: ({ theme }: { theme: any }) => ({
+      filledWarning: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.warning.main,
       }),
-      filledError: ({ theme }: { theme: any }) => ({
+      filledError: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.error.dark,
       }),
-      standardWarning: ({ theme }: { theme: any }) => ({
+      standardWarning: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.yellow[100],
         color: theme.palette.warning.dark,
         " .MuiAlert-icon": {
@@ -435,7 +435,7 @@ const components: Components = {
           color: theme.palette.warning.dark,
         },
       }),
-      standardInfo: ({ theme }: { theme: any }) => ({
+      standardInfo: ({ theme }: { theme: Theme }) => ({
         backgroundColor: theme.palette.blue[100],
         " .MuiAlert-icon": {
           color: theme.palette.info.dark,
@@ -444,7 +444,7 @@ const components: Components = {
           color: theme.palette.info.dark,
         },
       }),
-      standardError: ({ theme }: { theme: any }) => ({
+      standardError: ({ theme }: { theme: Theme }) => ({
         backgroundColor: alpha(theme.palette.error.main, 0.1),
         " .MuiAlert-icon": {
           color: theme.palette.error.main,
@@ -458,22 +458,22 @@ const components: Components = {
   // @ts-expect-error MuiDataGrid not slotted
   MuiDataGrid: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         borderColor: theme.palette.border,
         borderRadius: "8px",
       }),
-      cell: ({ theme }: { theme: any }) => ({
+      cell: ({ theme }: { theme: Theme }) => ({
         borderColor: theme.palette.border,
         padding: "0 16px",
         "&:focus": {
           outline: "none",
         },
       }),
-      columnHeaders: ({ theme }: { theme: any }) => ({
+      columnHeaders: ({ theme }: { theme: Theme }) => ({
         borderColor: theme.palette.border,
         backgroundColor: theme.palette.grey[100],
       }),
-      columnHeader:({ theme }: { theme: any }) => ({
+      columnHeader:({ theme }: { theme: Theme }) => ({
         padding: "0 16px",
         "&:focus": {
             outline: "none",
@@ -508,7 +508,7 @@ const components: Components = {
         marginTop: "6px",
         marginBottom: "6px",
       },
-      staticTooltipLabel: ({ theme }: { theme: any }) => ({
+      staticTooltipLabel: ({ theme }: { theme: Theme }) => ({
         ...theme.typography.body2,
         fontWeight: 500,
         color: theme.palette.common.white,
@@ -521,14 +521,14 @@ const components: Components = {
   },
   MuiListItemButton: {
     styleOverrides: {
-      divider: ({ theme }: { theme: any }) => ({
+      divider: ({ theme }: { theme: Theme }) => ({
         borderColor: theme.palette.border,
       }),
     },
   },
   MuiLink: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         color: theme.palette.info.dark,
         textDecorationColor: theme.palette.info.main,
         "&:hover": {
@@ -545,7 +545,7 @@ const components: Components = {
       popper: {
         maxWidth: "240px",
       },
-      tooltip: ({ theme }: { theme: any }) => ({
+      tooltip: ({ theme }: { theme: Theme }) => ({
         ...theme.typography.body3,
         backgroundColor: alpha(theme.palette.grey[900], 0.9),
       }),
@@ -553,13 +553,13 @@ const components: Components = {
   },
   MuiTreeItem: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         color: theme.palette.text.disabled,
         svg: {
           color: theme.palette.action.active,
         },
       }),
-      content: ({ theme }: { theme: any }) => ({
+      content: ({ theme }: { theme: Theme }) => ({
         paddingTop: "6px",
         paddingBottom: "6px",
         paddingLeft: 0,
@@ -605,14 +605,14 @@ const components: Components = {
           height: "8px",
         },
         "&::-webkit-scrollbar-track-piece, & *::-webkit-scrollbar-track-piece":
-          ({ theme }: { theme: any }) => ({
+          ({ theme }: { theme: Theme }) => ({
             backgroundColor: theme.palette.grey[100],
             borderRadius: "4px",
           }),
         "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": ({
           theme,
         }: {
-          theme: any;
+          theme: Theme;
         }) => ({
           backgroundColor: theme.palette.grey[300],
           borderRadius: "4px",
@@ -622,14 +622,14 @@ const components: Components = {
   },
   MuiDivider: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         borderColor: theme.palette.border,
       }),
     },
   },
   MuiListItem: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         color: theme.palette.text.secondary,
         "&.Mui-selected": {
           backgroundColor: alpha(
@@ -642,14 +642,14 @@ const components: Components = {
           },
         },
       }),
-      divider: ({ theme }: { theme: any }) => ({
+      divider: ({ theme }: { theme: Theme }) => ({
         borderColor: theme.palette.border,
       }),
     },
   },
   MuiBreadcrumbs: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         '& button[aria-label="Show path"]': {
           backgroundColor: "transparent",
           margin: 0,
@@ -663,7 +663,7 @@ const components: Components = {
           },
         },
       }),
-      separator: ({ theme }: { theme: any }) => ({
+      separator: ({ theme }: { theme: Theme }) => ({
         color: theme.palette.grey[400],
         height: "20px",
         alignItems: "center",
@@ -672,7 +672,7 @@ const components: Components = {
   },
   MuiScopedCssBaseline: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
           width: "8px",
           height: "8px",
@@ -706,7 +706,7 @@ const components: Components = {
   },
   MuiPickersDay: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: ({ theme }: { theme: Theme }) => ({
         "&.MuiPickersDay-today": {
           backgroundColor: theme.palette.primary.main,
           color: theme.palette.common.white,
@@ -735,6 +735,7 @@ const components: Components = {
       },
     },
     styleOverrides: {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- MUI's AutocompleteOwnerState generics (Value/Multiple/DisableClearable/FreeSolo/ChipComponent) don't unify against the untyped `Components["MuiAutocomplete"]` slot; see VitualizedAutocomplete for the same constraint.
       inputRoot: ({ ownerState }: { ownerState: any }) => ({
         ...(ownerState.size === "medium" && {
           paddingTop: 2,
@@ -749,7 +750,7 @@ const components: Components = {
       IconComponent: KeyboardArrowDownRoundedIcon,
     },
     styleOverrides: {
-      select: ({ theme }: { theme: any }) => ({
+      select: ({ theme }: { theme: Theme }) => ({
         "&.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input:read-only":
           {
             color: theme.palette.text.primary,
@@ -759,7 +760,7 @@ const components: Components = {
   },
   MuiToggleButtonGroup: {
     styleOverrides: {
-      grouped:({ theme }: { theme: any }) => ({
+      grouped:({ theme }: { theme: Theme }) => ({
         borderColor: theme.palette.border,
       }),
     },
