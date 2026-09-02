@@ -1,6 +1,6 @@
 import { lightThemePalette, darkThemePalette } from "./palette";
 import typography from "./typography";
-import { alpha, Components, createTheme, Theme } from "@mui/material/styles";
+import { alpha, Components, createTheme } from "@mui/material/styles";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 
 declare module "@mui/material/styles" {
@@ -348,10 +348,9 @@ const components: Components = {
   },
   MuiChip: {
     styleOverrides: {
-      root: ({ theme }: { theme: any }) => ({
+      root: () => ({
         borderRadius: "4px",
       }),
-      // @ts-ignore
       colorDefault: ({ theme }: { theme: any }) => ({
         backgroundColor: theme.palette.grey[100],
         color: theme.palette.text.secondary,
@@ -767,7 +766,7 @@ const components: Components = {
   },
 };
 
-export let theme = createTheme({
+export const theme = createTheme({
   typography,
   palette: {
     mode: "light",
@@ -776,7 +775,7 @@ export let theme = createTheme({
   components,
 });
 
-export let darkTheme = createTheme(theme, {
+export const darkTheme = createTheme(theme, {
   palette: {
     mode: "dark",
     ...darkThemePalette,

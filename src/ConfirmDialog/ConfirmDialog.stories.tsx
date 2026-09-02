@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { Button, Stack } from '@mui/material';
+import { Button } from '@mui/material';
 import ConfirmDialog, { ConfirmDialogProps } from '.';
 
 export default {
@@ -15,7 +15,7 @@ const Template: Story<ConfirmDialogProps> = (args) => {
   return (
     <>
       <Button variant="contained" onClick={() => setOpen(true)}>Click me to open</Button>
-      <ConfirmDialog {...args} open={open} callback={(confirmed) => setOpen(false) } />
+      <ConfirmDialog {...args} open={open} callback={() => setOpen(false)} />
     </>
   );
 };

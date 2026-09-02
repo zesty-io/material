@@ -21,7 +21,7 @@ export interface ConfirmDialogProps extends Omit<DialogProps, 'title'> {
    callback: (confirmed: boolean) => void ;
 }
 
-const ConfirmDialog = ({title, content, onClose, children, callback, ...props }: ConfirmDialogProps) => {
+const ConfirmDialog = ({title, content, children, callback, ...props }: ConfirmDialogProps) => {
   
   return (
     <Dialog

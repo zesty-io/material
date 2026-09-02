@@ -1,10 +1,4 @@
 import { Color } from "@mui/material";
-import {
-  alpha,
-  PaletteOptions,
-  TypographyVariantsOptions,
-} from "@mui/material/styles";
-import { IconButtonPropsSizeOverrides } from "@mui/material/IconButton";
 
 declare module "@mui/material/Typography" {
   export interface TypographyPropsVariantOverrides {

@@ -1,9 +1,8 @@
-import { useRef } from 'react';
 import MuiTextField, { OutlinedTextFieldProps } from '@mui/material/TextField';
-import { Button, FormControl, FormHelperText, FormLabel, InputAdornment } from '@mui/material';
+import { Button, FormControl, FormLabel, InputAdornment } from '@mui/material';
 import BrushIcon from '@mui/icons-material/Brush';
 
-export interface FieldTypeColorProps extends Omit<OutlinedTextFieldProps, 'variant'> {}
+export type FieldTypeColorProps = Omit<OutlinedTextFieldProps, 'variant'>;
 
 const FieldTypeColor = ({InputProps, label, required, ...props }: FieldTypeColorProps) => {
 

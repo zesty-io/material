@@ -12,6 +12,9 @@
     "url": "https://github.com/zesty-io/material/issues"
   },
   "homepage": "https://zesty-io.github.io/material",
+  "volta": {
+    "node": "18.20.4"
+  },
   "main": "./cjs/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
@@ -23,8 +26,9 @@
     "postrelease": "rm -rf /es",
     "deploy": "npm run build-storybook && gh-pages -d storybook-static",
     "test": "echo 'add tests'",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "lint": "eslint src",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
+    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -48,12 +52,15 @@
     "@storybook/testing-library": "0.0.11",
     "@types/react-window": "^1.8.5",
     "babel-loader": "^8.2.5",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^17.0.2",
     "react-json-view": "^1.21.3",
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.3",
+    "typescript-eslint": "^8.69.0"
   },
   "files": [
     "cjs",
