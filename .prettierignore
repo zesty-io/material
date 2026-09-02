@@ -1,0 +1,11 @@
+# Prettier is only wired up for the TS/TSX source tree so far (see CLAUDE.md).
+# Ignore everything by default, then allow-list src/**/*.{ts,tsx} so the
+# pre-commit hook (pretty-quick --staged) stays in sync with the
+# format/format:check npm scripts and doesn't pull unrelated files
+# (tsconfig.json, .storybook/*, generated es/ output, etc.) into unrelated
+# diffs.
+*
+!src/
+!src/**/
+!src/**/*.ts
+!src/**/*.tsx
