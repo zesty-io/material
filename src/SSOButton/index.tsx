@@ -35,19 +35,19 @@ export interface SSOButtonProps {
 }
 
 const ssoServiceMap = {
-  "google": {
+  google: {
     name: "Google",
     icon: <Google />,
   },
-  "azure": {
+  azure: {
     name: "Microsoft",
     icon: <Microsoft />,
   },
-  "github": {
+  github: {
     name: "Github",
     icon: <Github />,
   },
-}
+};
 
 const SSOButton = ({
   sx,

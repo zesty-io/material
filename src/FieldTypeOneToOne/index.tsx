@@ -1,9 +1,20 @@
-import { ReactNode, useState } from 'react';
-import { AutocompleteProps, Popper, styled, TextField, FormLabel, FormControl, InputAdornment } from '@mui/material';
-import Autocomplete, { autocompleteClasses } from '@mui/material/Autocomplete';
-import { ListboxComponent } from '../utils/virtualization';
+import { ReactNode, useState } from "react";
+import {
+  AutocompleteProps,
+  Popper,
+  styled,
+  TextField,
+  FormLabel,
+  FormControl,
+  InputAdornment,
+} from "@mui/material";
+import Autocomplete, { autocompleteClasses } from "@mui/material/Autocomplete";
+import { ListboxComponent } from "../utils/virtualization";
 
-export interface FieldTypeOneToOneProps extends Omit<AutocompleteProps<any, boolean, boolean, boolean>, 'onOpen' | 'renderInput'> {
+export interface FieldTypeOneToOneProps extends Omit<
+  AutocompleteProps<any, boolean, boolean, boolean>,
+  "onOpen" | "renderInput"
+> {
   label?: string;
   helperText?: string;
   placeholder?: string;
@@ -31,10 +42,21 @@ export interface FieldTypeOneToOneProps extends Omit<AutocompleteProps<any, bool
      * Label that should display in the input when selected
      */
     inputLabel: string;
-  }[]
+  }[];
 }
 
-const FieldTypeOneToOne = ({label, helperText, placeholder, error, onOpen, options, required, startAdornment, endAdornment, ...props }: FieldTypeOneToOneProps) => {
+const FieldTypeOneToOne = ({
+  label,
+  helperText,
+  placeholder,
+  error,
+  onOpen,
+  options,
+  required,
+  startAdornment,
+  endAdornment,
+  ...props
+}: FieldTypeOneToOneProps) => {
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -58,7 +80,7 @@ const FieldTypeOneToOne = ({label, helperText, placeholder, error, onOpen, optio
         disableListWrap
         disableClearable
         disablePortal
-        size='small'
+        size="small"
         PopperComponent={StyledPopper}
         ListboxComponent={ListboxComponent}
         renderInput={(params) => (
@@ -69,8 +91,20 @@ const FieldTypeOneToOne = ({label, helperText, placeholder, error, onOpen, optio
             placeholder={placeholder}
             InputProps={{
               ...params.InputProps,
-              startAdornment: <InputAdornment position='end'>{startAdornment}</InputAdornment>,
-              endAdornment: <>{params.InputProps.endAdornment}<InputAdornment sx={{ position: 'relative', right: '40px'}} position='end'>{endAdornment}</InputAdornment></>
+              startAdornment: (
+                <InputAdornment position="end">{startAdornment}</InputAdornment>
+              ),
+              endAdornment: (
+                <>
+                  {params.InputProps.endAdornment}
+                  <InputAdornment
+                    sx={{ position: "relative", right: "40px" }}
+                    position="end"
+                  >
+                    {endAdornment}
+                  </InputAdornment>
+                </>
+              ),
             }}
           />
         )}
@@ -87,8 +121,8 @@ export default FieldTypeOneToOne;
 
 const StyledPopper = styled(Popper)({
   [`& .${autocompleteClasses.listbox}`]: {
-    boxSizing: 'border-box',
-    '& ul': {
+    boxSizing: "border-box",
+    "& ul": {
       padding: 0,
       margin: 0,
     },
