@@ -7,11 +7,11 @@ export default {
   title: "Theme",
 } as Meta;
 
-const LightTheme: Story = (args) => {
+const LightTheme: Story = () => {
   return <ReactJson src={theme} />;
 };
 
-const DarkTheme: Story = (args) => {
+const DarkTheme: Story = () => {
   return <ReactJson src={darkTheme} />;
 };
 

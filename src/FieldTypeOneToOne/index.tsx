@@ -11,7 +11,27 @@ import {
 import Autocomplete, { autocompleteClasses } from "@mui/material/Autocomplete";
 import { ListboxComponent } from "../utils/virtualization";
 
+interface FieldTypeOneToOneOption {
+  /**
+   * Component to be rendered in the dropdown
+   */
+  component: ReactNode | string;
+  /**
+   * Value of option
+   */
+  value: string;
+  /**
+   * Label that should display in the input when selected
+   */
+  inputLabel: string;
+}
+
+// MUI's Autocomplete generics don't cleanly unify with a narrowed option
+// type across getOptionLabel/onChange/renderOption once `multiple` is also
+// generic; kept as `any` to match the actual (loosely-typed) usage below
+// rather than reworking the Autocomplete generics as part of this change.
 export interface FieldTypeOneToOneProps extends Omit<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   AutocompleteProps<any, boolean, boolean, boolean>,
   "onOpen" | "renderInput"
 > {
@@ -25,24 +45,11 @@ export interface FieldTypeOneToOneProps extends Omit<
   /**
    * Callback to be fired upon opening the dropdown
    */
-  onOpen?: () => Promise<any>;
+  onOpen?: () => Promise<unknown>;
   /**
    * Structure for option
    */
-  options: {
-    /**
-     * Component to be rendered in the dropdown
-     */
-    component: ReactNode | string;
-    /**
-     * Value of option
-     */
-    value: string;
-    /**
-     * Label that should display in the input when selected
-     */
-    inputLabel: string;
-  }[];
+  options: FieldTypeOneToOneOption[];
 }
 
 const FieldTypeOneToOne = ({

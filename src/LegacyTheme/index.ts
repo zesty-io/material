@@ -1,4 +1,5 @@
 // No checking legacy theme to not have conflicting module augmentation
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- intentional file-wide @ts-nocheck: this legacy theme predates the `theme/` module augmentation (custom palette keys, etc.) and type-checking it here would conflict with those declarations; kept for backwards compatibility only, not actively developed against.
 // @ts-nocheck
 import palette from "./palette";
 import typography from "./typography";

@@ -37,7 +37,7 @@ const OuterElementType = React.forwardRef<HTMLDivElement>((props, ref) => {
   return <div ref={ref} {...props} {...outerProps} />;
 });
 
-function useResetCache(data: any) {
+function useResetCache(data: number) {
   const ref = React.useRef<VariableSizeList>(null);
   React.useEffect(() => {
     if (ref.current != null) {
@@ -95,7 +95,7 @@ export const ListboxComponent = React.forwardRef<
           ref={gridRef}
           outerElementType={OuterElementType}
           innerElementType="ul"
-          itemSize={(index: any) => getChildSize(itemData[index])}
+          itemSize={(index: number) => getChildSize(itemData[index])}
           overscanCount={5}
           itemCount={itemCount}
         >

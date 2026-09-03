@@ -1,10 +1,7 @@
 import { FormControl, FormLabel } from "@mui/material";
 import MuiTextField, { OutlinedTextFieldProps } from "@mui/material/TextField";
 
-export interface FieldTypeNumberProps extends Omit<
-  OutlinedTextFieldProps,
-  "variant"
-> {}
+export type FieldTypeNumberProps = Omit<OutlinedTextFieldProps, "variant">;
 
 const FieldTypeText = ({ label, required, ...props }: FieldTypeNumberProps) => {
   return (

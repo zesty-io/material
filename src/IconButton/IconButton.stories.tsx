@@ -8,7 +8,7 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args) => {
-  return <IconButton />;
+  return <IconButton {...args} />;
 };
 
 export const Default = Template.bind({});

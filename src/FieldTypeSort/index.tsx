@@ -44,12 +44,11 @@ const FieldTypeSort = ({
                   input.value = newValue;
                   // Mocks an event change
                   const event = { target: { value: newValue } };
-                  onChange &&
-                    onChange(
-                      event as ChangeEvent<
-                        HTMLTextAreaElement | HTMLInputElement
-                      >,
-                    );
+                  onChange?.(
+                    event as ChangeEvent<
+                      HTMLTextAreaElement | HTMLInputElement
+                    >,
+                  );
                 }}
               >
                 <RemoveIcon fontSize="small" />
@@ -71,12 +70,11 @@ const FieldTypeSort = ({
                   input.value = newValue;
                   // Mocks an event change
                   const event = { target: { value: newValue } };
-                  onChange &&
-                    onChange(
-                      event as ChangeEvent<
-                        HTMLTextAreaElement | HTMLInputElement
-                      >,
-                    );
+                  onChange?.(
+                    event as ChangeEvent<
+                      HTMLTextAreaElement | HTMLInputElement
+                    >,
+                  );
                 }}
               >
                 <AddIcon fontSize="small" />
