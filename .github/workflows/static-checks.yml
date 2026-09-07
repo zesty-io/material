@@ -4,10 +4,9 @@ name: Static Checks
 # non-required status check (see NON-BLOCKING NOTE below) — it surfaces a red
 # check on the PR, but branch protection does not yet block merging on it.
 #
-# Runs, in order: install, `npm run build` (npm ci && tsc, strict per
-# tsconfig.json), `npm run format:check` (Prettier over src/**/*.{ts,tsx}),
-# and `npm run lint` (eslint src). A failure in any step fails the job and
-# turns this check red on the PR.
+# Runs, in order: `npm ci`, `tsc` (strict per tsconfig.json), `npm run
+# format:check` (Prettier over src/**/*.{ts,tsx}), and `npm run lint` (eslint
+# src). A failure in any step fails the job and turns this check red on the PR.
 #
 # NON-BLOCKING NOTE (follow-up, not applied here): making this a *required*
 # status check needs a repo admin to update branch protection for `main`
@@ -22,6 +21,8 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
@@ -34,7 +35,7 @@ jobs:
         run: npm ci
 
       - name: Build (tsc)
-        run: npm run build
+        run: npx tsc
 
       - name: Format check (Prettier)
         run: npm run format:check
