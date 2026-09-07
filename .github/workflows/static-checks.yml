@@ -1,0 +1,43 @@
+name: Static Checks
+
+# Build/typecheck/format/lint gate on every PR into main. This is currently a
+# non-required status check (see NON-BLOCKING NOTE below) — it surfaces a red
+# check on the PR, but branch protection does not yet block merging on it.
+#
+# Runs, in order: install, `npm run build` (npm ci && tsc, strict per
+# tsconfig.json), `npm run format:check` (Prettier over src/**/*.{ts,tsx}),
+# and `npm run lint` (eslint src). A failure in any step fails the job and
+# turns this check red on the PR.
+#
+# NON-BLOCKING NOTE (follow-up, not applied here): making this a *required*
+# status check needs a repo admin to update branch protection for `main`
+# (Settings -> Branches -> Branch protection rules) and add "Static Checks /
+# checks" to the required status checks list.
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "18.20.4" # keep in sync with the "volta.node" pin in package.json
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (tsc)
+        run: npm run build
+
+      - name: Format check (Prettier)
+        run: npm run format:check
+
+      - name: Lint (ESLint)
+        run: npm run lint
