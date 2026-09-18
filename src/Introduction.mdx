@@ -1,0 +1,65 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+# @zesty-io/material
+
+A React component library that extends [MUI](https://mui.com) v7 with Zesty.io's
+design language. It ships three things:
+
+- **A theme** — `theme` (light) and `darkTheme`, plus `legacyTheme` for older apps.
+- **Icons** — SVG components that behave like any MUI icon.
+- **Components** — composite form fields and utilities built on MUI primitives.
+
+There is no application in this repo. Storybook _is_ the dev environment.
+
+## Getting around
+
+| Section | What's in it |
+| --- | --- |
+| **Theme** | Palette, type scale, shape and the raw theme object |
+| **Icons** | Every exported icon, searchable, click to copy the name |
+| **Components** | Buttons, dialogs, autocomplete and inputs |
+| **Field Types** | The `FieldType*` inputs used in the content editor |
+
+Use the **Theme** control in the toolbar to flip any story between the light and
+dark themes — every story is wrapped in the library's own `ThemeProvider`, so
+what you see is what consumers get.
+
+## Using it in an app
+
+```bash
+npm install @zesty-io/material
+```
+
+```tsx
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { theme, FieldTypeText } from "@zesty-io/material";
+
+export const App = () => (
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <FieldTypeText label="Title" />
+  </ThemeProvider>
+);
+```
+
+## Adding a component
+
+1. Create `src/<Name>/index.tsx` with a default export and a `<Name>Props` interface.
+2. Add `src/<Name>/<Name>.stories.tsx` using the CSF3 `Meta` / `StoryObj` pattern.
+3. Export it from `src/index.ts` — a component doesn't exist to consumers until it's there.
+
+Wrap the MUI component you're extending, give props sensible defaults by
+destructuring, and spread `{...props}` **last** so consumers can override
+anything. JSDoc comments on props become the descriptions in the docs tables.
+
+## Commands
+
+```bash
+npm run storybook        # dev server on :6006
+npm run build-storybook  # static build into storybook-static/
+npm run typecheck        # tsc over src and .storybook
+npm run build            # emits ES modules to es/
+npm run deploy           # publishes Storybook to GitHub Pages
+```

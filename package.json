@@ -13,7 +13,7 @@
   },
   "homepage": "https://zesty-io.github.io/material",
   "volta": {
-    "node": "18.20.4"
+    "node": "20.19.0"
   },
   "main": "./cjs/index.js",
   "module": "./es/index.js",
@@ -27,11 +27,13 @@
     "postrelease": "rm -rf /es",
     "deploy": "npm run build-storybook && gh-pages -d storybook-static",
     "test": "echo 'add tests'",
+    "typecheck": "tsc -p tsconfig.storybook.json",
     "lint": "eslint src",
-    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
-    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx}\""
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "gen:m3": "node scripts/generate-m3-tokens.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -46,27 +48,27 @@
     "react-window": "^1.8.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.10",
-    "@storybook/addon-actions": "^6.4.22",
-    "@storybook/addon-essentials": "^6.4.22",
-    "@storybook/addon-interactions": "^6.4.22",
-    "@storybook/addon-links": "^6.4.22",
-    "@storybook/react": "^6.4.22",
-    "@storybook/testing-library": "0.0.11",
-    "@types/react-window": "^1.8.5",
-    "babel-loader": "^8.2.5",
+    "@material/material-color-utilities": "^0.4.0",
+    "@storybook/addon-a11y": "^10.5.3",
+    "@storybook/addon-docs": "^10.5.3",
+    "@storybook/addon-links": "^10.5.3",
+    "@storybook/react-vite": "^10.5.3",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-window": "^1.8.8",
+    "@vitejs/plugin-react": "^5.1.1",
     "eslint": "^9.39.5",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "gh-pages": "^3.2.3",
+    "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "prettier": "3.9.6",
     "pretty-quick": "^4.2.2",
-    "react": "^17.0.2",
-    "react-docgen-typescript": "^2.2.2",
-    "react-dom": "^17.0.2",
-    "react-json-view": "^1.21.3",
-    "typescript": "^4.6.3",
-    "typescript-eslint": "^8.69.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "storybook": "^10.5.3",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.69.0",
+    "vite": "^7.1.0"
   },
   "files": [
     "cjs",

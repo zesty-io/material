@@ -1,43 +1,41 @@
-import { ReactNode, SyntheticEvent, useState } from "react";
-import { Story, Meta } from "@storybook/react/types-6-0";
-import FieldTypeOneToMany, { FieldTypeOneToManyProps } from ".";
+import { useState, type ReactNode, type SyntheticEvent } from "react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import FieldTypeOneToMany, { type FieldTypeOneToManyProps } from "./";
 
-export default {
-  title: "FieldTypeOneToMany",
+type Option = { component: string | ReactNode; value: string; inputLabel: string };
+
+/**
+ * Multi-relationship picker. Selections render as chips; options load lazily
+ * on open, the same way they do in the content editor.
+ */
+const meta: Meta<typeof FieldTypeOneToMany> = {
+  title: "Field Types/FieldTypeOneToMany",
   component: FieldTypeOneToMany,
-  argType: {},
-} as Meta;
+  parameters: { layout: "padded" },
+};
 
-const Template: Story<FieldTypeOneToManyProps> = (args) => {
-  const [value, setValue] = useState<
-    { component: string | ReactNode; value: string; inputLabel: string }[]
-  >([]);
+export default meta;
+type Story = StoryObj<typeof FieldTypeOneToMany>;
 
-  const [options, setOptions] = useState<
-    { component: string | ReactNode; value: string; inputLabel: string }[]
-  >([]);
+const Controlled = (args: FieldTypeOneToManyProps) => {
+  const [value, setValue] = useState<Option[]>([]);
+  const [options, setOptions] = useState<Option[]>([]);
 
   const handleOnOpen = async () => {
-    const largeArr = new Array(1000).fill(null);
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    const data = largeArr.map((_, idx) => ({
-      component: <div>{`Test ${idx}`}</div>,
-      value: String(Math.random()),
-      inputLabel: `Test ${idx}`,
-    }));
-    setOptions(data);
+    await new Promise((resolve) => setTimeout(resolve, 800));
+    setOptions(
+      Array.from({ length: 1000 }, (_, idx) => ({
+        component: <div>{`Test ${idx}`}</div>,
+        value: String(idx),
+        inputLabel: `Test ${idx}`,
+      }))
+    );
   };
 
   const handleOnChange = (
-    e: SyntheticEvent<Element, Event>,
-    values: {
-      component: string | ReactNode;
-      value: string;
-      inputLabel: string;
-    }[],
-  ) => {
-    setValue(values);
-  };
+    _e: SyntheticEvent<Element, Event>,
+    values: Option[]
+  ) => setValue(values);
 
   return (
     <FieldTypeOneToMany
@@ -50,9 +48,11 @@ const Template: Story<FieldTypeOneToManyProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  placeholder: "Placeholder Text...",
-  label: "OneToMany label",
-  helperText: "OneToMany helperText",
+export const Default: Story = {
+  render: (args) => <Controlled {...args} />,
+  args: {
+    placeholder: "Placeholder Text...",
+    label: "OneToMany label",
+    helperText: "OneToMany helperText",
+  },
 };

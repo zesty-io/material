@@ -1,0 +1,15 @@
+{
+  // Type-checks everything the Storybook dev server compiles: the library
+  // source, the stories, and the Storybook/Vite config files. Emits nothing.
+  // Uses Bundler resolution because Storybook 10 ships subpath `exports` maps
+  // (e.g. `storybook/actions`) that classic Node resolution cannot follow.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "declaration": false,
+    "moduleResolution": "Bundler",
+    "types": ["vite/client"]
+  },
+  "include": ["src", ".storybook", "vite.config.ts"],
+  "exclude": []
+}

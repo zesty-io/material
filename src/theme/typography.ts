@@ -1,13 +1,13 @@
+import { CSSProperties } from "react";
 import { TypographyVariantsOptions } from "@mui/material/styles";
-import { TypographyStyleOptions } from "@mui/material/styles/createTypography";
 
 // Module augmentation
 declare module "@mui/material/styles" {
   export interface TypographyVariants {
-    body3: TypographyStyleOptions;
+    body3: CSSProperties;
   }
   export interface TypographyVariantsOptions {
-    body3?: TypographyStyleOptions;
+    body3?: CSSProperties;
   }
 }
 

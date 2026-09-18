@@ -1,45 +1,44 @@
-import { ReactNode, SyntheticEvent, useState } from "react";
-import { Story, Meta } from "@storybook/react/types-6-0";
-import VirtualizedAutocomplete, { VirtualizedAutocompleteProps } from "./";
+import { useState, type ReactNode, type SyntheticEvent } from "react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import VirtualizedAutocomplete, {
+  type VirtualizedAutocompleteProps,
+} from "./";
 
-export default {
-  title: "VirtualizedAutocomplete",
+type Option = { component: string | ReactNode; value: string; inputLabel: string };
+
+/**
+ * The react-window backed Autocomplete that the relationship fields are built
+ * on. Handles very large option lists without dropping frames — this story
+ * loads 1,000 options.
+ */
+const meta: Meta<typeof VirtualizedAutocomplete> = {
+  title: "Components/VirtualizedAutocomplete",
   component: VirtualizedAutocomplete,
-  argType: {},
-} as Meta;
+  parameters: { layout: "padded" },
+};
 
-const Template: Story<VirtualizedAutocompleteProps> = (args) => {
-  const [value, setValue] = useState<{
-    component: string | ReactNode;
-    value: string;
-    inputLabel: string;
-  }>({ component: "- None -", value: "0", inputLabel: "- None -" });
+export default meta;
+type Story = StoryObj<typeof VirtualizedAutocomplete>;
 
-  const [options, setOptions] = useState<
-    { component: string | ReactNode; value: string; inputLabel: string }[]
-  >([]);
+const NONE: Option = { component: "- None -", value: "0", inputLabel: "- None -" };
+
+const Controlled = (args: VirtualizedAutocompleteProps) => {
+  const [value, setValue] = useState<Option>(NONE);
+  const [options, setOptions] = useState<Option[]>([]);
 
   const handleOnOpen = async () => {
-    const largeArr = new Array(1000).fill(null);
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    const data = largeArr.map((_, idx) => ({
-      component: <div>{`Test ${idx}`}</div>,
-      value: String(Math.random()),
-      inputLabel: `Test ${idx}`,
-    }));
-    setOptions(data);
+    await new Promise((resolve) => setTimeout(resolve, 800));
+    setOptions(
+      Array.from({ length: 1000 }, (_, idx) => ({
+        component: <div>{`Test ${idx}`}</div>,
+        value: String(idx),
+        inputLabel: `Test ${idx}`,
+      }))
+    );
   };
 
-  const handleOnChange = (
-    e: SyntheticEvent<Element, Event>,
-    option: {
-      component: string | ReactNode;
-      value: string;
-      inputLabel: string;
-    },
-  ) => {
+  const handleOnChange = (_e: SyntheticEvent<Element, Event>, option: Option) =>
     setValue(option);
-  };
 
   return (
     <VirtualizedAutocomplete
@@ -52,8 +51,10 @@ const Template: Story<VirtualizedAutocompleteProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  helperText: "OneToOne helperText",
-  placeholder: "OneToOne placeholder",
+export const Default: Story = {
+  render: (args) => <Controlled {...args} />,
+  args: {
+    helperText: "Loads 1,000 options on open",
+    placeholder: "Search options",
+  },
 };
