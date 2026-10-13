@@ -1,12 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import {
-  Alert,
-  InputAdornment,
-  Link,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Alert, InputAdornment, TextField, Typography } from "@mui/material";
 import { Stacked } from "./StorySection";
 
 /**
@@ -14,8 +8,7 @@ import { Stacked } from "./StorySection";
  * a composition recipe that pulls in Base UI's NumberField and is written
  * against MUI v9 — this repo is on v7, and Base UI is not a dependency.
  *
- * In v7 the numeric input is `TextField` with `type="number"`. This library's
- * own **Field Types → FieldTypeNumber** wraps exactly this.
+ * In v7 the numeric input is `TextField` with `type="number"`.
  */
 const meta: Meta<typeof TextField> = {
   title: "MUI/Inputs/Number Field",
@@ -171,14 +164,6 @@ export const Caveats: Story = {
           focus. Blur on wheel if that matters.
         </Typography>
       </Alert>
-      <Typography variant="body2" color="text.secondary">
-        For a pre-wrapped version with the library's label and helper-text
-        conventions, see{" "}
-        <Link href="?path=/docs/field-types-fieldtypenumber--docs">
-          FieldTypeNumber
-        </Link>
-        .
-      </Typography>
     </Stacked>
   ),
 };
