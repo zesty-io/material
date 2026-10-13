@@ -127,7 +127,10 @@ const SortableTable = () => {
         <TableHead>
           <TableRow>
             {(["name", "model", "version"] as const).map((key) => (
-              <TableCell key={key} sortDirection={orderBy === key ? order : false}>
+              <TableCell
+                key={key}
+                sortDirection={orderBy === key ? order : false}
+              >
                 <TableSortLabel
                   active={orderBy === key}
                   direction={orderBy === key ? order : "asc"}
@@ -155,7 +158,10 @@ const SortableTable = () => {
 
 export const Sortable: Story = {
   render: () => (
-    <Stacked title="TableSortLabel" description="Click a header to toggle direction.">
+    <Stacked
+      title="TableSortLabel"
+      description="Click a header to toggle direction."
+    >
       <SortableTable />
     </Stacked>
   ),
@@ -176,13 +182,15 @@ const PaginatedTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-            <TableRow key={row.name}>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.model}</TableCell>
-              <TableCell align="right">{row.version}</TableCell>
-            </TableRow>
-          ))}
+          {rows
+            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((row) => (
+              <TableRow key={row.name}>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.model}</TableCell>
+                <TableCell align="right">{row.version}</TableCell>
+              </TableRow>
+            ))}
         </TableBody>
         <TableFooter>
           <TableRow>
@@ -206,7 +214,10 @@ const PaginatedTable = () => {
 
 export const Paginated: Story = {
   render: () => (
-    <Stacked title="TablePagination" description="Rendered inside a TableFooter.">
+    <Stacked
+      title="TablePagination"
+      description="Rendered inside a TableFooter."
+    >
       <PaginatedTable />
     </Stacked>
   ),
@@ -214,8 +225,15 @@ export const Paginated: Story = {
 
 export const StickyHeader: Story = {
   render: () => (
-    <Stacked title="stickyHeader" description="Scroll the container to pin the head row.">
-      <TableContainer component={Paper} variant="outlined" sx={{ maxWidth: 720, maxHeight: 240 }}>
+    <Stacked
+      title="stickyHeader"
+      description="Scroll the container to pin the head row."
+    >
+      <TableContainer
+        component={Paper}
+        variant="outlined"
+        sx={{ maxWidth: 720, maxHeight: 240 }}
+      >
         <Table stickyHeader size="small">
           <TableHead>
             <TableRow>

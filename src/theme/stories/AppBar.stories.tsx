@@ -12,7 +12,13 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { AccountCircle, Menu as MenuIcon, MoreVert, Notifications, Search } from "@mui/icons-material";
+import {
+  AccountCircle,
+  Menu as MenuIcon,
+  MoreVert,
+  Notifications,
+  Search,
+} from "@mui/icons-material";
 import { Stacked } from "./StorySection";
 
 /**
@@ -52,7 +58,12 @@ export const Default: Story = {
     <Stacked title="Standard toolbar">
       <Bar>
         <Toolbar>
-          <IconButton edge="start" color="inherit" sx={{ mr: 2 }} aria-label="menu">
+          <IconButton
+            edge="start"
+            color="inherit"
+            sx={{ mr: 2 }}
+            aria-label="menu"
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -72,18 +83,20 @@ export const Colors: Story = {
       description="M3 defaults to `default` (surface); the legacy theme defaults to `primary`."
     >
       <Stack spacing={2}>
-        {(["default", "primary", "secondary", "transparent"] as const).map((color) => (
-          <Bar key={color} color={color}>
-            <Toolbar>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                color=&ldquo;{color}&rdquo;
-              </Typography>
-              <IconButton color="inherit" aria-label="more">
-                <MoreVert />
-              </IconButton>
-            </Toolbar>
-          </Bar>
-        ))}
+        {(["default", "primary", "secondary", "transparent"] as const).map(
+          (color) => (
+            <Bar key={color} color={color}>
+              <Toolbar>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                  color=&ldquo;{color}&rdquo;
+                </Typography>
+                <IconButton color="inherit" aria-label="more">
+                  <MoreVert />
+                </IconButton>
+              </Toolbar>
+            </Bar>
+          ),
+        )}
       </Stack>
     </Stacked>
   ),
@@ -112,7 +125,10 @@ export const Elevation: Story = {
 
 export const DenseToolbar: Story = {
   render: () => (
-    <Stacked title="Toolbar variant" description="`dense` drops the bar from 64px to 48px.">
+    <Stacked
+      title="Toolbar variant"
+      description="`dense` drops the bar from 64px to 48px."
+    >
       <Stack spacing={2}>
         <Bar>
           <Toolbar variant="regular">
@@ -139,7 +155,12 @@ export const WithActions: Story = {
     <Stacked title="Leading, headline and trailing actions">
       <Bar>
         <Toolbar>
-          <IconButton edge="start" color="inherit" sx={{ mr: 1 }} aria-label="menu">
+          <IconButton
+            edge="start"
+            color="inherit"
+            sx={{ mr: 1 }}
+            aria-label="menu"
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -171,8 +192,18 @@ export const WithActions: Story = {
 /** Content scrolling under a sticky bar — the case elevation exists for. */
 export const Sticky: Story = {
   render: () => (
-    <Stacked title="position=&quot;sticky&quot;" description="Scroll the box to see the bar hold position.">
-      <Box sx={{ height: 240, overflow: "auto", border: 1, borderColor: "divider" }}>
+    <Stacked
+      title='position="sticky"'
+      description="Scroll the box to see the bar hold position."
+    >
+      <Box
+        sx={{
+          height: 240,
+          overflow: "auto",
+          border: 1,
+          borderColor: "divider",
+        }}
+      >
         <AppBar position="sticky" elevation={2}>
           <Toolbar>
             <Avatar sx={{ width: 28, height: 28, mr: 1.5 }}>Z</Avatar>

@@ -55,7 +55,10 @@ export const Horizontal: Story = {
 
 export const AlternativeLabel: Story = {
   render: () => (
-    <Stacked title="alternativeLabel" description="Labels sit beneath the icons rather than beside.">
+    <Stacked
+      title="alternativeLabel"
+      description="Labels sit beneath the icons rather than beside."
+    >
       <Box sx={{ maxWidth: 640 }}>
         <Stepper activeStep={1} alternativeLabel>
           {STEPS.map((label) => (
@@ -142,7 +145,9 @@ const NonLinearDemo = () => {
       <Stepper nonLinear activeStep={activeStep}>
         {STEPS.map((label, index) => (
           <Step key={label} completed={completed[index]}>
-            <StepButton onClick={() => setActiveStep(index)}>{label}</StepButton>
+            <StepButton onClick={() => setActiveStep(index)}>
+              {label}
+            </StepButton>
           </Step>
         ))}
       </Stepper>
@@ -165,7 +170,10 @@ const NonLinearDemo = () => {
 /** `nonLinear` lets a user jump between steps in any order. */
 export const NonLinear: Story = {
   render: () => (
-    <Stacked title="nonLinear" description="StepButton makes each label a jump target.">
+    <Stacked
+      title="nonLinear"
+      description="StepButton makes each label a jump target."
+    >
       <NonLinearDemo />
     </Stacked>
   ),
@@ -180,12 +188,21 @@ export const ErrorState: Story = {
             <StepLabel>Select a model</StepLabel>
           </Step>
           <Step>
-            <StepLabel error optional={<Typography variant="caption" color="error">Missing a required field</Typography>}>
+            <StepLabel
+              error
+              optional={
+                <Typography variant="caption" color="error">
+                  Missing a required field
+                </Typography>
+              }
+            >
               Add content
             </StepLabel>
           </Step>
           <Step>
-            <StepLabel optional={<Typography variant="caption">Optional</Typography>}>
+            <StepLabel
+              optional={<Typography variant="caption">Optional</Typography>}
+            >
               Publish
             </StepLabel>
           </Step>

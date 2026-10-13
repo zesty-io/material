@@ -37,7 +37,10 @@ export const States: Story = {
     <Section title="States">
       <FormControlLabel control={<Switch defaultChecked />} label="Checked" />
       <FormControlLabel control={<Switch />} label="Unchecked" />
-      <FormControlLabel control={<Switch disabled defaultChecked />} label="Disabled checked" />
+      <FormControlLabel
+        control={<Switch disabled defaultChecked />}
+        label="Disabled checked"
+      />
       <FormControlLabel control={<Switch disabled />} label="Disabled" />
     </Section>
   ),
@@ -56,14 +59,27 @@ export const SizesAndColors: Story = {
       </Section>
 
       <Section title="Colors">
-        {(["primary", "secondary", "success", "error", "warning", "info", "default"] as const).map(
-          (color) => (
-            <Stack key={color} spacing={1} alignItems="center" sx={{ minWidth: 76 }}>
-              <Switch color={color} defaultChecked />
-              <Typography variant="caption">{color}</Typography>
-            </Stack>
-          )
-        )}
+        {(
+          [
+            "primary",
+            "secondary",
+            "success",
+            "error",
+            "warning",
+            "info",
+            "default",
+          ] as const
+        ).map((color) => (
+          <Stack
+            key={color}
+            spacing={1}
+            alignItems="center"
+            sx={{ minWidth: 76 }}
+          >
+            <Switch color={color} defaultChecked />
+            <Typography variant="caption">{color}</Typography>
+          </Stack>
+        ))}
       </Section>
     </>
   ),
@@ -85,7 +101,11 @@ export const LabelPlacement: Story = {
 };
 
 const SettingsGroup = () => {
-  const [state, setState] = useState({ notifications: true, digest: false, beta: false });
+  const [state, setState] = useState({
+    notifications: true,
+    digest: false,
+    beta: false,
+  });
   const toggle = (key: keyof typeof state) => () =>
     setState((prev) => ({ ...prev, [key]: !prev[key] }));
 
@@ -94,11 +114,18 @@ const SettingsGroup = () => {
       <FormLabel component="legend">Notifications</FormLabel>
       <FormGroup>
         <FormControlLabel
-          control={<Switch checked={state.notifications} onChange={toggle("notifications")} />}
+          control={
+            <Switch
+              checked={state.notifications}
+              onChange={toggle("notifications")}
+            />
+          }
           label="Email notifications"
         />
         <FormControlLabel
-          control={<Switch checked={state.digest} onChange={toggle("digest")} />}
+          control={
+            <Switch checked={state.digest} onChange={toggle("digest")} />
+          }
           label="Weekly digest"
         />
         <FormControlLabel

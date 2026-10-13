@@ -44,12 +44,17 @@ const Launcher = ({
       <Button variant="contained" onClick={() => setOpen(true)}>
         {label}
       </Button>
-      <Dialog open={open} onClose={() => setOpen(false)} maxWidth={maxWidth} fullWidth={!!maxWidth}>
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        maxWidth={maxWidth}
+        fullWidth={!!maxWidth}
+      >
         <DialogTitle>Dialog title</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            DialogContentText carries the body copy. The theme sets spacing and type treatment
-            for each of these four sub-components independently.
+            DialogContentText carries the body copy. The theme sets spacing and
+            type treatment for each of these four sub-components independently.
           </DialogContentText>
           {withForm && (
             <Stack spacing={2} sx={{ mt: 2 }}>
@@ -71,7 +76,10 @@ const Launcher = ({
 
 export const Default: Story = {
   render: () => (
-    <Section title="Dialog" description="Open one to inspect the title / content / actions spacing.">
+    <Section
+      title="Dialog"
+      description="Open one to inspect the title / content / actions spacing."
+    >
       <Launcher label="Default" />
       <Launcher label="Small (xs)" maxWidth="xs" />
       <Launcher label="Medium (md)" maxWidth="md" />

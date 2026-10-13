@@ -26,8 +26,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const isColor = (value: unknown): value is string =>
-  typeof value === "string" &&
-  /^(#|rgb|hsl)/.test(value.trim());
+  typeof value === "string" && /^(#|rgb|hsl)/.test(value.trim());
 
 const Swatch = ({ name, value }: { name: string; value: string }) => (
   <Stack spacing={0.5} sx={{ minWidth: 92 }}>
@@ -62,7 +61,11 @@ const PaletteGroup = ({
   return (
     <Stack spacing={1}>
       <Typography variant="h6">{name}</Typography>
-      <Stack direction="row" spacing={1.5} sx={{ flexWrap: "wrap", rowGap: 1.5 }}>
+      <Stack
+        direction="row"
+        spacing={1.5}
+        sx={{ flexWrap: "wrap", rowGap: 1.5 }}
+      >
         {swatches.map(([key, value]) => (
           <Swatch key={key} name={key} value={value as string} />
         ))}
@@ -73,18 +76,18 @@ const PaletteGroup = ({
 
 /** Every colour group on the palette, including the Zesty brand scales. */
 const PaletteSpecimen = () => {
-    const theme = useTheme<Theme>();
-    const groups = Object.entries(theme.palette).filter(
-      ([, value]) => value && typeof value === "object"
-    ) as Array<[string, Record<string, unknown>]>;
+  const theme = useTheme<Theme>();
+  const groups = Object.entries(theme.palette).filter(
+    ([, value]) => value && typeof value === "object",
+  ) as Array<[string, Record<string, unknown>]>;
 
-    return (
-      <Stack spacing={4} divider={<Divider flexItem />}>
-        {groups.map(([name, group]) => (
-          <PaletteGroup key={name} name={name} group={group} />
-        ))}
-      </Stack>
-    );
+  return (
+    <Stack spacing={4} divider={<Divider flexItem />}>
+      {groups.map(([name, group]) => (
+        <PaletteGroup key={name} name={name} group={group} />
+      ))}
+    </Stack>
+  );
 };
 
 export const Palette: Story = {
@@ -93,52 +96,59 @@ export const Palette: Story = {
 
 /** Border radii, elevations and spacing as configured in `theme/index.tsx`. */
 const ShapeSpecimen = () => {
-    const theme = useTheme<Theme>();
+  const theme = useTheme<Theme>();
 
-    return (
-      <Stack spacing={4}>
-        <Stack spacing={1}>
-          <Typography variant="h6">Border radius</Typography>
-          <Typography variant="body2" color="text.secondary">
-            theme.shape.borderRadius = {String(theme.shape.borderRadius)}
-          </Typography>
-        </Stack>
+  return (
+    <Stack spacing={4}>
+      <Stack spacing={1}>
+        <Typography variant="h6">Border radius</Typography>
+        <Typography variant="body2" color="text.secondary">
+          theme.shape.borderRadius = {String(theme.shape.borderRadius)}
+        </Typography>
+      </Stack>
 
-        <Stack spacing={1}>
-          <Typography variant="h6">Elevation</Typography>
-          <Stack direction="row" spacing={2} sx={{ flexWrap: "wrap", rowGap: 2 }}>
-            {[0, 1, 2, 3, 4, 6, 8, 12, 16, 24].map((elevation) => (
-              <Paper
-                key={elevation}
-                elevation={elevation}
-                sx={{
-                  width: 88,
-                  height: 64,
-                  display: "grid",
-                  placeItems: "center",
-                }}
-              >
-                <Typography variant="caption">{elevation}</Typography>
-              </Paper>
-            ))}
-          </Stack>
-        </Stack>
-
-        <Stack spacing={1}>
-          <Typography variant="h6">Spacing</Typography>
-          <Stack spacing={1}>
-            {[1, 2, 3, 4, 6, 8].map((step) => (
-              <Stack key={step} direction="row" spacing={2} alignItems="center">
-                <Typography variant="caption" sx={{ width: 64 }}>
-                  {step} ({theme.spacing(step)})
-                </Typography>
-                <Box sx={{ height: 12, width: theme.spacing(step), bgcolor: "primary.main", borderRadius: 0.5 }} />
-              </Stack>
-            ))}
-          </Stack>
+      <Stack spacing={1}>
+        <Typography variant="h6">Elevation</Typography>
+        <Stack direction="row" spacing={2} sx={{ flexWrap: "wrap", rowGap: 2 }}>
+          {[0, 1, 2, 3, 4, 6, 8, 12, 16, 24].map((elevation) => (
+            <Paper
+              key={elevation}
+              elevation={elevation}
+              sx={{
+                width: 88,
+                height: 64,
+                display: "grid",
+                placeItems: "center",
+              }}
+            >
+              <Typography variant="caption">{elevation}</Typography>
+            </Paper>
+          ))}
         </Stack>
       </Stack>
-    );
+
+      <Stack spacing={1}>
+        <Typography variant="h6">Spacing</Typography>
+        <Stack spacing={1}>
+          {[1, 2, 3, 4, 6, 8].map((step) => (
+            <Stack key={step} direction="row" spacing={2} alignItems="center">
+              <Typography variant="caption" sx={{ width: 64 }}>
+                {step} ({theme.spacing(step)})
+              </Typography>
+              <Box
+                sx={{
+                  height: 12,
+                  width: theme.spacing(step),
+                  bgcolor: "primary.main",
+                  borderRadius: 0.5,
+                }}
+              />
+            </Stack>
+          ))}
+        </Stack>
+      </Stack>
+    </Stack>
+  );
 };
 
 export const Shape: Story = {
@@ -147,31 +157,31 @@ export const Shape: Story = {
 
 /** The whole theme object, for when you need to look up an exact token. */
 const RawTokens = () => {
-    const theme = useTheme<Theme>();
+  const theme = useTheme<Theme>();
 
-    return (
-      <Box
-        component="pre"
-        sx={{
-          m: 0,
-          p: 2,
-          borderRadius: 1,
-          border: 1,
-          borderColor: "divider",
-          bgcolor: "background.paper",
-          fontSize: 12,
-          lineHeight: 1.6,
-          overflow: "auto",
-          maxHeight: "80vh",
-        }}
-      >
-        {JSON.stringify(
-          theme,
-          (_key, value) => (typeof value === "function" ? "[Function]" : value),
-          2
-        )}
-      </Box>
-    );
+  return (
+    <Box
+      component="pre"
+      sx={{
+        m: 0,
+        p: 2,
+        borderRadius: 1,
+        border: 1,
+        borderColor: "divider",
+        bgcolor: "background.paper",
+        fontSize: 12,
+        lineHeight: 1.6,
+        overflow: "auto",
+        maxHeight: "80vh",
+      }}
+    >
+      {JSON.stringify(
+        theme,
+        (_key, value) => (typeof value === "function" ? "[Function]" : value),
+        2,
+      )}
+    </Box>
+  );
 };
 
 export const Raw: Story = {

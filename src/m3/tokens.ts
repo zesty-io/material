@@ -31,7 +31,7 @@ export const m3Palettes = {
     96: "#f4f2ff",
     98: "#fbf8ff",
     99: "#fffbff",
-    100: "#ffffff"
+    100: "#ffffff",
   },
   secondary: {
     0: "#000000",
@@ -57,7 +57,7 @@ export const m3Palettes = {
     96: "#f4f2ff",
     98: "#fbf8ff",
     99: "#fffbff",
-    100: "#ffffff"
+    100: "#ffffff",
   },
   tertiary: {
     0: "#000000",
@@ -83,7 +83,7 @@ export const m3Palettes = {
     96: "#fff0f7",
     98: "#fff7f9",
     99: "#fffbff",
-    100: "#ffffff"
+    100: "#ffffff",
   },
   neutral: {
     0: "#000000",
@@ -109,7 +109,7 @@ export const m3Palettes = {
     96: "#f6f2f7",
     98: "#fbf8fd",
     99: "#fffbff",
-    100: "#ffffff"
+    100: "#ffffff",
   },
   neutralVariant: {
     0: "#000000",
@@ -135,7 +135,7 @@ export const m3Palettes = {
     96: "#f4f2fd",
     98: "#fbf8ff",
     99: "#fffbff",
-    100: "#ffffff"
+    100: "#ffffff",
   },
   error: {
     0: "#000000",
@@ -161,8 +161,8 @@ export const m3Palettes = {
     96: "#fff0ee",
     98: "#fff8f7",
     99: "#fffbff",
-    100: "#ffffff"
-  }
+    100: "#ffffff",
+  },
 } as const;
 
 /** Resolved M3 colour roles for the light scheme. */
@@ -214,7 +214,7 @@ export const m3LightScheme = {
   info: "#0060a9",
   onInfo: "#ffffff",
   infoContainer: "#d3e4ff",
-  onInfoContainer: "#001c38"
+  onInfoContainer: "#001c38",
 } as const;
 
 /** Resolved M3 colour roles for the dark scheme. */
@@ -266,7 +266,7 @@ export const m3DarkScheme = {
   info: "#a2c9ff",
   onInfo: "#00315b",
   infoContainer: "#004881",
-  onInfoContainer: "#d3e4ff"
+  onInfoContainer: "#d3e4ff",
 } as const;
 
 // Values are widened to `string`: with `as const` the hex values become literal

@@ -37,7 +37,7 @@ export const m3Elevation = [
 
 /** MUI wants exactly 25 shadow slots; M3 only defines 6. */
 export const m3Shadows = Array.from({ length: 25 }, (_, i) =>
-  i < m3Elevation.length ? m3Elevation[i] : m3Elevation[5]
+  i < m3Elevation.length ? m3Elevation[i] : m3Elevation[5],
 ) as unknown as import("@mui/material/styles").Theme["shadows"];
 
 /**

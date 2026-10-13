@@ -17,7 +17,9 @@ type Story = StoryObj<typeof Alert>;
 
 const SEVERITIES = ["error", "warning", "info", "success"] as const;
 
-export const Default: Story = { args: { severity: "info", children: "An info alert." } };
+export const Default: Story = {
+  args: { severity: "info", children: "An info alert." },
+};
 
 export const Variants: Story = {
   render: () => (

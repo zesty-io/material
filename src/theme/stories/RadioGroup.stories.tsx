@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup } from "@mui/material";
+import {
+  FormControl,
+  FormControlLabel,
+  FormHelperText,
+  FormLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
 import { Section } from "./StorySection";
 
 /**
@@ -38,7 +45,11 @@ export const Vertical: Story = {
       <FormControl error>
         <FormLabel id="radio-error">Pick one</FormLabel>
         <RadioGroup aria-labelledby="radio-error" defaultValue="a">
-          <FormControlLabel value="a" control={<Radio size="small" />} label="Small" />
+          <FormControlLabel
+            value="a"
+            control={<Radio size="small" />}
+            label="Small"
+          />
           <FormControlLabel value="b" control={<Radio />} label="Medium" />
         </RadioGroup>
         <FormHelperText>This selection is not allowed</FormHelperText>

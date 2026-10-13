@@ -56,11 +56,20 @@ const ItemList = ({
   <Card variant="outlined" sx={{ width: 240 }}>
     {header}
     {header && <Divider />}
-    <List dense component="div" role="list" sx={{ height: 230, overflow: "auto" }}>
+    <List
+      dense
+      component="div"
+      role="list"
+      sx={{ height: 230, overflow: "auto" }}
+    >
       {items.map((item) => {
         const labelId = `transfer-item-${item.replace(/\s+/g, "-")}`;
         return (
-          <ListItemButton key={item} role="listitem" onClick={() => onToggle(item)}>
+          <ListItemButton
+            key={item}
+            role="listitem"
+            onClick={() => onToggle(item)}
+          >
             <ListItemIcon>
               <Checkbox
                 checked={checked.includes(item)}
@@ -87,7 +96,7 @@ const Simple = () => {
 
   const toggle = (item: Item) =>
     setChecked((prev) =>
-      prev.includes(item) ? prev.filter((v) => v !== item) : [...prev, item]
+      prev.includes(item) ? prev.filter((v) => v !== item) : [...prev, item],
     );
 
   const moveRight = () => {
@@ -103,7 +112,12 @@ const Simple = () => {
   };
 
   return (
-    <Stack direction="row" spacing={2} alignItems="center" sx={{ flexWrap: "wrap", rowGap: 2 }}>
+    <Stack
+      direction="row"
+      spacing={2}
+      alignItems="center"
+      sx={{ flexWrap: "wrap", rowGap: 2 }}
+    >
       <ItemList items={left} checked={checked} onToggle={toggle} />
       <Stack spacing={1}>
         <Button
@@ -132,7 +146,10 @@ const Simple = () => {
 
 export const Default: Story = {
   render: () => (
-    <Stacked title="Simple" description="Select items on either side, then move them across.">
+    <Stacked
+      title="Simple"
+      description="Select items on either side, then move them across."
+    >
       <Simple />
     </Stacked>
   ),
@@ -148,7 +165,7 @@ const Enhanced = () => {
 
   const toggle = (item: Item) =>
     setChecked((prev) =>
-      prev.includes(item) ? prev.filter((v) => v !== item) : [...prev, item]
+      prev.includes(item) ? prev.filter((v) => v !== item) : [...prev, item],
     );
 
   const toggleAll = (items: Item[]) => () => {
@@ -165,7 +182,10 @@ const Enhanced = () => {
       avatar={
         <Checkbox
           onClick={toggleAll(items)}
-          checked={intersection(checked, items).length === items.length && items.length !== 0}
+          checked={
+            intersection(checked, items).length === items.length &&
+            items.length !== 0
+          }
           indeterminate={
             intersection(checked, items).length !== items.length &&
             intersection(checked, items).length !== 0
@@ -180,7 +200,12 @@ const Enhanced = () => {
   );
 
   return (
-    <Stack direction="row" spacing={2} alignItems="center" sx={{ flexWrap: "wrap", rowGap: 2 }}>
+    <Stack
+      direction="row"
+      spacing={2}
+      alignItems="center"
+      sx={{ flexWrap: "wrap", rowGap: 2 }}
+    >
       <ItemList
         items={left}
         checked={checked}
@@ -265,7 +290,10 @@ export const Enhanced_: Story = {
 /** Empty and full states — the move-all buttons should disable correctly. */
 export const EdgeStates: Story = {
   render: () => (
-    <Stacked title="Empty side" description="Move everything across to check the disabled states.">
+    <Stacked
+      title="Empty side"
+      description="Move everything across to check the disabled states."
+    >
       <Box>
         <Enhanced />
       </Box>

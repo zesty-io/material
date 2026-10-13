@@ -1,6 +1,12 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Alert, InputAdornment, Link, TextField, Typography } from "@mui/material";
+import {
+  Alert,
+  InputAdornment,
+  Link,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Stacked } from "./StorySection";
 
 /**
@@ -53,9 +59,13 @@ const Controlled = ({
 
 export const Default: Story = {
   render: () => (
-    <Stacked title="type=&quot;number&quot;">
+    <Stacked title='type="number"'>
       <Controlled label="Quantity" initial="1" />
-      <Controlled label="With helper text" helperText="Any whole number" initial="0" />
+      <Controlled
+        label="With helper text"
+        helperText="Any whole number"
+        initial="0"
+      />
       <Controlled label="Small" size="small" initial="0" />
     </Stacked>
   ),
@@ -68,8 +78,21 @@ export const Constraints: Story = {
       title="min / max / step"
       description="Passed via slotProps.htmlInput — the old inputProps shorthand is deprecated in v7."
     >
-      <Controlled label="0–10" min={0} max={10} initial="5" helperText="min=0 max=10" />
-      <Controlled label="Steps of 5" min={0} max={100} step={5} initial="25" helperText="step=5" />
+      <Controlled
+        label="0–10"
+        min={0}
+        max={10}
+        initial="5"
+        helperText="min=0 max=10"
+      />
+      <Controlled
+        label="Steps of 5"
+        min={0}
+        max={100}
+        step={5}
+        initial="25"
+        helperText="step=5"
+      />
       <Controlled
         label="Decimals"
         min={0}
@@ -102,7 +125,9 @@ export const WithAdornments: Story = {
         min={0}
         initial="320"
         slotProps={{
-          input: { endAdornment: <InputAdornment position="end">px</InputAdornment> },
+          input: {
+            endAdornment: <InputAdornment position="end">px</InputAdornment>,
+          },
           htmlInput: { min: 0 },
         }}
       />
@@ -113,7 +138,12 @@ export const WithAdornments: Story = {
 export const States: Story = {
   render: () => (
     <Stacked title="States">
-      <Controlled label="Error" error helperText="Must be greater than zero" initial="0" />
+      <Controlled
+        label="Error"
+        error
+        helperText="Must be greater than zero"
+        initial="0"
+      />
       <Controlled label="Disabled" disabled initial="42" />
       <Controlled label="Required" required initial="" />
     </Stacked>
@@ -126,22 +156,28 @@ export const Caveats: Story = {
     <Stacked title="Caveats">
       <Alert severity="warning">
         <Typography variant="body2" gutterBottom>
-          <strong>The value is a string, not a number.</strong> `e.target.value` is always a
-          string, and it is <em>empty</em> — not <code>NaN</code> — while the field holds invalid
-          input like <code>&ldquo;12e&rdquo;</code>. Parse and validate on submit.
+          <strong>The value is a string, not a number.</strong> `e.target.value`
+          is always a string, and it is <em>empty</em> — not <code>NaN</code> —
+          while the field holds invalid input like{" "}
+          <code>&ldquo;12e&rdquo;</code>. Parse and validate on submit.
         </Typography>
         <Typography variant="body2" gutterBottom>
-          <strong>`min` and `max` do not block typing.</strong> They constrain the spinner and
-          native form validation only; a user can still type outside the range.
+          <strong>`min` and `max` do not block typing.</strong> They constrain
+          the spinner and native form validation only; a user can still type
+          outside the range.
         </Typography>
         <Typography variant="body2">
-          <strong>Scroll wheel can change the value</strong> when the input has focus. Blur on
-          wheel if that matters.
+          <strong>Scroll wheel can change the value</strong> when the input has
+          focus. Blur on wheel if that matters.
         </Typography>
       </Alert>
       <Typography variant="body2" color="text.secondary">
-        For a pre-wrapped version with the library's label and helper-text conventions, see{" "}
-        <Link href="?path=/docs/field-types-fieldtypenumber--docs">FieldTypeNumber</Link>.
+        For a pre-wrapped version with the library's label and helper-text
+        conventions, see{" "}
+        <Link href="?path=/docs/field-types-fieldtypenumber--docs">
+          FieldTypeNumber
+        </Link>
+        .
       </Typography>
     </Stacked>
   ),

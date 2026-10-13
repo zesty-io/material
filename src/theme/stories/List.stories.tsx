@@ -32,7 +32,10 @@ export const Default: Story = {
       <Paper variant="outlined" sx={{ width: 280 }}>
         <List subheader={<ListSubheader>ListItem</ListSubheader>}>
           <ListItem>
-            <ListItemText primary="Plain ListItem" secondary="with secondary text" />
+            <ListItemText
+              primary="Plain ListItem"
+              secondary="with secondary text"
+            />
           </ListItem>
           <ListItem>
             <ListItemText primary="Primary only" />

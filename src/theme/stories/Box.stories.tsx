@@ -18,7 +18,12 @@ type Story = StoryObj<typeof Box>;
 
 export const Default: Story = {
   args: {
-    sx: { p: 3, bgcolor: "primary.main", color: "primary.contrastText", borderRadius: 1 },
+    sx: {
+      p: 3,
+      bgcolor: "primary.main",
+      color: "primary.contrastText",
+      borderRadius: 1,
+    },
     children: "A Box with sx",
   },
 };
@@ -62,14 +67,34 @@ export const ThemeAware: Story = {
 /** Spacing values are multiples of `theme.spacing` (8px by default), not pixels. */
 export const Spacing: Story = {
   render: () => (
-    <Stacked title="Spacing scale" description="p={n} is n × theme.spacing, not n pixels.">
-      <Box sx={{ display: "flex", gap: 2, alignItems: "flex-start", flexWrap: "wrap" }}>
+    <Stacked
+      title="Spacing scale"
+      description="p={n} is n × theme.spacing, not n pixels."
+    >
+      <Box
+        sx={{
+          display: "flex",
+          gap: 2,
+          alignItems: "flex-start",
+          flexWrap: "wrap",
+        }}
+      >
         {[1, 2, 3, 4, 6].map((p) => (
           <Box key={p} sx={{ bgcolor: "action.hover", borderRadius: 1 }}>
             <Box sx={{ p, display: "inline-block" }}>
-              <Box sx={{ bgcolor: "primary.main", width: 48, height: 48, borderRadius: 0.5 }} />
+              <Box
+                sx={{
+                  bgcolor: "primary.main",
+                  width: 48,
+                  height: 48,
+                  borderRadius: 0.5,
+                }}
+              />
             </Box>
-            <Typography variant="caption" sx={{ display: "block", textAlign: "center", pb: 0.5 }}>
+            <Typography
+              variant="caption"
+              sx={{ display: "block", textAlign: "center", pb: 0.5 }}
+            >
               p={p}
             </Typography>
           </Box>
@@ -83,12 +108,18 @@ export const Spacing: Story = {
 export const AsElement: Story = {
   render: () => (
     <Stacked title="component" description="Same sx, different semantics.">
-      <Box component="section" sx={{ p: 2, border: 1, borderColor: "divider", borderRadius: 1 }}>
+      <Box
+        component="section"
+        sx={{ p: 2, border: 1, borderColor: "divider", borderRadius: 1 }}
+      >
         <Typography variant="caption" color="text.secondary">
           component=&ldquo;section&rdquo;
         </Typography>
       </Box>
-      <Box component="ul" sx={{ p: 2, m: 0, border: 1, borderColor: "divider", borderRadius: 1 }}>
+      <Box
+        component="ul"
+        sx={{ p: 2, m: 0, border: 1, borderColor: "divider", borderRadius: 1 }}
+      >
         <Box component="li">component=&ldquo;ul&rdquo; with an li child</Box>
       </Box>
     </Stacked>

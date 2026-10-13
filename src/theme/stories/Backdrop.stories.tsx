@@ -34,7 +34,10 @@ const Demo = () => {
 
 export const Default: Story = {
   render: () => (
-    <Section title="Backdrop" description="Click anywhere on the overlay to dismiss it.">
+    <Section
+      title="Backdrop"
+      description="Click anywhere on the overlay to dismiss it."
+    >
       <Demo />
     </Section>
   ),

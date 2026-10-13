@@ -39,17 +39,62 @@ const columns: GridColDef[] = [
 ];
 
 const rows = [
-  { id: 1, name: "Homepage", model: "page", status: "Published", version: 12, updated: "2 hours ago" },
-  { id: 2, name: "About us", model: "page", status: "Draft", version: 3, updated: "Yesterday" },
-  { id: 3, name: "Pricing", model: "page", status: "Published", version: 8, updated: "3 days ago" },
-  { id: 4, name: "Blog index", model: "listing", status: "Published", version: 21, updated: "Last week" },
-  { id: 5, name: "Contact", model: "page", status: "Draft", version: 1, updated: "Last week" },
-  { id: 6, name: "Careers", model: "page", status: "Published", version: 5, updated: "2 weeks ago" },
+  {
+    id: 1,
+    name: "Homepage",
+    model: "page",
+    status: "Published",
+    version: 12,
+    updated: "2 hours ago",
+  },
+  {
+    id: 2,
+    name: "About us",
+    model: "page",
+    status: "Draft",
+    version: 3,
+    updated: "Yesterday",
+  },
+  {
+    id: 3,
+    name: "Pricing",
+    model: "page",
+    status: "Published",
+    version: 8,
+    updated: "3 days ago",
+  },
+  {
+    id: 4,
+    name: "Blog index",
+    model: "listing",
+    status: "Published",
+    version: 21,
+    updated: "Last week",
+  },
+  {
+    id: 5,
+    name: "Contact",
+    model: "page",
+    status: "Draft",
+    version: 1,
+    updated: "Last week",
+  },
+  {
+    id: 6,
+    name: "Careers",
+    model: "page",
+    status: "Published",
+    version: 5,
+    updated: "2 weeks ago",
+  },
 ];
 
 export const Default: Story = {
   render: () => (
-    <Stacked title="DataGridPro" description="Checkbox selection and pagination enabled.">
+    <Stacked
+      title="DataGridPro"
+      description="Checkbox selection and pagination enabled."
+    >
       <Box sx={{ height: 420, width: "100%", maxWidth: 900 }}>
         <DataGridPro
           rows={rows}
@@ -67,9 +112,17 @@ export const Default: Story = {
 
 export const Density: Story = {
   render: () => (
-    <Stacked title="Compact density" description="Worth checking against M3's larger type scale.">
+    <Stacked
+      title="Compact density"
+      description="Worth checking against M3's larger type scale."
+    >
       <Box sx={{ height: 320, width: "100%", maxWidth: 900 }}>
-        <DataGridPro rows={rows} columns={columns} density="compact" hideFooter />
+        <DataGridPro
+          rows={rows}
+          columns={columns}
+          density="compact"
+          hideFooter
+        />
       </Box>
     </Stacked>
   ),

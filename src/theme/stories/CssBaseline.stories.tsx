@@ -49,8 +49,8 @@ export const FontStack: Story = {
   render: () => (
     <Stacked title="Font stack">
       <Typography variant="body2" color="text.secondary">
-        Both themes set Mulish. `preview-head.html` loads it from Google Fonts — if this renders
-        as a system sans-serif, that stylesheet failed.
+        Both themes set Mulish. `preview-head.html` loads it from Google Fonts —
+        if this renders as a system sans-serif, that stylesheet failed.
       </Typography>
       <Typography sx={{ fontSize: 24 }}>
         Mulish — ABCDEFGHIJKLM abcdefghijklm 0123456789

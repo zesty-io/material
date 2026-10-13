@@ -23,7 +23,9 @@ export const Default: Story = {
 export const Colors: Story = {
   render: () => (
     <Section title="Colors">
-      {(["primary", "secondary", "success", "error", "warning", "info"] as const).map((color) => (
+      {(
+        ["primary", "secondary", "success", "error", "warning", "info"] as const
+      ).map((color) => (
         <Stack key={color} spacing={1} alignItems="center">
           <Badge badgeContent={4} color={color}>
             <Mail />
@@ -59,7 +61,10 @@ export const Variants: Story = {
         </Badge>
       </Section>
 
-      <Section title="Zero and invisible" description="Zero hides unless showZero is set.">
+      <Section
+        title="Zero and invisible"
+        description="Zero hides unless showZero is set."
+      >
         <Badge badgeContent={0} color="primary">
           <Mail />
         </Badge>

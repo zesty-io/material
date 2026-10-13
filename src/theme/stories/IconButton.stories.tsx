@@ -34,16 +34,29 @@ export const Sizes: Story = {
 export const Colors: Story = {
   render: () => (
     <Section title="Colors">
-      {(["inherit", "primary", "secondary", "success", "error", "warning", "info"] as const).map(
-        (color) => (
-          <Stack key={color} spacing={1} alignItems="center" sx={{ minWidth: 72 }}>
-            <IconButton color={color}>
-              <Edit />
-            </IconButton>
-            <Typography variant="caption">{color}</Typography>
-          </Stack>
-        )
-      )}
+      {(
+        [
+          "inherit",
+          "primary",
+          "secondary",
+          "success",
+          "error",
+          "warning",
+          "info",
+        ] as const
+      ).map((color) => (
+        <Stack
+          key={color}
+          spacing={1}
+          alignItems="center"
+          sx={{ minWidth: 72 }}
+        >
+          <IconButton color={color}>
+            <Edit />
+          </IconButton>
+          <Typography variant="caption">{color}</Typography>
+        </Stack>
+      ))}
       <Stack spacing={1} alignItems="center">
         <IconButton disabled>
           <Edit />

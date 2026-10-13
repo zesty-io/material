@@ -22,7 +22,10 @@ type Story = StoryObj<typeof Accordion>;
 
 export const Default: Story = {
   render: () => (
-    <Stacked title="Accordion" description="Consecutive panels share a seam — check it under both themes.">
+    <Stacked
+      title="Accordion"
+      description="Consecutive panels share a seam — check it under both themes."
+    >
       <div>
         <Accordion defaultExpanded>
           <AccordionSummary expandIcon={<ExpandMore />}>

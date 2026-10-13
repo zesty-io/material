@@ -1,7 +1,12 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Rating, Stack, Typography } from "@mui/material";
-import { Favorite, FavoriteBorder, Star, StarBorder } from "@mui/icons-material";
+import {
+  Favorite,
+  FavoriteBorder,
+  Star,
+  StarBorder,
+} from "@mui/icons-material";
 import { Section, Stacked } from "./StorySection";
 
 /**
@@ -20,7 +25,9 @@ type Story = StoryObj<typeof Rating>;
 
 const Controlled = (props: Record<string, unknown>) => {
   const [value, setValue] = useState<number | null>(3);
-  return <Rating {...props} value={value} onChange={(_e, next) => setValue(next)} />;
+  return (
+    <Rating {...props} value={value} onChange={(_e, next) => setValue(next)} />
+  );
 };
 
 export const Default: Story = {
@@ -46,7 +53,10 @@ export const Sizes: Story = {
 
 export const Precision: Story = {
   render: () => (
-    <Stacked title="precision" description="Half-star ratings and a 10-point scale.">
+    <Stacked
+      title="precision"
+      description="Half-star ratings and a 10-point scale."
+    >
       <Stack spacing={1}>
         <Typography variant="caption" color="text.secondary">
           precision=0.5

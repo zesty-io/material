@@ -52,7 +52,10 @@ export const WithIcons: Story = {
 
 export const Collapsed: Story = {
   render: () => (
-    <Stacked title="maxItems" description="Long trails collapse behind an ellipsis button.">
+    <Stacked
+      title="maxItems"
+      description="Long trails collapse behind an ellipsis button."
+    >
       <Breadcrumbs maxItems={3}>
         {["Home", "Content", "Models", "Fields", "Settings"].map((crumb) => (
           <Link key={crumb} underline="hover" color="inherit" href="#">

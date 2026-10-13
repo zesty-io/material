@@ -26,7 +26,14 @@ const meta: Meta<typeof CircularProgress> = {
 export default meta;
 type Story = StoryObj<typeof CircularProgress>;
 
-const COLORS = ["primary", "secondary", "success", "error", "warning", "info"] as const;
+const COLORS = [
+  "primary",
+  "secondary",
+  "success",
+  "error",
+  "warning",
+  "info",
+] as const;
 
 export const Circular: Story = {
   render: () => (
@@ -41,7 +48,12 @@ export const Circular: Story = {
 
       <Section title="Colors">
         {COLORS.map((color) => (
-          <Stack key={color} spacing={1} alignItems="center" sx={{ minWidth: 76 }}>
+          <Stack
+            key={color}
+            spacing={1}
+            alignItems="center"
+            sx={{ minWidth: 76 }}
+          >
             <CircularProgress color={color} size={32} />
             <Typography variant="caption">{color}</Typography>
           </Stack>
@@ -65,18 +77,24 @@ export const LinearVariants: Story = {
   render: () => (
     <>
       <Stacked title="Variants">
-        {(["indeterminate", "determinate", "buffer", "query"] as const).map((variant) => (
-          <Stack key={variant} spacing={0.5}>
-            <Typography variant="caption" color="text.secondary">
-              {variant}
-            </Typography>
-            <LinearProgress
-              variant={variant}
-              value={variant === "determinate" || variant === "buffer" ? 60 : undefined}
-              valueBuffer={variant === "buffer" ? 80 : undefined}
-            />
-          </Stack>
-        ))}
+        {(["indeterminate", "determinate", "buffer", "query"] as const).map(
+          (variant) => (
+            <Stack key={variant} spacing={0.5}>
+              <Typography variant="caption" color="text.secondary">
+                {variant}
+              </Typography>
+              <LinearProgress
+                variant={variant}
+                value={
+                  variant === "determinate" || variant === "buffer"
+                    ? 60
+                    : undefined
+                }
+                valueBuffer={variant === "buffer" ? 80 : undefined}
+              />
+            </Stack>
+          ),
+        )}
       </Stacked>
 
       <Stacked title="Colors">
@@ -100,7 +118,7 @@ const WithLabel = () => {
   useEffect(() => {
     const id = setInterval(
       () => setProgress((prev) => (prev >= 100 ? 0 : prev + 10)),
-      800
+      800,
     );
     return () => clearInterval(id);
   }, []);
@@ -111,12 +129,22 @@ const WithLabel = () => {
         <Box sx={{ width: "100%" }}>
           <LinearProgress variant="determinate" value={progress} />
         </Box>
-        <Typography variant="body2" color="text.secondary" sx={{ minWidth: 40 }}>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{ minWidth: 40 }}
+        >
           {progress}%
         </Typography>
       </Stack>
 
-      <Box sx={{ position: "relative", display: "inline-flex", alignSelf: "flex-start" }}>
+      <Box
+        sx={{
+          position: "relative",
+          display: "inline-flex",
+          alignSelf: "flex-start",
+        }}
+      >
         <CircularProgress variant="determinate" value={progress} size={56} />
         <Box
           sx={{
@@ -141,7 +169,10 @@ const WithLabel = () => {
 
 export const Labelled: Story = {
   render: () => (
-    <Stacked title="With a value label" description="Animates so you can see the transition.">
+    <Stacked
+      title="With a value label"
+      description="Animates so you can see the transition."
+    >
       <WithLabel />
     </Stacked>
   ),

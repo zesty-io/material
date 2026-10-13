@@ -1,6 +1,12 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from "@mui/material";
+import {
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 import { Section } from "./StorySection";
 
 /** Covers `MuiSelect` and the `MuiMenuItem` rendering of its options. */

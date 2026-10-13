@@ -150,7 +150,9 @@ export const buildM3Components = (s: M3Scheme): Components<Theme> => {
         root: {
           borderRadius: m3Shape.full,
           color: s.onSurfaceVariant,
-          "&:hover": { backgroundColor: layer(s.onSurfaceVariant, m3State.hover) },
+          "&:hover": {
+            backgroundColor: layer(s.onSurfaceVariant, m3State.hover),
+          },
         },
       },
     },
@@ -214,7 +216,10 @@ export const buildM3Components = (s: M3Scheme): Components<Theme> => {
     MuiSwitch: {
       styleOverrides: {
         root: { padding: 8 },
-        track: { borderRadius: m3Shape.full, backgroundColor: s.surfaceVariant },
+        track: {
+          borderRadius: m3Shape.full,
+          backgroundColor: s.surfaceVariant,
+        },
         thumb: { backgroundColor: s.outline },
         switchBase: {
           "&.Mui-checked": {
@@ -267,12 +272,16 @@ export const buildM3Components = (s: M3Scheme): Components<Theme> => {
           borderRadius: m3Shape.extraSmall,
           backgroundColor: "transparent",
           "& .MuiOutlinedInput-notchedOutline": { borderColor: s.outline },
-          "&:hover .MuiOutlinedInput-notchedOutline": { borderColor: s.onSurface },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: s.onSurface,
+          },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             borderColor: s.primary,
             borderWidth: 2,
           },
-          "&.Mui-error .MuiOutlinedInput-notchedOutline": { borderColor: s.error },
+          "&.Mui-error .MuiOutlinedInput-notchedOutline": {
+            borderColor: s.error,
+          },
         },
         input: { ...m3TypeScale.bodyLarge, color: s.onSurface },
       },
@@ -439,10 +448,22 @@ export const buildM3Components = (s: M3Scheme): Components<Theme> => {
     MuiAlert: {
       styleOverrides: {
         root: { ...m3TypeScale.bodyMedium, borderRadius: m3Shape.medium },
-        standardError: { backgroundColor: s.errorContainer, color: s.onErrorContainer },
-        standardInfo: { backgroundColor: s.infoContainer, color: s.onInfoContainer },
-        standardSuccess: { backgroundColor: s.successContainer, color: s.onSuccessContainer },
-        standardWarning: { backgroundColor: s.warningContainer, color: s.onWarningContainer },
+        standardError: {
+          backgroundColor: s.errorContainer,
+          color: s.onErrorContainer,
+        },
+        standardInfo: {
+          backgroundColor: s.infoContainer,
+          color: s.onInfoContainer,
+        },
+        standardSuccess: {
+          backgroundColor: s.successContainer,
+          color: s.onSuccessContainer,
+        },
+        standardWarning: {
+          backgroundColor: s.warningContainer,
+          color: s.onWarningContainer,
+        },
       },
     },
 
@@ -482,7 +503,9 @@ export const buildM3Components = (s: M3Scheme): Components<Theme> => {
     },
 
     MuiLink: {
-      styleOverrides: { root: { color: s.primary, textDecorationColor: "inherit" } },
+      styleOverrides: {
+        root: { color: s.primary, textDecorationColor: "inherit" },
+      },
     },
 
     // ---- Progress ----------------------------------------------------------

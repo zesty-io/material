@@ -14,7 +14,10 @@ type Story = StoryObj<typeof SpeedDial>;
 
 export const Default: Story = {
   render: () => (
-    <Stacked title="SpeedDial" description="Hover the button to reveal the SpeedDialActions.">
+    <Stacked
+      title="SpeedDial"
+      description="Hover the button to reveal the SpeedDialActions."
+    >
       <Box sx={{ position: "relative", height: 320, width: 320 }}>
         <SpeedDial
           ariaLabel="Demo SpeedDial"

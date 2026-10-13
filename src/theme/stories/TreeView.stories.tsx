@@ -42,7 +42,10 @@ export const Default: Story = {
 
 export const MultiSelect: Story = {
   render: () => (
-    <Stacked title="multiSelect" description="Ctrl/Cmd-click or shift-click to extend a selection.">
+    <Stacked
+      title="multiSelect"
+      description="Ctrl/Cmd-click or shift-click to extend a selection."
+    >
       <Paper variant="outlined" sx={{ p: 2, maxWidth: 360 }}>
         <SimpleTreeView multiSelect defaultExpandedItems={["content"]}>
           <TreeItem itemId="content" label="Content">

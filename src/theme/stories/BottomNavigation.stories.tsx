@@ -7,7 +7,13 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
-import { Archive, Favorite, Folder, Restore, Search } from "@mui/icons-material";
+import {
+  Archive,
+  Favorite,
+  Folder,
+  Restore,
+  Search,
+} from "@mui/icons-material";
 import { Stacked } from "./StorySection";
 
 /**
@@ -49,7 +55,10 @@ const Demo = ({ showLabels }: { showLabels?: boolean }) => {
 export const Default: Story = {
   render: () => (
     <>
-      <Stacked title="showLabels off" description="Only the selected action shows its label.">
+      <Stacked
+        title="showLabels off"
+        description="Only the selected action shows its label."
+      >
         <Demo />
       </Stacked>
       <Stacked title="showLabels on">
@@ -79,7 +88,10 @@ export const FourActions: Story = {
       );
     };
     return (
-      <Stacked title="Four actions" description="Three to five is the usable range.">
+      <Stacked
+        title="Four actions"
+        description="Three to five is the usable range."
+      >
         <Four />
       </Stacked>
     );
@@ -128,7 +140,10 @@ export const Fixed: Story = {
       );
     };
     return (
-      <Stacked title="Pinned" description="Scroll the panel — the bar holds position.">
+      <Stacked
+        title="Pinned"
+        description="Scroll the panel — the bar holds position."
+      >
         <Pinned />
       </Stacked>
     );

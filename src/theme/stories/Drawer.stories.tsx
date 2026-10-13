@@ -62,7 +62,11 @@ const NavList = ({ onSelect }: { onSelect?: () => void }) => {
   );
 };
 
-const Temporary = ({ anchor }: { anchor: "left" | "right" | "top" | "bottom" }) => {
+const Temporary = ({
+  anchor,
+}: {
+  anchor: "left" | "right" | "top" | "bottom";
+}) => {
   const [open, setOpen] = useState(false);
   const horizontal = anchor === "left" || anchor === "right";
 
@@ -87,7 +91,10 @@ const Temporary = ({ anchor }: { anchor: "left" | "right" | "top" | "bottom" }) 
 export const Temporary_: Story = {
   name: "Temporary",
   render: () => (
-    <Section title="anchor" description="Temporary drawers overlay the page and dismiss on click-away.">
+    <Section
+      title="anchor"
+      description="Temporary drawers overlay the page and dismiss on click-away."
+    >
       {(["left", "right", "top", "bottom"] as const).map((anchor) => (
         <Temporary key={anchor} anchor={anchor} />
       ))}
@@ -101,7 +108,10 @@ export const Temporary_: Story = {
  */
 export const Permanent: Story = {
   render: () => (
-    <Stacked title="Permanent" description="Scoped to a container via PaperProps rather than the viewport.">
+    <Stacked
+      title="Permanent"
+      description="Scoped to a container via PaperProps rather than the viewport."
+    >
       <Box
         sx={{
           display: "flex",
@@ -133,8 +143,8 @@ export const Permanent: Story = {
         </Drawer>
         <Box sx={{ flex: 1, p: 3, ml: "240px", overflow: "auto" }}>
           <Typography variant="body2" color="text.secondary">
-            Main content sits beside the drawer. Under M3 the list items pick up the pill hover
-            shape from the MuiListItemButton override.
+            Main content sits beside the drawer. Under M3 the list items pick up
+            the pill hover shape from the MuiListItemButton override.
           </Typography>
         </Box>
       </Box>
@@ -149,7 +159,11 @@ export const Persistent: Story = {
       const [open, setOpen] = useState(true);
       return (
         <Stack spacing={2}>
-          <Button variant="contained" onClick={() => setOpen((v) => !v)} sx={{ alignSelf: "flex-start" }}>
+          <Button
+            variant="contained"
+            onClick={() => setOpen((v) => !v)}
+            sx={{ alignSelf: "flex-start" }}
+          >
             {open ? "Close" : "Open"} drawer
           </Button>
           <Box
@@ -179,7 +193,9 @@ export const Persistent: Story = {
                 p: 3,
                 ml: open ? "220px" : 0,
                 transition: (theme) =>
-                  theme.transitions.create("margin", { duration: theme.transitions.duration.enteringScreen }),
+                  theme.transitions.create("margin", {
+                    duration: theme.transitions.duration.enteringScreen,
+                  }),
               }}
             >
               <Typography variant="body2" color="text.secondary">
@@ -191,7 +207,10 @@ export const Persistent: Story = {
       );
     };
     return (
-      <Stacked title="Persistent" description="Toggle it — the content margin animates.">
+      <Stacked
+        title="Persistent"
+        description="Toggle it — the content margin animates."
+      >
         <Demo />
       </Stacked>
     );

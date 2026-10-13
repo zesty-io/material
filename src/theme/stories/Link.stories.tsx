@@ -47,8 +47,9 @@ export const Inline: Story = {
   render: () => (
     <Stacked title="Inline in body copy">
       <Typography variant="body1">
-        Links inherit the surrounding type scale, so a <Link href="#">link in body1</Link> sits
-        on the same baseline as its paragraph.
+        Links inherit the surrounding type scale, so a{" "}
+        <Link href="#">link in body1</Link> sits on the same baseline as its
+        paragraph.
       </Typography>
       <Typography variant="body2">
         The same <Link href="#">link in body2</Link>, one step down.

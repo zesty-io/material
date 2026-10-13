@@ -16,9 +16,18 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-const COLORS = ["primary", "secondary", "success", "error", "warning", "info"] as const;
+const COLORS = [
+  "primary",
+  "secondary",
+  "success",
+  "error",
+  "warning",
+  "info",
+] as const;
 
-export const Default: Story = { args: { variant: "contained", children: "Button" } };
+export const Default: Story = {
+  args: { variant: "contained", children: "Button" },
+};
 
 export const Variants: Story = {
   render: () => (
@@ -32,7 +41,10 @@ export const Variants: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <Section title="Sizes" description="Includes xsmall, added to MUI's set by module augmentation.">
+    <Section
+      title="Sizes"
+      description="Includes xsmall, added to MUI's set by module augmentation."
+    >
       {(["xsmall", "small", "medium", "large"] as const).map((size) => (
         <Button key={size} variant="contained" size={size}>
           {size}

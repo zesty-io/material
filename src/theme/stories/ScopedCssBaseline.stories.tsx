@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Box, Divider, Paper, ScopedCssBaseline, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Paper,
+  ScopedCssBaseline,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { Stacked } from "./StorySection";
 
 /**
@@ -17,7 +24,10 @@ type Story = StoryObj<typeof ScopedCssBaseline>;
 
 export const Default: Story = {
   render: () => (
-    <Stacked title="Scoped vs global" description="Same markup, one wrapped and one not.">
+    <Stacked
+      title="Scoped vs global"
+      description="Same markup, one wrapped and one not."
+    >
       <Stack
         direction="row"
         spacing={3}

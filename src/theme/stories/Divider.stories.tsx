@@ -49,7 +49,10 @@ export const Vertical: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <Stacked title="variant" description="`inset` and `middle` indent the rule.">
+    <Stacked
+      title="variant"
+      description="`inset` and `middle` indent the rule."
+    >
       <Paper variant="outlined" sx={{ p: 2 }}>
         <Typography variant="body2">fullWidth (default)</Typography>
         <Divider sx={{ my: 1 }} />

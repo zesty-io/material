@@ -13,7 +13,15 @@ const meta: Meta<typeof Chip> = {
 export default meta;
 type Story = StoryObj<typeof Chip>;
 
-const COLORS = ["default", "primary", "secondary", "success", "error", "warning", "info"] as const;
+const COLORS = [
+  "default",
+  "primary",
+  "secondary",
+  "success",
+  "error",
+  "warning",
+  "info",
+] as const;
 
 export const Default: Story = { args: { label: "Chip" } };
 

@@ -23,7 +23,11 @@ export const Default: Story = {
       const [page, setPage] = useState(1);
       return (
         <Stack spacing={1}>
-          <Pagination count={10} page={page} onChange={(_e, next) => setPage(next)} />
+          <Pagination
+            count={10}
+            page={page}
+            onChange={(_e, next) => setPage(next)}
+          />
           <Typography variant="caption" color="text.secondary">
             page {page} of 10
           </Typography>
@@ -45,7 +49,12 @@ export const Variants: Story = {
         <Pagination count={10} defaultPage={3} />
         <Pagination count={10} defaultPage={3} variant="outlined" />
         <Pagination count={10} defaultPage={3} shape="rounded" />
-        <Pagination count={10} defaultPage={3} variant="outlined" shape="rounded" />
+        <Pagination
+          count={10}
+          defaultPage={3}
+          variant="outlined"
+          shape="rounded"
+        />
       </Stack>
     </Stacked>
   ),
@@ -93,7 +102,12 @@ export const Ranges: Story = {
           <Typography variant="caption" color="text.secondary">
             showFirstButton / showLastButton
           </Typography>
-          <Pagination count={20} defaultPage={10} showFirstButton showLastButton />
+          <Pagination
+            count={20}
+            defaultPage={10}
+            showFirstButton
+            showLastButton
+          />
         </Stack>
       </Stack>
     </Stacked>
@@ -102,12 +116,18 @@ export const Ranges: Story = {
 
 export const CustomItems: Story = {
   render: () => (
-    <Stacked title="renderItem" description="Swap the previous/next glyphs or wrap items in links.">
+    <Stacked
+      title="renderItem"
+      description="Swap the previous/next glyphs or wrap items in links."
+    >
       <Pagination
         count={10}
         defaultPage={4}
         renderItem={(item) => (
-          <PaginationItem slots={{ previous: ArrowBack, next: ArrowForward }} {...item} />
+          <PaginationItem
+            slots={{ previous: ArrowBack, next: ArrowForward }}
+            {...item}
+          />
         )}
       />
     </Stacked>

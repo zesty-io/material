@@ -50,11 +50,29 @@ export const FontSizes: Story = {
 
 export const Colors: Story = {
   render: () => (
-    <Section title="color" description="Palette-aware; `inherit` takes the surrounding text colour.">
+    <Section
+      title="color"
+      description="Palette-aware; `inherit` takes the surrounding text colour."
+    >
       {(
-        ["inherit", "primary", "secondary", "action", "success", "error", "warning", "info", "disabled"] as const
+        [
+          "inherit",
+          "primary",
+          "secondary",
+          "action",
+          "success",
+          "error",
+          "warning",
+          "info",
+          "disabled",
+        ] as const
       ).map((color) => (
-        <Stack key={color} spacing={1} alignItems="center" sx={{ minWidth: 72 }}>
+        <Stack
+          key={color}
+          spacing={1}
+          alignItems="center"
+          sx={{ minWidth: 72 }}
+        >
           <Favorite color={color} />
           <Typography variant="caption">{color}</Typography>
         </Stack>
@@ -76,7 +94,12 @@ export const Themes: Story = {
           ["Sharp", DeleteSharp],
         ] as const
       ).map(([label, Icon]) => (
-        <Stack key={label} spacing={1} alignItems="center" sx={{ minWidth: 80 }}>
+        <Stack
+          key={label}
+          spacing={1}
+          alignItems="center"
+          sx={{ minWidth: 80 }}
+        >
           <Icon fontSize="large" />
           <Typography variant="caption">{label}</Typography>
         </Stack>
@@ -97,7 +120,8 @@ export const Custom: Story = {
           <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5L4.2 6 12 2.2 19.8 6 12 9.5zM2 17l10 5 10-5-2.2-1.1L12 19.6 4.2 15.9 2 17zm0-5l10 5 10-5-2.2-1.1L12 14.6 4.2 10.9 2 12z" />
         </SvgIcon>
         <Typography variant="body2" color="text.secondary">
-          A custom SvgIcon at fontSize=&ldquo;large&rdquo;, color=&ldquo;primary&rdquo;
+          A custom SvgIcon at fontSize=&ldquo;large&rdquo;,
+          color=&ldquo;primary&rdquo;
         </Typography>
       </Stack>
     </Stacked>
@@ -110,7 +134,10 @@ export const Inline: Story = {
     <Stacked title="Inline with text">
       {(["h4", "body1", "body2", "caption"] as const).map((variant) => (
         <Typography key={variant} variant={variant}>
-          <Favorite fontSize="inherit" sx={{ verticalAlign: "middle", mr: 0.5 }} />
+          <Favorite
+            fontSize="inherit"
+            sx={{ verticalAlign: "middle", mr: 0.5 }}
+          />
           Icon inside {variant}
         </Typography>
       ))}

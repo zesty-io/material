@@ -33,7 +33,11 @@ const Demo = ({
         scrollButtons={variant === "scrollable" ? "auto" : false}
       >
         {Array.from({ length: count }, (_, i) => (
-          <Tab key={i} label={`Tab ${i + 1}`} disabled={i === count - 1 && count === 3} />
+          <Tab
+            key={i}
+            label={`Tab ${i + 1}`}
+            disabled={i === count - 1 && count === 3}
+          />
         ))}
       </Tabs>
       <Divider />

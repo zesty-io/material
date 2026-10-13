@@ -41,8 +41,8 @@ export const Default: Story = {
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-            CardContent carries the body. Header and content are padded separately, so this
-            story shows them together.
+            CardContent carries the body. Header and content are padded
+            separately, so this story shows them together.
           </Typography>
         </CardContent>
         <CardActions>

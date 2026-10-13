@@ -30,7 +30,10 @@ export const Content: Story = {
       <Avatar sx={{ bgcolor: "secondary.main" }}>
         <Folder />
       </Avatar>
-      <Avatar alt="Broken image, falls back to the letter" src="/does-not-exist.png">
+      <Avatar
+        alt="Broken image, falls back to the letter"
+        src="/does-not-exist.png"
+      >
         F
       </Avatar>
     </Section>
@@ -58,7 +61,9 @@ export const Sizes: Story = {
     <Section title="Sizes" description="Set via sx; there is no size prop.">
       {[24, 32, 40, 56, 72].map((size) => (
         <Stack key={size} spacing={1} alignItems="center">
-          <Avatar sx={{ width: size, height: size, bgcolor: "primary.main" }}>ZI</Avatar>
+          <Avatar sx={{ width: size, height: size, bgcolor: "primary.main" }}>
+            ZI
+          </Avatar>
           <Typography variant="caption">{size}px</Typography>
         </Stack>
       ))}
@@ -68,7 +73,10 @@ export const Sizes: Story = {
 
 export const Grouped: Story = {
   render: () => (
-    <Section title="AvatarGroup" description="`max` controls how many show before the +n surplus.">
+    <Section
+      title="AvatarGroup"
+      description="`max` controls how many show before the +n surplus."
+    >
       <AvatarGroup max={4}>
         {["BZ", "AL", "KM", "RT", "JS", "PW"].map((initials) => (
           <Avatar key={initials}>{initials}</Avatar>

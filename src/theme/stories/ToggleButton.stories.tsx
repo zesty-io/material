@@ -1,7 +1,11 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
-import { FormatBold, FormatItalic, FormatUnderlined } from "@mui/icons-material";
+import {
+  FormatBold,
+  FormatItalic,
+  FormatUnderlined,
+} from "@mui/icons-material";
 import { Stacked } from "./StorySection";
 
 /** M3 rounds the group into a pill and uses secondaryContainer for selection. */
@@ -17,7 +21,10 @@ type Story = StoryObj<typeof ToggleButtonGroup>;
 const MultiSelect = () => {
   const [formats, setFormats] = useState<string[]>(["bold"]);
   return (
-    <ToggleButtonGroup value={formats} onChange={(_e, next: string[]) => setFormats(next)}>
+    <ToggleButtonGroup
+      value={formats}
+      onChange={(_e, next: string[]) => setFormats(next)}
+    >
       <ToggleButton value="bold">
         <FormatBold />
       </ToggleButton>
@@ -50,7 +57,10 @@ const Exclusive = ({ size }: { size?: "small" | "medium" | "large" }) => {
 export const Default: Story = {
   render: () => (
     <>
-      <Stacked title="Multi-select" description="`value` is an array; no `exclusive` prop.">
+      <Stacked
+        title="Multi-select"
+        description="`value` is an array; no `exclusive` prop."
+      >
         <MultiSelect />
       </Stacked>
       <Stacked title="Exclusive" description="One selection at a time.">

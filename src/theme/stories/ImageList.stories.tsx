@@ -31,7 +31,7 @@ const tile = (hue: number, w = 400, h = 400) =>
     `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">` +
       `<rect width="100%" height="100%" fill="hsl(${hue} 55% 62%)"/>` +
       `<circle cx="${w / 2}" cy="${h / 2}" r="${Math.min(w, h) / 5}" fill="hsl(${hue} 60% 40%)"/>` +
-      `</svg>`
+      `</svg>`,
   )}`;
 
 const ITEMS = [
@@ -45,8 +45,15 @@ const ITEMS = [
 
 export const Standard: Story = {
   render: () => (
-    <Stacked title="Standard" description="Uniform tiles in a fixed column count.">
-      <ImageList sx={{ width: 480, maxWidth: "100%", height: 380 }} cols={3} rowHeight={150}>
+    <Stacked
+      title="Standard"
+      description="Uniform tiles in a fixed column count."
+    >
+      <ImageList
+        sx={{ width: 480, maxWidth: "100%", height: 380 }}
+        cols={3}
+        rowHeight={150}
+      >
         {ITEMS.map((item) => (
           <ImageListItem key={item.title}>
             <img src={item.img} alt={item.title} loading="lazy" />
@@ -59,7 +66,10 @@ export const Standard: Story = {
 
 export const WithTitleBar: Story = {
   render: () => (
-    <Stacked title="ImageListItemBar" description="Bars can sit at the top or the bottom.">
+    <Stacked
+      title="ImageListItemBar"
+      description="Bars can sit at the top or the bottom."
+    >
       <ImageList sx={{ width: 480, maxWidth: "100%" }} cols={2} rowHeight={180}>
         {ITEMS.slice(0, 4).map((item, i) => (
           <ImageListItem key={item.title}>
@@ -69,7 +79,10 @@ export const WithTitleBar: Story = {
               subtitle={`by ${item.author}`}
               position={i < 2 ? "bottom" : "top"}
               actionIcon={
-                <IconButton sx={{ color: "rgba(255,255,255,0.85)" }} aria-label={`about ${item.title}`}>
+                <IconButton
+                  sx={{ color: "rgba(255,255,255,0.85)" }}
+                  aria-label={`about ${item.title}`}
+                >
                   <Info />
                 </IconButton>
               }
@@ -84,7 +97,10 @@ export const WithTitleBar: Story = {
 /** `cols` and `rows` on an item make it span more of the grid. */
 export const Quilted: Story = {
   render: () => (
-    <Stacked title="Quilted" description="Items span multiple cells via cols/rows.">
+    <Stacked
+      title="Quilted"
+      description="Items span multiple cells via cols/rows."
+    >
       <ImageList
         sx={{ width: 480, maxWidth: "100%", height: 360 }}
         variant="quilted"
@@ -96,7 +112,11 @@ export const Quilted: Story = {
           const rows = i === 0 ? 2 : 1;
           return (
             <ImageListItem key={item.title} cols={cols} rows={rows}>
-              <img src={tile(item.hue, 250 * cols, 200 * rows)} alt={item.title} loading="lazy" />
+              <img
+                src={tile(item.hue, 250 * cols, 200 * rows)}
+                alt={item.title}
+                loading="lazy"
+              />
             </ImageListItem>
           );
         })}
@@ -109,10 +129,19 @@ export const Quilted: Story = {
 export const Masonry: Story = {
   render: () => (
     <Stacked title="Masonry" description="Variable heights, no cropping.">
-      <ImageList sx={{ width: 480, maxWidth: "100%" }} variant="masonry" cols={3} gap={8}>
+      <ImageList
+        sx={{ width: 480, maxWidth: "100%" }}
+        variant="masonry"
+        cols={3}
+        gap={8}
+      >
         {ITEMS.map((item, i) => (
           <ImageListItem key={item.title}>
-            <img src={tile(item.hue, 300, 200 + (i % 3) * 90)} alt={item.title} loading="lazy" />
+            <img
+              src={tile(item.hue, 300, 200 + (i % 3) * 90)}
+              alt={item.title}
+              loading="lazy"
+            />
           </ImageListItem>
         ))}
       </ImageList>
@@ -124,7 +153,12 @@ export const Masonry: Story = {
 export const Woven: Story = {
   render: () => (
     <Stacked title="Woven">
-      <ImageList sx={{ width: 480, maxWidth: "100%", height: 340 }} variant="woven" cols={3} gap={8}>
+      <ImageList
+        sx={{ width: 480, maxWidth: "100%", height: 340 }}
+        variant="woven"
+        cols={3}
+        gap={8}
+      >
         {ITEMS.map((item) => (
           <ImageListItem key={item.title}>
             <img src={item.img} alt={item.title} loading="lazy" />
@@ -139,8 +173,16 @@ export const Woven: Story = {
 export const WithSubheader: Story = {
   render: () => (
     <Stacked title="Subheader">
-      <ImageList sx={{ width: 480, maxWidth: "100%", height: 340 }} cols={3} rowHeight={140}>
-        <ImageListItem key="subheader" cols={3} sx={{ height: "auto !important" }}>
+      <ImageList
+        sx={{ width: 480, maxWidth: "100%", height: 340 }}
+        cols={3}
+        rowHeight={140}
+      >
+        <ImageListItem
+          key="subheader"
+          cols={3}
+          sx={{ height: "auto !important" }}
+        >
           <ListSubheader component="div">Recently uploaded</ListSubheader>
         </ImageListItem>
         {ITEMS.map((item) => (

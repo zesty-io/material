@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Box, Container, Paper, Stack, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Container,
+  Paper,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { Stacked } from "./StorySection";
 
 /**
@@ -43,7 +50,9 @@ export const MaxWidths: Story = {
         {(["xs", "sm", "md", "lg", "xl", false] as const).map((maxWidth) => (
           <Container key={String(maxWidth)} maxWidth={maxWidth}>
             <Box sx={{ bgcolor: "action.hover", borderRadius: 1 }}>
-              <Filler label={`maxWidth=${maxWidth === false ? "false (full width)" : `"${maxWidth}"`}`} />
+              <Filler
+                label={`maxWidth=${maxWidth === false ? "false (full width)" : `"${maxWidth}"`}`}
+              />
             </Box>
           </Container>
         ))}
@@ -85,7 +94,10 @@ export const Gutters: Story = {
 export const BreakpointValues: Story = {
   render: () => (
     <Container maxWidth="md" sx={{ py: 3 }}>
-      <Stacked title="Breakpoints in the active theme" description="Neither theme overrides these.">
+      <Stacked
+        title="Breakpoints in the active theme"
+        description="Neither theme overrides these."
+      >
         <Breakpoints />
       </Stacked>
     </Container>

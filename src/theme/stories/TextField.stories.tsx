@@ -24,7 +24,9 @@ const meta: Meta<typeof TextField> = {
 export default meta;
 type Story = StoryObj<typeof TextField>;
 
-export const Default: Story = { args: { label: "Label", placeholder: "Placeholder" } };
+export const Default: Story = {
+  args: { label: "Label", placeholder: "Placeholder" },
+};
 
 export const States: Story = {
   render: () => (
@@ -76,7 +78,11 @@ export const Standalone: Story = {
     >
       <FormControl>
         <InputLabel htmlFor="outlined-standalone">Label</InputLabel>
-        <OutlinedInput id="outlined-standalone" label="Label" placeholder="Placeholder" />
+        <OutlinedInput
+          id="outlined-standalone"
+          label="Label"
+          placeholder="Placeholder"
+        />
         <FormHelperText>Helper text from FormHelperText</FormHelperText>
       </FormControl>
     </Stacked>

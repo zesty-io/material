@@ -73,7 +73,10 @@ const IconGrid = () => {
         }}
       >
         {visible.map(([name, Icon]) => (
-          <Tooltip key={name} title={copied === name ? "Copied!" : "Click to copy"}>
+          <Tooltip
+            key={name}
+            title={copied === name ? "Copied!" : "Click to copy"}
+          >
             <Paper
               variant="outlined"
               onClick={() => copy(name)}
@@ -85,7 +88,10 @@ const IconGrid = () => {
                 gap: 1,
                 cursor: "pointer",
                 transition: "border-color 120ms ease, transform 120ms ease",
-                "&:hover": { borderColor: "primary.main", transform: "translateY(-2px)" },
+                "&:hover": {
+                  borderColor: "primary.main",
+                  transform: "translateY(-2px)",
+                },
               }}
             >
               <Icon sx={{ fontSize: 36 }} />

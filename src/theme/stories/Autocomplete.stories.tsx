@@ -30,7 +30,9 @@ export const Default: Story = {
         sx={{ width: 320 }}
         defaultValue={["Alpha", "Bravo"]}
         options={OPTIONS}
-        renderInput={(params) => <TextField {...params} label="Multiple (chips)" />}
+        renderInput={(params) => (
+          <TextField {...params} label="Multiple (chips)" />
+        )}
       />
     </Section>
   ),

@@ -18,7 +18,15 @@ const meta = {
     },
     color: {
       control: "select",
-      options: ["inherit", "primary", "secondary", "success", "error", "warning", "info"],
+      options: [
+        "inherit",
+        "primary",
+        "secondary",
+        "success",
+        "error",
+        "warning",
+        "info",
+      ],
     },
     size: {
       control: "select",
@@ -63,14 +71,16 @@ export const Variants: Story = {
 export const Sizes: Story = {
   render: () => (
     <Stack direction="row" spacing={3} alignItems="center">
-      {(["xxsmall", "xsmall", "small", "medium", "large"] as const).map((size) => (
-        <Stack key={size} spacing={1} alignItems="center">
-          <IconButton variant="contained" color="primary" size={size}>
-            <Brain fontSize="inherit" />
-          </IconButton>
-          <Typography variant="caption">{size}</Typography>
-        </Stack>
-      ))}
+      {(["xxsmall", "xsmall", "small", "medium", "large"] as const).map(
+        (size) => (
+          <Stack key={size} spacing={1} alignItems="center">
+            <IconButton variant="contained" color="primary" size={size}>
+              <Brain fontSize="inherit" />
+            </IconButton>
+            <Typography variant="caption">{size}</Typography>
+          </Stack>
+        ),
+      )}
     </Stack>
   ),
 };
@@ -79,16 +89,16 @@ export const Sizes: Story = {
 export const Colors: Story = {
   render: () => (
     <Stack direction="row" spacing={3} alignItems="center">
-      {(["primary", "secondary", "success", "error", "warning", "info"] as const).map(
-        (color) => (
-          <Stack key={color} spacing={1} alignItems="center">
-            <IconButton variant="contained" color={color}>
-              <Brain />
-            </IconButton>
-            <Typography variant="caption">{color}</Typography>
-          </Stack>
-        )
-      )}
+      {(
+        ["primary", "secondary", "success", "error", "warning", "info"] as const
+      ).map((color) => (
+        <Stack key={color} spacing={1} alignItems="center">
+          <IconButton variant="contained" color={color}>
+            <Brain />
+          </IconButton>
+          <Typography variant="caption">{color}</Typography>
+        </Stack>
+      ))}
     </Stack>
   ),
 };

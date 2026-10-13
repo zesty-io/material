@@ -28,14 +28,25 @@ export const Variants: Story = {
     <Section title="variant">
       {(["elevation", "outlined"] as const).map((variant) => (
         <Stack key={variant} spacing={1} alignItems="center">
-          <Paper variant={variant} sx={{ width: 160, height: 96, display: "grid", placeItems: "center" }}>
+          <Paper
+            variant={variant}
+            sx={{
+              width: 160,
+              height: 96,
+              display: "grid",
+              placeItems: "center",
+            }}
+          >
             <Typography variant="body2">{variant}</Typography>
           </Paper>
           <Typography variant="caption">{variant}</Typography>
         </Stack>
       ))}
       <Stack spacing={1} alignItems="center">
-        <Paper square sx={{ width: 160, height: 96, display: "grid", placeItems: "center" }}>
+        <Paper
+          square
+          sx={{ width: 160, height: 96, display: "grid", placeItems: "center" }}
+        >
           <Typography variant="body2">square</Typography>
         </Paper>
         <Typography variant="caption">square</Typography>

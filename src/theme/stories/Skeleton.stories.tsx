@@ -27,7 +27,10 @@ type Story = StoryObj<typeof Skeleton>;
 
 export const Variants: Story = {
   render: () => (
-    <Stacked title="variant" description="`text` takes its height from the current type scale.">
+    <Stacked
+      title="variant"
+      description="`text` takes its height from the current type scale."
+    >
       <Stack spacing={2} sx={{ maxWidth: 420 }}>
         <Box>
           <Typography variant="caption" color="text.secondary">
@@ -61,16 +64,20 @@ export const Variants: Story = {
 export const Animations: Story = {
   render: () => (
     <Section title="animation">
-      {([["pulse", "pulse"], ["wave", "wave"], ["none", false]] as const).map(
-        ([label, animation]) => (
-          <Stack key={label} spacing={1} sx={{ width: 200 }}>
-            <Typography variant="caption" color="text.secondary">
-              {label}
-            </Typography>
-            <Skeleton variant="rounded" height={64} animation={animation} />
-          </Stack>
-        )
-      )}
+      {(
+        [
+          ["pulse", "pulse"],
+          ["wave", "wave"],
+          ["none", false],
+        ] as const
+      ).map(([label, animation]) => (
+        <Stack key={label} spacing={1} sx={{ width: 200 }}>
+          <Typography variant="caption" color="text.secondary">
+            {label}
+          </Typography>
+          <Skeleton variant="rounded" height={64} animation={animation} />
+        </Stack>
+      ))}
     </Section>
   ),
 };
@@ -97,7 +104,10 @@ export const FromTypography: Story = {
 /** The shape most loading states actually need. */
 export const CardPlaceholder: Story = {
   render: () => (
-    <Stacked title="Composed placeholder" description="Loading and loaded, side by side.">
+    <Stacked
+      title="Composed placeholder"
+      description="Loading and loaded, side by side."
+    >
       <Stack direction="row" spacing={3} sx={{ flexWrap: "wrap", rowGap: 3 }}>
         <Card sx={{ width: 320 }}>
           <CardHeader
@@ -136,8 +146,9 @@ export const CardPlaceholder: Story = {
           <Box sx={{ height: 140, bgcolor: "action.hover" }} />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              The real content the skeleton above stands in for. Compare the heights — a good
-              placeholder does not shift the layout when it resolves.
+              The real content the skeleton above stands in for. Compare the
+              heights — a good placeholder does not shift the layout when it
+              resolves.
             </Typography>
           </CardContent>
         </Card>

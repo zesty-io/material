@@ -19,7 +19,12 @@ export const Placement: Story = {
   render: () => (
     <Section title="placement">
       {(["top", "bottom", "left", "right"] as const).map((placement) => (
-        <Tooltip key={placement} title={`Tooltip on ${placement}`} placement={placement} arrow>
+        <Tooltip
+          key={placement}
+          title={`Tooltip on ${placement}`}
+          placement={placement}
+          arrow
+        >
           <Chip label={placement} onClick={() => {}} />
         </Tooltip>
       ))}

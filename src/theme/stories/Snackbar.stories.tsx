@@ -57,8 +57,15 @@ const Launcher = ({
 
 export const Default: Story = {
   render: () => (
-    <Section title="message" description="Renders SnackbarContent, which M3 themes.">
-      <Launcher label="Show snackbar" message="Content saved" autoHideDuration={4000} />
+    <Section
+      title="message"
+      description="Renders SnackbarContent, which M3 themes."
+    >
+      <Launcher
+        label="Show snackbar"
+        message="Content saved"
+        autoHideDuration={4000}
+      />
       <Launcher
         label="With an action"
         message="Item moved to trash"
@@ -88,10 +95,18 @@ const WithClose = () => {
         message="Draft discarded"
         action={
           <>
-            <Button color="secondary" size="small" onClick={() => setOpen(false)}>
+            <Button
+              color="secondary"
+              size="small"
+              onClick={() => setOpen(false)}
+            >
               Undo
             </Button>
-            <IconButton size="small" color="inherit" onClick={() => setOpen(false)}>
+            <IconButton
+              size="small"
+              color="inherit"
+              onClick={() => setOpen(false)}
+            >
               <Close fontSize="small" />
             </IconButton>
           </>
@@ -103,7 +118,10 @@ const WithClose = () => {
 
 export const Positioning: Story = {
   render: () => (
-    <Section title="anchorOrigin" description="Six positions; the default is bottom-left.">
+    <Section
+      title="anchorOrigin"
+      description="Six positions; the default is bottom-left."
+    >
       {(
         [
           { vertical: "top", horizontal: "left" },
@@ -134,7 +152,11 @@ export const Actions: Story = {
   ),
 };
 
-const WithAlert = ({ severity }: { severity: "success" | "error" | "warning" | "info" }) => {
+const WithAlert = ({
+  severity,
+}: {
+  severity: "success" | "error" | "warning" | "info";
+}) => {
   const [open, setOpen] = useState(false);
 
   return (

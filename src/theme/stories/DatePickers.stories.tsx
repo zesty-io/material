@@ -52,7 +52,10 @@ const Demo = () => {
 
 export const Default: Story = {
   render: () => (
-    <Stacked title="PickersDay" description="Open the popover to compare against the inline calendar.">
+    <Stacked
+      title="PickersDay"
+      description="Open the popover to compare against the inline calendar."
+    >
       <Demo />
     </Stacked>
   ),

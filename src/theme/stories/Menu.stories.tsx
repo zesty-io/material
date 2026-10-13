@@ -9,7 +9,12 @@ import {
   MenuItem,
   Paper,
 } from "@mui/material";
-import { ContentCopy, ContentCut, ContentPaste, Delete } from "@mui/icons-material";
+import {
+  ContentCopy,
+  ContentCut,
+  ContentPaste,
+  Delete,
+} from "@mui/icons-material";
 import { Section, Stacked } from "./StorySection";
 
 /** M3 uses a 4px radius on a `surfaceContainer` ground with 48px items. */
@@ -30,7 +35,11 @@ const Demo = () => {
       <Button variant="contained" onClick={(e) => setAnchorEl(e.currentTarget)}>
         Open menu
       </Button>
-      <Menu anchorEl={anchorEl} open={!!anchorEl} onClose={() => setAnchorEl(null)}>
+      <Menu
+        anchorEl={anchorEl}
+        open={!!anchorEl}
+        onClose={() => setAnchorEl(null)}
+      >
         <MenuItem onClick={() => setAnchorEl(null)}>
           <ListItemIcon>
             <ContentCut fontSize="small" />
@@ -74,7 +83,10 @@ export const Default: Story = {
 
 export const ItemStates: Story = {
   render: () => (
-    <Stacked title="MenuItem, inline" description="Rendered outside a popover to inspect states.">
+    <Stacked
+      title="MenuItem, inline"
+      description="Rendered outside a popover to inspect states."
+    >
       <Paper variant="outlined" sx={{ maxWidth: 280, py: 1 }}>
         <MenuItem>Default</MenuItem>
         <MenuItem selected>Selected</MenuItem>

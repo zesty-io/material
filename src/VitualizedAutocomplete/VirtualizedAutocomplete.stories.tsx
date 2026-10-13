@@ -1,10 +1,12 @@
 import { useState, type ReactNode, type SyntheticEvent } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import VirtualizedAutocomplete, {
-  type VirtualizedAutocompleteProps,
-} from "./";
+import VirtualizedAutocomplete, { type VirtualizedAutocompleteProps } from "./";
 
-type Option = { component: string | ReactNode; value: string; inputLabel: string };
+type Option = {
+  component: string | ReactNode;
+  value: string;
+  inputLabel: string;
+};
 
 /**
  * The react-window backed Autocomplete that the relationship fields are built
@@ -20,7 +22,11 @@ const meta: Meta<typeof VirtualizedAutocomplete> = {
 export default meta;
 type Story = StoryObj<typeof VirtualizedAutocomplete>;
 
-const NONE: Option = { component: "- None -", value: "0", inputLabel: "- None -" };
+const NONE: Option = {
+  component: "- None -",
+  value: "0",
+  inputLabel: "- None -",
+};
 
 const Controlled = (args: VirtualizedAutocompleteProps) => {
   const [value, setValue] = useState<Option>(NONE);
@@ -33,7 +39,7 @@ const Controlled = (args: VirtualizedAutocompleteProps) => {
         component: <div>{`Test ${idx}`}</div>,
         value: String(idx),
         inputLabel: `Test ${idx}`,
-      }))
+      })),
     );
   };
 
