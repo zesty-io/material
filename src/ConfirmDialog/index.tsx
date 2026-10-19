@@ -6,7 +6,10 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Button } from "@mui/material";
 
-export interface ConfirmDialogProps extends Omit<DialogProps, "title"> {
+export interface ConfirmDialogProps extends Omit<
+  DialogProps,
+  "title" | "content"
+> {
   /**
    * Title of confirm dialog
    */

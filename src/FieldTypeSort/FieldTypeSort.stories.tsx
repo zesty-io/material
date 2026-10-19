@@ -1,27 +1,35 @@
-import { ChangeEvent, useState } from "react";
-import { Story, Meta } from "@storybook/react/types-6-0";
-import FieldTypeSort, { FieldTypeSortProps } from "./";
+import { useState, type ChangeEvent } from "react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import FieldTypeSort, { type FieldTypeSortProps } from "./";
 
-export default {
-  title: "FieldTypeSort",
+/** Sort-order field used to position an item within a list. */
+const meta: Meta<typeof FieldTypeSort> = {
+  title: "Field Types/FieldTypeSort",
   component: FieldTypeSort,
-  argType: {},
-} as Meta;
-
-const Template: Story<FieldTypeSortProps> = (args) => {
-  const [value, setValue] = useState("3");
-
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-
-  return <FieldTypeSort {...args} value={value} onChange={handleOnChange} />;
+  parameters: { layout: "padded" },
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  placeholder: "Placeholder Text...",
-  label: "Sort label",
-  helperText: "Sort helper text",
-  error: false,
+export default meta;
+type Story = StoryObj<typeof FieldTypeSort>;
+
+const Controlled = (args: FieldTypeSortProps) => {
+  const [value, setValue] = useState("3");
+
+  return (
+    <FieldTypeSort
+      {...args}
+      value={value}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
+    />
+  );
+};
+
+export const Default: Story = {
+  render: (args) => <Controlled {...args} />,
+  args: {
+    placeholder: "Placeholder Text...",
+    label: "Sort label",
+    helperText: "Sort helper text",
+    error: false,
+  },
 };

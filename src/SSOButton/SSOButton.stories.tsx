@@ -1,26 +1,16 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
-import { SSOButtonProps } from ".";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import SSOButton from ".";
 
-export default {
-  title: "SSOButton",
+/** Single sign-on button, branded per identity provider. */
+const meta = {
+  title: "Components/SSOButton",
   component: SSOButton,
-  argType: {},
-} as Meta;
+  parameters: { layout: "centered" },
+} satisfies Meta<typeof SSOButton>;
 
-const Template: Story<SSOButtonProps> = (args) => {
-  return <SSOButton {...args} />;
-};
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Google = Template.bind({});
-export const Microsoft = Template.bind({});
-export const Github = Template.bind({});
-Google.args = {
-  service: "google",
-};
-Microsoft.args = {
-  service: "azure",
-};
-Github.args = {
-  service: "github",
-};
+export const Google: Story = { args: { service: "google" } };
+export const Microsoft: Story = { args: { service: "azure" } };
+export const Github: Story = { args: { service: "github" } };

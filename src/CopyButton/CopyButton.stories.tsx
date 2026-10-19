@@ -1,17 +1,18 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
-import CopyButton, { CopyButtonProps } from ".";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import CopyButton from ".";
 
-export default {
-  title: "CopyButton",
+/** Copies its `value` to the clipboard and confirms with a transient tooltip. */
+const meta = {
+  title: "Components/CopyButton",
   component: CopyButton,
-  argType: {},
-} as Meta;
+  parameters: { layout: "centered" },
+} satisfies Meta<typeof CopyButton>;
 
-const Template: Story<CopyButtonProps> = (args) => {
-  return <CopyButton {...args} />;
-};
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default = Template.bind({});
-Default.args = {
-  value: "Copy Me!",
+export const Default: Story = {
+  args: {
+    value: "Copy Me!",
+  },
 };

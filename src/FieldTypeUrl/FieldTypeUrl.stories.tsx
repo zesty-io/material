@@ -1,26 +1,34 @@
-import { ChangeEvent, useState } from "react";
-import { Story, Meta } from "@storybook/react/types-6-0";
-import FieldTypeUrl, { FieldTypeUrlProps } from "./";
+import { useState, type ChangeEvent } from "react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import FieldTypeUrl, { type FieldTypeUrlProps } from "./";
 
-export default {
-  title: "FieldTypeUrl",
+/** URL input, typically rendered full width inside content forms. */
+const meta: Meta<typeof FieldTypeUrl> = {
+  title: "Field Types/FieldTypeUrl",
   component: FieldTypeUrl,
-  argType: {},
-} as Meta;
-
-const Template: Story<FieldTypeUrlProps> = (args) => {
-  const [value, setValue] = useState("");
-
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-
-  return <FieldTypeUrl {...args} value={value} onChange={handleOnChange} />;
+  parameters: { layout: "padded" },
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  placeholder: "Placeholder Text...",
-  label: "Some label",
-  fullWidth: true,
+export default meta;
+type Story = StoryObj<typeof FieldTypeUrl>;
+
+const Controlled = (args: FieldTypeUrlProps) => {
+  const [value, setValue] = useState("");
+
+  return (
+    <FieldTypeUrl
+      {...args}
+      value={value}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
+    />
+  );
+};
+
+export const Default: Story = {
+  render: (args) => <Controlled {...args} />,
+  args: {
+    placeholder: "Placeholder Text...",
+    label: "Some label",
+    fullWidth: true,
+  },
 };

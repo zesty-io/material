@@ -1,26 +1,34 @@
-import { ChangeEvent, useState } from "react";
-import { Story, Meta } from "@storybook/react/types-6-0";
-import FieldTypeColor, { FieldTypeColorProps } from "./";
+import { useState, type ChangeEvent } from "react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import FieldTypeColor, { type FieldTypeColorProps } from "./";
 
-export default {
-  title: "FieldTypeColor",
+/** Colour picker field — pairs a swatch trigger with a text value. */
+const meta: Meta<typeof FieldTypeColor> = {
+  title: "Field Types/FieldTypeColor",
   component: FieldTypeColor,
-  argType: {},
-} as Meta;
-
-const Template: Story<FieldTypeColorProps> = (args) => {
-  const [value, setValue] = useState("");
-
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-
-  return <FieldTypeColor {...args} value={value} onChange={handleOnChange} />;
+  parameters: { layout: "padded" },
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  placeholder: "Placeholder Text...",
-  label: "Color label",
-  helperText: "Color helper text",
+export default meta;
+type Story = StoryObj<typeof FieldTypeColor>;
+
+const Controlled = (args: FieldTypeColorProps) => {
+  const [value, setValue] = useState("");
+
+  return (
+    <FieldTypeColor
+      {...args}
+      value={value}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
+    />
+  );
+};
+
+export const Default: Story = {
+  render: (args) => <Controlled {...args} />,
+  args: {
+    placeholder: "Placeholder Text...",
+    label: "Color label",
+    helperText: "Color helper text",
+  },
 };
