@@ -48,14 +48,17 @@ const SSOButtonGroup = ({
     } else if (ssoError && onError) {
       onError(ssoError.message);
     }
+    // Keyed on message, not [isAuthenticated, ssoError]: those only flip
+    // false->true once and never reset, so a second SSO login in the same
+    // mount left this effect latched and silently dropped onSuccess/onError.
+    // useSSO sets a fresh message object on every postMessage it receives
+    // (including repeats of the same status), so it re-fires each time.
     // onSuccess/onError intentionally omitted: this effect should fire once
-    // per isAuthenticated/ssoError transition, not on every render where a
-    // caller passes a new (unmemoized) callback reference, which would
-    // re-invoke onSuccess/onError repeatedly for the same auth result.
-    // message is set together with isAuthenticated inside useSSO's message
-    // handler, so it is always current by the time this effect runs.
+    // per incoming message, not on every render where a caller passes a new
+    // (unmemoized) callback reference, which would re-invoke onSuccess/
+    // onError repeatedly for the same auth result.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated, ssoError]);
+  }, [message]);
 
   return (
     <Box display="flex" flexDirection="column" gap={2} sx={sx}>
