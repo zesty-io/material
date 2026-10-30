@@ -19,7 +19,7 @@
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
   "scripts": {
-    "prepare": "husky || true",
+    "prepare": "husky || true; tsc",
     "build": "npm ci && tsc",
     "prerelease": "npm test",
     "release": "npm run build && npm publish --access public",
