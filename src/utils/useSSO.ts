@@ -15,7 +15,8 @@ interface Error {
 
 let tabWindow: Window | null = null;
 export const useSSO = (authServiceUrl: string) => {
-  const [message, setMessage] = useState({});
+  // Empty until the first message arrives.
+  const [message, setMessage] = useState<Message | Record<string, never>>({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   // Depends on authServiceUrl so the listener re-subscribes with a fresh
@@ -25,9 +26,12 @@ export const useSSO = (authServiceUrl: string) => {
     (event: MessageEvent<Message>) => {
       if (event.origin === authServiceUrl && event.data.source === "zesty") {
         setMessage(event.data);
+        // Describe the latest message, not a latch on the first one.
         if (event.data.status === "200") {
           setIsAuthenticated(true);
+          setError(null);
         } else {
+          setIsAuthenticated(false);
           setError({
             message: event.data.error_message,
             status: event.data.status,

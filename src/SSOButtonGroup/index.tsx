@@ -40,23 +40,20 @@ const SSOButtonGroup = ({
   onSuccess,
   onError,
 }: SSOButtonGroupProps) => {
-  const [initiate, isAuthenticated, ssoError, message] = useSSO(authServiceUrl);
+  const [initiate, , , message] = useSSO(authServiceUrl);
 
   useEffect(() => {
-    if (isAuthenticated && onSuccess) {
-      onSuccess(message);
-    } else if (ssoError && onError) {
-      onError(ssoError.message);
+    // Branch on the message itself, not isAuthenticated/ssoError: those
+    // latched after the first result, and where setState from a native
+    // listener is not batched (React 17, or a legacy root in 18) they lag
+    // the message, so the effect read stale values.
+    if (!("status" in message)) return;
+    if (message.status === "200") {
+      onSuccess?.(message);
+    } else {
+      onError?.(message.error_message);
     }
-    // Keyed on message, not [isAuthenticated, ssoError]: those only flip
-    // false->true once and never reset, so a second SSO login in the same
-    // mount left this effect latched and silently dropped onSuccess/onError.
-    // useSSO sets a fresh message object on every postMessage it receives
-    // (including repeats of the same status), so it re-fires each time.
-    // onSuccess/onError intentionally omitted: this effect should fire once
-    // per incoming message, not on every render where a caller passes a new
-    // (unmemoized) callback reference, which would re-invoke onSuccess/
-    // onError repeatedly for the same auth result.
+    // Callbacks omitted: fire once per message, not per new callback ref.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
 
