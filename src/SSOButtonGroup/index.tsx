@@ -1,5 +1,5 @@
 import { Box, SxProps, Theme } from "@mui/material";
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
 import { SSOService, useSSO } from "../utils/useSSO";
 
 /**
@@ -40,22 +40,7 @@ const SSOButtonGroup = ({
   onSuccess,
   onError,
 }: SSOButtonGroupProps) => {
-  const [initiate, , , message] = useSSO(authServiceUrl);
-
-  useEffect(() => {
-    // Branch on the message itself, not isAuthenticated/ssoError: those
-    // latched after the first result, and where setState from a native
-    // listener is not batched (React 17, or a legacy root in 18) they lag
-    // the message, so the effect read stale values.
-    if (!("status" in message)) return;
-    if (message.status === "200") {
-      onSuccess?.(message);
-    } else {
-      onError?.(message.error_message);
-    }
-    // Callbacks omitted: fire once per message, not per new callback ref.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [message]);
+  const initiate = useSSO(authServiceUrl, { onSuccess, onError });
 
   return (
     <Box display="flex" flexDirection="column" gap={2} sx={sx}>
