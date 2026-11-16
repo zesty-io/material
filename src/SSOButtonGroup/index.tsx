@@ -1,5 +1,5 @@
 import { Box, SxProps, Theme } from "@mui/material";
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
 import { SSOService, useSSO } from "../utils/useSSO";
 
 /**
@@ -40,22 +40,7 @@ const SSOButtonGroup = ({
   onSuccess,
   onError,
 }: SSOButtonGroupProps) => {
-  const [initiate, isAuthenticated, ssoError, message] = useSSO(authServiceUrl);
-
-  useEffect(() => {
-    if (isAuthenticated && onSuccess) {
-      onSuccess(message);
-    } else if (ssoError && onError) {
-      onError(ssoError.message);
-    }
-    // onSuccess/onError intentionally omitted: this effect should fire once
-    // per isAuthenticated/ssoError transition, not on every render where a
-    // caller passes a new (unmemoized) callback reference, which would
-    // re-invoke onSuccess/onError repeatedly for the same auth result.
-    // message is set together with isAuthenticated inside useSSO's message
-    // handler, so it is always current by the time this effect runs.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated, ssoError]);
+  const initiate = useSSO(authServiceUrl, { onSuccess, onError });
 
   return (
     <Box display="flex" flexDirection="column" gap={2} sx={sx}>

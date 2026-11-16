@@ -29,7 +29,7 @@ There are **no tests** — `npm test` is a placeholder (`echo 'add tests'`). Do 
 
 `tsc` runs in `strict` mode. Two tsconfigs: `tsconfig.json` is the **build** config (emits `es/`, excludes `*.stories.tsx`), and `tsconfig.storybook.json` is the **check-everything** config used by `npm run typecheck` — it adds the stories and `.storybook/` and uses `Bundler` module resolution, which Storybook 10's subpath `exports` require. Storybook itself does not block on type errors; run `npm run typecheck` before pushing.
 
-**Formatting is enforced via a pre-commit hook.** Prettier runs on Prettier's own defaults (no `.prettierrc` — deliberately, to stay decision-free and consistent with manager-ui, which runs on the same defaults) against `src/**/*.{ts,tsx}` (scope narrowed by `.prettierignore` to just that source tree — the rest of the repo, e.g. `tsconfig.json`/`.storybook/`, is intentionally left untouched for now). `npm install` runs `husky` via the `prepare` script, which wires up `.husky/pre-commit` to run `pretty-quick --staged` — new/modified staged source files are auto-formatted at commit time. This is currently the only enforcement (bypassable with `git commit --no-verify`); CI wiring for `format:check` is tracked separately.
+**Formatting is enforced via a pre-commit hook.** Prettier runs on Prettier's own defaults (no `.prettierrc` — deliberately, to stay decision-free and consistent with manager-ui, which runs on the same defaults) against `src/**/*.{ts,tsx}` (scope narrowed by `.prettierignore` to just that source tree — the rest of the repo, e.g. `tsconfig.json`/`.storybook/`, is intentionally left untouched for now). `npm install` runs the `prepare` script (`husky`, then `tsc`, so git-ref installs get a built `es/`); `husky` wires up `.husky/pre-commit` to run `pretty-quick --staged` — new/modified staged source files are auto-formatted at commit time. This is currently the only enforcement (bypassable with `git commit --no-verify`); CI wiring for `format:check` is tracked separately.
 
 ## Architecture & conventions
 
@@ -81,7 +81,7 @@ The top-level **Icons** section is the Zesty icon set; `MUI/Data Display/Icons` 
 
 - `package.json` `main` points at `./cjs/index.js`, but `tsc` only emits ESM to `es/` (`module`/`types` fields). The CJS build path exists in `package.json` but is not produced by the documented scripts — verify before relying on CJS output.
 - `src/VitualizedAutocomplete/` is misspelled (missing "r") and is exported as `VirtualizedAutocomplete`. The directory name is intentional/historical — don't "fix" it without updating the import in `src/index.ts`.
-- The repo contains committed `.tgz` pack artifacts and a checked-in `es/` build output; these are generated, not source.
+- `es/`, `cjs/` and `zesty-io-material-*.tgz` are gitignored build output, not source.
 - DataGrid Pro and the Pro date pickers render a "MUI X Missing license key" watermark in the `MUI/MUI X` stories. That is the unlicensed-dev-build watermark, not a theme bug.
 - `react`/`react-dom` are **devDependencies with no matching `peerDependencies`**. A consumer installing this package gets no signal about which React it needs. Worth adding a `peerDependencies` block on the next release.
 - React is pinned to 18 rather than 19 because `@mui/x-data-grid-pro` / `@mui/x-date-pickers-pro` v7 do not support React 19 — that needs MUI X v8 first.
